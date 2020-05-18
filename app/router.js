@@ -7,4 +7,14 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('entrepreneurs', { path: '/ondernemers' }, function() {
+    this.route('new');
+    this.route('edit', { path: '/:id' }, function() {
+      this.route('step-1', { path: '/stap-1' });
+      this.route('step-2', { path: '/stap-2' });
+      this.route('step-3', { path: '/stap-3' });
+    });
+  });
+
+  this.route('local-governments', { path: '/lokale-besturen' }, function() {});
 });

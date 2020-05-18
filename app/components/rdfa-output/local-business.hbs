@@ -1,6 +1,32 @@
-extracted: {{this.args.localBusiness.name}}
+Kijk de informatie na:
 
+<div>
+  {{@localBusiness.name}}
+</div>
 
-{{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-  {{openingHour.opens}} ---  {{openingHours.validFrom}}
-{{/each}}
+<div>
+  {{@localBusiness.description}}
+</div>
+
+<div>Adres:</div>
+<div>
+  {{@localBusiness.location.streetAddress}}
+  {{@localBusiness.location.postalCode}} {{@localBusiness.location.city}}
+</div>
+
+<div>Contact:</div>
+<div>
+  {{@localBusiness.telephone}}
+  {{@localBusiness.email}}
+  {{@localBusiness.url}}
+</div>
+
+<div>Openingsuren:</div>
+{{!-- TODO: openingsuren --}}
+
+Gegenereerde code:
+
+<pre>
+  {{this.rdfaSnippet}}
+</pre>
+
