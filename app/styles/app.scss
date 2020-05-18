@@ -26,10 +26,6 @@
 @import "appuniversum/s-utilities";
 
 
-// PROJECT SPECIFIC VARIABLES
-@import "project/s-global";
-
-
 // MIXINS
 @import "appuniversum/t-font-size";
 @import "appuniversum/t-sass-mq";
@@ -38,7 +34,7 @@
 // GENERIC
 @import "appuniversum/g-reset";
 @import "appuniversum/g-box-sizing";
-// @import "appuniversum/g-font"; // (BREAKING CHANGE | CONFLICT IN FONT WEIGHTS)
+@import "appuniversum/g-font";
 
 
 // ELEMENTS
@@ -51,21 +47,11 @@
 @import "appuniversum/o-layout";
 @import "appuniversum/o-region";
 
-
-// WU COMPONENTS (DEPRECATED)
-@import 'ember-vo-webuniversum-data-table';
-@import 'ember-power-select';
-@import 'ember-vo-webuniversum';
-
-// CUSTOM COMPONENTS (DEPRECATED)
-@import 'deprecated/document-status-pills';
-@import 'deprecated/generated-forms';
-@import 'deprecated/user-toggle';
-
 // COMPONENTS
 @import "ember-appuniversum/c-alert";
 @import "ember-appuniversum/c-brand";
 @import "ember-appuniversum/c-button";
+@import "ember-appuniversum/c-heading";
 @import "ember-appuniversum/c-help-text";
 @import "ember-appuniversum/c-input";
 @import "ember-appuniversum/c-label";
@@ -77,22 +63,22 @@
 @import "ember-appuniversum/c-dropdown";
 @import "ember-appuniversum/c-main-header";
 @import "ember-appuniversum/c-main-container";
+@import "ember-appuniversum/c-main-footer";
 @import "ember-appuniversum/c-sidebar";
 @import "ember-appuniversum/c-textarea";
 @import "ember-appuniversum/c-toolbar";
 
-// // UTILITIES
+// UTILITIES
 @import "appuniversum/u-align-text";
+@import "appuniversum/u-headings";
 @import "appuniversum/u-font-weights";
 @import "appuniversum/u-font-family";
-@import "appuniversum/u-headings";
-@import "appuniversum/u-hide";
-@import "appuniversum/u-print";
-@import "appuniversum/u-responsive-spacings";
-@import "appuniversum/u-spacings";
-@import "appuniversum/u-visible";
 @import "appuniversum/u-widths";
-
+@import "appuniversum/u-spacings";
+@import "appuniversum/u-responsive-spacings";
+@import "appuniversum/u-print";
+@import "appuniversum/u-hide";
+@import "appuniversum/u-visible";
 
 // TEMPORARY HACKS AND QUICKFIXES
 @import 'shame';
