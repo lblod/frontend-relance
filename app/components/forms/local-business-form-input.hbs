@@ -1,34 +1,73 @@
 <h2>Vul het formulier in</h2>
 
+<h3>Bedrijf</h3>
+<div>
 Naam:
 <AuInput
-  @value={{this.localBusiness.name}}
+  @value={{@localBusiness.name}}
 />
 Beschrijving:
 <AuInput
-  @value={{this.localBusiness.description}}
+  @value={{@localBusiness.description}}
 />
 Website (rechstreeks)
 <AuInput
-  @value={{this.localBusiness.url}}
+  @value={{@localBusiness.url}}
 />
 Email
 <AuInput
-  @value={{this.localBusiness.email}}
+  @value={{@localBusiness.email}}
 />
 Telefoon
 <AuInput
-  @value={{this.localBusiness.telephone}}
+  @value={{@localBusiness.telephone}}
+/>
+</div>
+
+<h3>Adres</h3>
+<div>
+Straat en nummer
+<AuInput
+  @value={{@localBusiness.location.streetAddress}}
+/>
+Postcode
+<AuInput
+  @value={{@localBusiness.location.postalCode}}
+/>
+Stad
+<AuInput
+  @value={{@localBusiness.location.city}}
+/>
+Land
+<AuInput
+  @value={{@localBusiness.location.country}}
 />
 
+</div>
+
+<h3>Openingsuren</h3>
+<div>
 Openingsuren:  <AuButton {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
 
-{{#each this.localBusiness.openingHoursSpecifications as |openingHour| }}
+{{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
   <div>
     <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
   </div>
 {{/each}}
 
+<br>
 
+<EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+  @locale="nl"
+  @dateFormat="d/m/yy"
+  @onChange={{this.updateValidityFrom}} />
+
+<EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+  @locale="nl"
+  @dateFormat="d/m/yy"
+  @onChange={{this.updateValidityTo}} />
+
+</div>
+<AuButton {{on "click" this.submit}}> Volgende stap</AuButton>
 
 {{yield}}
