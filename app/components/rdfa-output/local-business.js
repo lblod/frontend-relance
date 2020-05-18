@@ -53,7 +53,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const validFrom = openingHour.validFrom ? `<span property="schema:validFrom" content="${openingHour.validFrom}">${openingHour.validFrom}</span>` : '';
       const validThrough = openingHour.validThrough ? `<span property="schema:validThrough" content="${openingHour.validThrough}">${openingHour.validThrough}</span>` : '';
       openingHours += `
-<div property="schema:openingHoursSpecification" resource="${this.openingHour.uri}" typeof="schema:OpeningHoursSpecification">
+<div property="schema:openingHoursSpecification" resource="${openingHour.uri}" typeof="schema:OpeningHoursSpecification">
   ${day}: van ${opens} tot ${closes}
   ${validFrom} - ${validThrough}
 </div>`;
