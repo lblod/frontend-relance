@@ -1,0 +1,25 @@
+<div>
+  {{@localBusiness.name}}
+</div>
+
+<div>
+  {{@localBusiness.description}}
+</div>
+
+<div>Adres:</div>
+<div>
+  {{@localBusiness.location.streetAddress}}
+  {{@localBusiness.location.postalCode}} {{@localBusiness.location.city}}
+</div>
+
+<div>Contact:</div>
+<div>
+  {{@localBusiness.telephone}}
+  {{@localBusiness.email}}
+  {{@localBusiness.url}}
+</div>
+
+<div>Openingsuren:</div>
+{{!-- TODO: openingsuren --}}
+
+{{yield}}
