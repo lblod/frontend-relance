@@ -8,6 +8,6 @@ RUN npm install
 COPY . .
 RUN ember build -prod
 
-FROM semtech/ember-proxy-service:1.4.0
+FROM semtech/ember-proxy-service:1.5.1
 
 ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|@appuniversum)/"
