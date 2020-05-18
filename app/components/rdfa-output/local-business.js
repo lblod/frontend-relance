@@ -18,8 +18,8 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
   *loadData() {
     this.localBusiness = this.args.localBusiness;
     this.location = yield this.localBusiness.location;
-    this.categories = yield this.localBusiness.categories.slice(0);
-    this.openingHours = yield this.localBusiness.openingHoursSpecifications.slice(0);
+    this.categories = (yield this.localBusiness.categories).toArray();
+    this.openingHours = (yield this.localBusiness.openingHoursSpecifications).toArray();
     this.generateRdfaSnippet.perform();
   }
 
@@ -37,11 +37,11 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const postalCode = this.location.postalCode ? `<div property="schema:postalCode">${this.location.postalCode}</div>` : '';
       const city = this.location.city ? `<div property="schema:addressLocality">${this.location.city}</div>` : '';
       location = `
-<div property="schema:location" resource="${this.location.uri}" typeof="schema:PostalAddress">
-  ${street}
-  ${postalCode}
-  ${city}
-</div>`;
+        <div property="schema:location" resource="${this.location.uri}" typeof="schema:PostalAddress">
+          ${street}
+          ${postalCode}
+          ${city}
+        </div>`;
     }
 
     let openingHours = '';
@@ -52,7 +52,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const closes = openingHour.closes ? `<span property="schema:closes" content="${openingHour.closes}">${openingHour.closes}</span>` : '';
       const validFrom = openingHour.validFrom ? `<span property="schema:validFrom" content="${openingHour.validFrom}">${openingHour.validFrom}</span>` : '';
       const validThrough = openingHour.validThrough ? `<span property="schema:validThrough" content="${openingHour.validThrough}">${openingHour.validThrough}</span>` : '';
-      opneningHours += `
+      openingHours += `
 <div property="schema:openingHoursSpecification" resource="${this.openingHour.uri}" typeof="schema:OpeningHoursSpecification">
   ${day}: van ${opens} tot ${closes}
   ${validFrom} - ${validThrough}
