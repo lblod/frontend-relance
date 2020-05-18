@@ -1,0 +1,28 @@
+<label class="say-label" for="geldig-vanaf">Geldig van:</label>
+<input class="say-input" type="date" name="">
+
+<label class="say-label" for="geldig-tot">Geldig tot:</label>
+<input class="say-input" type="date" name="">
+
+dag
+  <PowerSelect
+          @triggerId={{this.inputId}}
+          @searchField={{"label"}}
+          @searchEnabled={{true}}
+          @selected={{this.selected}}
+          @options={{this.options}}
+          @onClose={{fn (mut this.hasBeenFocused true)}}
+          @onChange={{this.updateSelection}}
+          @allowClear={{true}}
+          @loadingMessage="Aan het laden..."
+          @noMatchesMessage="Geen resultaten gevonden"
+          as |concept|>
+    {{concept.label}}
+  </PowerSelect>
+
+  van
+
+
+  tot
+  
+{{yield}}

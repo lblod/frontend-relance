@@ -2,22 +2,33 @@
 
 Naam:
 <AuInput
-  @value={{this.args.localBusiness.name}}
+  @value={{this.localBusiness.name}}
 />
 Beschrijving:
 <AuInput
-  @value={{this.args.localBusiness.description}}
+  @value={{this.localBusiness.description}}
 />
 Website (rechstreeks)
 <AuInput
-  @value={{this.args.localBusiness.url}}
+  @value={{this.localBusiness.url}}
 />
 Email
 <AuInput
-  @value={{this.args.localBusiness.email}}
+  @value={{this.localBusiness.email}}
 />
 Telefoon
 <AuInput
-  @value={{this.args.localBusiness.telephone}}
+  @value={{this.localBusiness.telephone}}
 />
+
+Openingsuren:  <AuButton {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
+
+{{#each this.localBusiness.openingHoursSpecifications as |openingHour| }}
+  <div>
+    <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
+  </div>
+{{/each}}
+
+
+
 {{yield}}

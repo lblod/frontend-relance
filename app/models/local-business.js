@@ -7,6 +7,7 @@ export default class LocalBusinessModel extends Model {
   @attr email;
   @attr telephone;
 
+  @hasMany('opening-hours-specification') openingHoursSpecifications;
   @belongsTo('location') location;
   @hasMany('category') categories;
 }
