@@ -1,1 +1,6 @@
 extracted: {{this.args.localBusiness.name}}
+
+
+{{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
+  {{openingHour.opens}} ---  {{openingHours.validFrom}}
+{{/each}}

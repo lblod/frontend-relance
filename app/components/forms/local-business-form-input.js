@@ -6,6 +6,8 @@ import { inject as service } from '@ember/service';
 export default class FormsLocalBusinessFormInputComponent extends Component {
   @service store;
   @tracked localBusiness = this.args.localBusiness;
+  @tracked openingHoursValidFrom = new Date();
+  @tracked openingHoursValidTo = new Date();
 
   @action
   addOpeningHoursSpecification(){
@@ -15,6 +17,30 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
       closes: '00:00'
     } );
     this.localBusiness.openingHoursSpecifications.pushObject(hours);
+  }
+
+  applyValidityPeriod(){
+    this.localBusiness.openingHoursSpecifications.forEach(hourSpec => {
+      hourSpec.validFrom = this.openingHoursValidFrom.toISOString().split("T")[0];
+      hourSpec.validThrough = this.openingHoursValidTo.toISOString().split("T")[0];
+    });
+  }
+
+  @action
+  updateValidityFrom(dates){
+    if(!dates.length) return;
+    this.openingHoursValidFrom = dates[0];
+  }
+
+  @action
+  updateValidityTo(dates){
+    if(!dates.length) return;
+    this.openingHoursValidTo = dates[0];
+  }
+
+  @action
+  submit(){
+    this.applyValidityPeriod();
   }
 
 }

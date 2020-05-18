@@ -1,8 +1,8 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class OpeningHoursSpecificationModel extends Model {
-  @attr('date') validFrom;
-  @attr('date') validThrough;
+  @attr validFrom;
+  @attr validThrough;
   @attr  opens;
   @attr  closes;
   
