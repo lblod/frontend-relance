@@ -41,6 +41,7 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @action
   submit(){
     this.applyValidityPeriod();
+    this.args.onSubmit(this.localBusiness);
   }
 
 }
