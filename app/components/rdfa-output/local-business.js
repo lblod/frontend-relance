@@ -53,24 +53,24 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const validFrom = openingHour.validFrom ? `<span property="schema:validFrom" content="${openingHour.validFrom}">${openingHour.validFrom}</span>` : '';
       const validThrough = openingHour.validThrough ? `<span property="schema:validThrough" content="${openingHour.validThrough}">${openingHour.validThrough}</span>` : '';
       openingHours += `
-<div property="schema:openingHoursSpecification" resource="${openingHour.uri}" typeof="schema:OpeningHoursSpecification">
-  ${day}: van ${opens} tot ${closes}
-  ${validFrom} - ${validThrough}
-</div>`;
+        <div property="schema:openingHoursSpecification" resource="${openingHour.uri}" typeof="schema:OpeningHoursSpecification">
+          ${day}: van ${opens} tot ${closes}
+          ${validFrom} - ${validThrough}
+        </div>`;
     }
 
     const categories = this.categories.map(c => c.uri).join(' ');
 
     this.rdfaSnippet = `
-<div resource="${this.args.localBusiness.uri}" typeof="schema:LocalBusiness ${categories}" prefix="schema: http://schema.org/">
-  ${name}
-  ${description}
-  ${website}
-  ${email}
-  ${phone}
-  ${location}
-  ${openingHours}
-</div>
+        <div resource="${this.args.localBusiness.uri}" typeof="schema:LocalBusiness ${categories}" prefix="schema: http://schema.org/">
+          ${name}
+          ${description}
+          ${website}
+          ${email}
+          ${phone}
+          ${location}
+          ${openingHours}
+        </div>
     `;
   }
 }
