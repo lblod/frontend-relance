@@ -1,14 +1,1 @@
-<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="App title" @contactRoute="docs.patterns.au-main-header">
-  <AuDropdown @dropdownTitle="Demo dropdown" @dropdownButtonLabel="Account settings" @alignment="right">
-    <AuButton @skin="tertiary" role="menuitem">
-      <AuIcon @icon="logout" @alignment="left" />Afmelden
-    </AuButton>
-  </AuDropdown>
-</AuMainHeader>
-
-<h1>Help zoekmachines!</h1>
-
-<Forms::LocalBusinessFormInput  @localBusiness={{@model}} />
-<br>
-<RdfaOutput::LocalBusiness @localBusiness={{@model}} />
 {{outlet}}
