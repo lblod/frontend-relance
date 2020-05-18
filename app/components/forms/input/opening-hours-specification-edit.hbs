@@ -1,28 +1,34 @@
-<label class="say-label" for="geldig-vanaf">Geldig van:</label>
-<input class="say-input" type="date" name="">
-
-<label class="say-label" for="geldig-tot">Geldig tot:</label>
-<input class="say-input" type="date" name="">
-
 dag
   <PowerSelect
-          @triggerId={{this.inputId}}
-          @searchField={{"label"}}
+          @searchField={{"name"}}
           @searchEnabled={{true}}
-          @selected={{this.selected}}
-          @options={{this.options}}
-          @onClose={{fn (mut this.hasBeenFocused true)}}
-          @onChange={{this.updateSelection}}
+          @selected={{this.openingHourSpec.dayOfWeek}}
+          @options={{this.daysOfWeek}}
+          @onChange={{this.updateDay}}
           @allowClear={{true}}
           @loadingMessage="Aan het laden..."
           @noMatchesMessage="Geen resultaten gevonden"
-          as |concept|>
-    {{concept.label}}
+          as |day|>
+    {{day.name}}
   </PowerSelect>
 
-  van
+  open vanaf
+          <AuInput
+            @value={{this.openingHourSpec.opens}}
+          />
+          {{#if this.errorOpenHour}}
+          error formaat
+          {{/if}}
+
+   open tot
+          <AuInput
+            @value={{this.openingHourSpec.closes}}
+          />
+          {{#if this.errorCloseHour}}
+          error formaat
+          {{/if}}
 
 
-  tot
-  
+
+
 {{yield}}

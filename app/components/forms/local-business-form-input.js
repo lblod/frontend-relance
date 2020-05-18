@@ -9,7 +9,11 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
 
   @action
   addOpeningHoursSpecification(){
-    const hours = this.store.createRecord('opening-hours-specification', { localBusiness: this.localBusiness } );
+    const hours = this.store.createRecord('opening-hours-specification', {
+      localBusiness: this.localBusiness,
+      opens: '00:00',
+      closes: '00:00'
+    } );
     this.localBusiness.openingHoursSpecifications.pushObject(hours);
   }
 
