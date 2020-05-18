@@ -4,3 +4,14 @@
    Some parts will be reused, but most of them will not.
    ========================================================================== */
 
+$au-button-height-large                       : $au-unit-large !default;
+
+a.au-c-button:visited {
+  background-color: $au-blue-600;
+}
+
+.au-c-button--large {
+  font-size: $au-h4;
+  padding: $au-unit-small $au-unit-small .1rem+$au-unit-small;
+  height: $au-button-height-large;
+}
