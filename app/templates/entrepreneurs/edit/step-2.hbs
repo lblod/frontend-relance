@@ -1,10 +1,6 @@
 <div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
   <a href="/" class="au-c-link">
-    <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <g class="arrow-left">
-        <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
-      </g>
-    </svg> Terug naar overzicht
+    <AuIcon @icon="arrow-left" @alignment="left" @ariaHidden="false" /> Terug naar overzicht
   </a>
   <AuHeading @skin="1" class="au-u-margin-bottom">
     Voor ondernemers 
@@ -17,18 +13,18 @@
 <hr>
 
 <div class="au-o-layout au-o-layout--large au-u-margin-top-large">
-  <div class="au-o-grid au-o-grid--large">
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
+  <div class="au-o-grid">
+    <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium au-u-border-right">
       <div class="au-o-grid">
         <div class="au-o-grid__item au-u-1-6">
           <AuBadge @icon="check" @skin="border" />
         </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+        <div class="au-o-grid__item au-u-4-6">
+          <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
             Stap 1:
             <br>
             Vul de gegevens van uw onderneming in
-          </AuHeading>
+          </p>
         </div>
       </div>
 
@@ -36,12 +32,12 @@
         <div class="au-o-grid__item au-u-1-6">
           <AuBadge @icon="check" @skin="action" />
         </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+        <div class="au-o-grid__item au-u-4-6">
+          <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
             Stap 2:
             <br>
             Plak de gegenereerde code in jouw site en publiceer je site
-          </AuHeading>
+          </p>
         </div>
       </div>
 
@@ -49,28 +45,48 @@
         <div class="au-o-grid__item au-u-1-6">
           <AuBadge @icon="arrow-right" @skin="border" />
         </div>
-        <div class="au-o-grid__item au-u-5-6">
+        <div class="au-o-grid__item au-u-4-6">
 
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+          <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
             Stap 3 [LATER]:
             <br>
             Test en zie het resultaat
-          </AuHeading>
+          </p>
         </div>
       </div>
 
     </div>
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
-      Kijk de informatie na:
+    <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+      <AuAlert @alertIcon="info-circle" @alertTitle="Voor u de code in uw website plakt, kijk uw gegevens even na:"  @alertskin={{"info"}} @alertsize={{"small"}} />
 
-      <LocalBusinessDetails @localBusiness={{@model}} />
+      <article class="au-u-margin-bottom-large">
+        <div class="au-u-margin-bottom-small">
+          <LocalBusinessDetails @localBusiness={{@model}} />
+        </div>
+        <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--secondary au-c-button--small">
+          <AuIcon @icon="pencil" @alignment="left" @size="large" @ariaHidden="false" />
+          Editeer gegevens
+        </LinkTo>
+      </article>
 
-      Kopieer deze code:
+      <AuHeading @level="3" @skin="2" class="au-u-margin-bottom">
+        Gegevens in orde?
+        <br>
+        Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
+      </AuHeading>
 
-      <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+      <div class="au-u-margin-bottom">
+        <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+      </div>
 
-      <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}}>Vorige stap</LinkTo>
-      <LinkTo @route="entrepreneurs.validate">Volgende stap</LinkTo>
+      <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--secondary">
+        <AuIcon @icon="nav-left" @alignment="left" @size="large" @ariaHidden="false" />
+        Vorige stap
+      </LinkTo>
+      <LinkTo @route="entrepreneurs.validate" class="au-c-button">
+        <AuIcon @icon="nav-right" @alignment="left" @size="large" @ariaHidden="false" />
+        Volgende stap
+      </LinkTo>
     </div>
   </div>
 </div>
