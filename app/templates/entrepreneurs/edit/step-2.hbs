@@ -1,10 +1,76 @@
-Kijk de informatie na:
+<div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
+  <a href="/" class="au-c-link">
+    <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <g class="arrow-left">
+        <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
+      </g>
+    </svg> Terug naar overzicht
+  </a>
+  <AuHeading @skin="1" class="au-u-margin-bottom">
+    Voor ondernemers 
+    <br>
+    Laat de wereld stap-voor-stap weten
+    <br>
+    dat je weer <i>Open for Business</i> bent
+  </AuHeading>
+</div>
+<hr>
 
-<LocalBusinessDetails @localBusiness={{@model}} />
+<div class="au-o-layout au-o-layout--large au-u-margin-top-large">
+  <div class="au-o-grid au-o-grid--large">
+    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="check" @skin="border" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 1:
+            <br>
+            Vul de gegevens van uw onderneming in
+          </AuHeading>
+        </div>
+      </div>
 
-Kopieer deze code:
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="check" @skin="action" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 2:
+            <br>
+            Plak de gegenereerde code in jouw site en publiceer je site
+          </AuHeading>
+        </div>
+      </div>
 
-<RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="arrow-right" @skin="border" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
 
-<LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}}>Vorige stap</LinkTo>
-<LinkTo @route="entrepreneurs.validate">Volgende stap</LinkTo>
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 3 [LATER]:
+            <br>
+            Test en zie het resultaat
+          </AuHeading>
+        </div>
+      </div>
+
+    </div>
+    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
+      Kijk de informatie na:
+
+      <LocalBusinessDetails @localBusiness={{@model}} />
+
+      Kopieer deze code:
+
+      <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+
+      <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}}>Vorige stap</LinkTo>
+      <LinkTo @route="entrepreneurs.validate">Volgende stap</LinkTo>
+    </div>
+  </div>
+</div>
