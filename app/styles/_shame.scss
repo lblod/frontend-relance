@@ -25,7 +25,6 @@ a.au-c-button:visited {
   border-bottom: .1rem solid $au-gray-300;
 }
 
-
 i {
   font-style: italic;
 }
@@ -39,4 +38,27 @@ i {
 
 .au-c-form__row {
   margin-bottom: $au-unit - $au-unit-tiny;
+}
+
+
+
+
+.au-c-hero__image {
+  position: relative;
+}
+
+.au-c-hero__image svg {
+  position: absolute;
+}
+
+  .au-c-hero__image:first-child svg {
+    left: -$au-unit-huge;
+  }
+  .au-c-hero__image:last-child svg {
+    right: $au-unit-small;
+  }
+
+.au-c-hero__usp {
+  margin: $au-unit-huge 0;
+  z-index: 1;
 }
