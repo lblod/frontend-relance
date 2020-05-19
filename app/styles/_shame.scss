@@ -5,15 +5,24 @@
    ========================================================================== */
 
 $au-button-height-large                       : $au-unit-large !default;
+$au-button-font-size-large                    : $au-h4;
+$au-button-height-small                       : $au-unit+$au-unit-tiny !default;
+$au-button-font-size-small                    : 1.8rem !default;
 
 a.au-c-button:visited {
   background-color: $au-blue-600;
 }
 
 .au-c-button--large {
-  font-size: $au-h4;
+  @include au-font-size($au-button-font-size-large);
   padding: $au-unit-small $au-unit-small .1rem+$au-unit-small;
   height: $au-button-height-large;
+}
+
+.au-c-button--small {
+  @include au-font-size($au-button-font-size-small);
+  padding: $au-unit-tiny $au-unit-tiny .1rem+$au-unit-tiny;
+  height: $au-button-height-small;
 }
 
 
@@ -33,6 +42,15 @@ i {
   font-style: italic;
 }
 
+
+.au-o-box--gray-200 {
+  background-color: $au-gray-200;
+}
+
+.au-o-box--border {
+  border: .1rem solid $au-gray-300;
+  box-shadow: 0 2px 2px $au-gray-100;
+}
 
 
 
@@ -248,3 +266,17 @@ i {
   .ember-power-select-trigger[aria-disabled="true"] .ember-power-select-placeholder {
     color: $au-gray-600;
   }
+
+
+
+
+
+/* Code Styles */
+pre {
+  background-color: $au-gray-100;
+  overflow: auto;
+}
+
+code {
+  font-family: Courier, 'New Courier', monospace;
+}
