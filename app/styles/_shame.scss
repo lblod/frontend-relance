@@ -4,27 +4,9 @@
    Some parts will be reused, but most of them will not.
    ========================================================================== */
 
-$au-button-height-large                       : $au-unit-large !default;
-$au-button-font-size-large                    : $au-h4;
-$au-button-height-small                       : $au-unit+$au-unit-tiny !default;
-$au-button-font-size-small                    : 1.8rem !default;
-
 a.au-c-button:visited {
   background-color: $au-blue-600;
 }
-
-.au-c-button--large {
-  @include au-font-size($au-button-font-size-large);
-  padding: $au-unit-small $au-unit-small .1rem+$au-unit-small;
-  height: $au-button-height-large;
-}
-
-.au-c-button--small {
-  @include au-font-size($au-button-font-size-small);
-  padding: $au-unit-tiny $au-unit-tiny .1rem+$au-unit-tiny;
-  height: $au-button-height-small;
-}
-
 
 
 
@@ -32,6 +14,10 @@ a.au-c-button:visited {
 
 .au-u-border-bottom {
   border-bottom: .1rem solid $au-gray-300;
+}
+
+.au-u-border-top {
+  border-top: .1rem solid $au-gray-300;
 }
 
 .au-u-border-right {
@@ -60,6 +46,10 @@ i {
 
 .au-c-form__row {
   margin-bottom: $au-unit - $au-unit-tiny;
+}
+
+.au-c-input--pre {
+  background-color: $au-gray-200;
 }
 
 .au-c-input--pre {
@@ -188,7 +178,7 @@ i {
 .ember-power-select-multiple-trigger,
 .ember-power-select-trigger {
   line-height: 2.2rem !important;
-  padding: $au-unit-tiny/2 0 $au-unit-tiny/2 $au-unit-tiny !important;
+  padding: $au-unit-small/2 0 $au-unit-tiny/2 $au-unit-tiny !important;
   position: relative;
 }
 
@@ -209,7 +199,7 @@ i {
 
   .ember-power-select-option[aria-selected="true"],
   .ember-power-select-option[aria-current="true"] {
-    background-color: $au-gray-300 !important;
+    background-color: $au-gray-200 !important;
     color: $au-blue-600 !important;
     text-decoration: underline;
   }
