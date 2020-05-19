@@ -27,6 +27,12 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     this.localBusiness.openingHoursSpecifications.pushObject(hours);
   }
 
+  @action
+  async removeOpeningHoursSpecification(hour){
+    await hour.destroyRecord();
+    this.localBusiness.openingHoursSpecifications.removeObject(hour);
+  }
+
   applyValidityPeriod(){
     this.localBusiness.openingHoursSpecifications.forEach(hourSpec => {
       hourSpec.validFrom = this.openingHoursValidFrom;

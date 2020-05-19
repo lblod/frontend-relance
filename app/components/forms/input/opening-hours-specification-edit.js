@@ -38,4 +38,9 @@ export default class FormsInputOpeningHoursSpecificationEditComponent extends Co
   updateDay(day){
     this.openingHourSpec.dayOfWeek = day;
   }
+
+  @action
+  removeEntry(){
+    this.args.onRemove(this.openingHourSpec);
+  }
 }
