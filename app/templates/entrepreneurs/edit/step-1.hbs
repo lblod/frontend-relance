@@ -1,3 +1,1 @@
-<Forms::LocalBusinessFormInput  @localBusiness={{@model}} />
-
-<LinkTo @route="entrepreneurs.edit.step-2" @model={{@model}}>Volgende stap</LinkTo>
+<Forms::LocalBusinessFormInput  @localBusiness={{@model}} @onSubmit={{this.nextStep}} />

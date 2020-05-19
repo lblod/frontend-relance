@@ -1,8 +1,11 @@
 import Route from '@ember/routing/route';
 
 export default class EntrepreneursNewRoute extends Route {
-  model() {
-    const business = this.store.createRecord('local-business');
+  async model() {
+    const location = this.store.createRecord('location');
+    const business = this.store.createRecord('local-business', { location });
+    location.localBusiness = business;
+    await location.save();
     return business.save();
   }
 

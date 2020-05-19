@@ -1,0 +1,12 @@
+<PowerSelectMultiple
+  @search={{perform this.loadOptions}}
+  @searchEnabled={{true}}
+  @selected={{this.selections}}
+  @options={{this.options}}
+  @onChange={{this.update}}
+  @allowClear={{true}}
+  @loadingMessage="Aan het laden..."
+  @noMatchesMessage="Geen resultaten gevonden"
+  as |category|>
+  {{category.label}}
+</PowerSelectMultiple>

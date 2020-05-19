@@ -2,11 +2,13 @@ import Component from '@glimmer/component';
 import { task } from 'ember-concurrency-decorators';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { get } from '@ember/object';
 
 export default class OpeningHoursDetailsComponent extends Component {
   @service store
 
   @tracked daysOfWeek = []
+  @tracked openingHours = []
 
   constructor() {
     super(...arguments);
@@ -19,15 +21,16 @@ export default class OpeningHoursDetailsComponent extends Component {
       sort: 'position',
       page: { size: 10 }
     });
+    this.openingHours = (yield this.args.openingHours).toArray();
   }
 
   get hasOpeningHours() {
-    return this.args.openingHours && this.args.openingHours.length;
+    return this.openingHours && this.openingHours.length;
   }
 
   get validFrom() {
     if (this.hasOpeningHours) {
-      return this.args.openingHours[0].validFrom;
+      return this.openingHours[0].validFrom;
     } else {
       return null;
     }
@@ -35,7 +38,7 @@ export default class OpeningHoursDetailsComponent extends Component {
 
   get validThrough() {
     if (this.hasOpeningHours) {
-      return this.args.openingHours[0].validThrough;
+      return this.openingHours[0].validThrough;
     } else {
       return null;
     }
@@ -44,7 +47,7 @@ export default class OpeningHoursDetailsComponent extends Component {
   get groupedOpeningHours() {
     if (this.hasOpeningHours) {
       return this.daysOfWeek.map((day) => {
-        const hours = this.args.openingHours.filter(h => h.day.uri == day.uri);
+        const hours = this.openingHours.filter(h => get(h, 'dayOfWeek.uri') == day.uri);
         return {
           day: day,
           hours: hours

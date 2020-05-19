@@ -25,7 +25,6 @@
 </div>
 
 <div class="au-c-form__row">
-  <AuLabel>Open tot</AuLabel>
   <AuInput
     @value={{this.openingHourSpec.closes}}
   />
@@ -34,4 +33,5 @@
   {{/if}}
 </div>
 
+<AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
 {{yield}}

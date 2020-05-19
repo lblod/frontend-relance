@@ -9,6 +9,14 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @tracked openingHoursValidFrom = new Date();
   @tracked openingHoursValidTo = new Date();
 
+  get errorUrl(){
+    return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
+  }
+
+  get errorEmail(){
+    return this.localBusiness.email && !this.localBusiness.email.match(/\S+@\S+\.\S+/);
+  }
+
   @action
   addOpeningHoursSpecification(){
     const hours = this.store.createRecord('opening-hours-specification', {
@@ -19,11 +27,24 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     this.localBusiness.openingHoursSpecifications.pushObject(hours);
   }
 
+  @action
+  async removeOpeningHoursSpecification(hour){
+    await hour.destroyRecord();
+    this.localBusiness.openingHoursSpecifications.removeObject(hour);
+  }
+
   applyValidityPeriod(){
     this.localBusiness.openingHoursSpecifications.forEach(hourSpec => {
       hourSpec.validFrom = this.openingHoursValidFrom.toISOString().split("T")[0];
       hourSpec.validThrough = this.openingHoursValidTo.toISOString().split("T")[0];
     });
+  }
+
+  @action
+  async addCategories(selections){
+    this.localBusiness.categories.setObjects([]);
+    await this.localBusiness.save();
+    this.localBusiness.categories.setObjects(selections);
   }
 
   @action
@@ -41,6 +62,7 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @action
   submit(){
     this.applyValidityPeriod();
+    this.args.onSubmit(this.localBusiness);
   }
 
 }

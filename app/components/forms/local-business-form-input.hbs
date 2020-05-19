@@ -38,7 +38,6 @@
   </AuHeading>
 </div>
 
-
 <div class="au-o-layout au-o-layout--large au-u-border-bottom au-u-padding-bottom-large au-u-margin-bottom-large">
   <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
   <div class="au-c-form">
@@ -48,6 +47,11 @@
         @value={{@localBusiness.name}}
       />
     </div>
+    <div class="au-c-form__row">
+      <AuLabel>Categorie</AuLabel>
+      <Forms::Input::BusinessCategorySelector  @selections={{@localBusiness.categories}} @onUpdate={{this.addCategories}}/>
+    </div>
+
     <div class="au-c-form__row">
       <AuLabel>Beschrijving</AuLabel>
       <AuInput
@@ -91,6 +95,9 @@
       <AuInput
         @value={{@localBusiness.url}}
       />
+      {{#if this.errorUrl}}
+        error url
+      {{/if}}
     </div>
     <div class="au-c-form__row">
       <AuLabel>Telefoon</AuLabel>
@@ -103,6 +110,9 @@
       <AuInput
         @value={{@localBusiness.email}}
       />
+      {{#if this.errorEmail}}
+        error email
+      {{/if}}
     </div>
   </div>
 
@@ -111,11 +121,14 @@
     <div class="au-c-form__row">
       <AuLabel>Openingsuren</AuLabel>
       <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
+    </div>
 
+    <div>
       {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-        <div>
-          <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
-        </div>
+        <Forms::Input::OpeningHoursSpecificationEdit
+          @openingHoursSpecification={{openingHour}}
+          @onRemove={{this.removeOpeningHoursSpecification}}
+        />
       {{/each}}
     </div>
     <div class="au-c-form__row">
