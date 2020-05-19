@@ -15,22 +15,18 @@
 </div>
 
 <div class="au-c-form__row">
-  <AuLabel>Open vanaf</AuLabel>
-  <AuInput
+  <Forms::Input::Time
+    @label="Van"
     @value={{this.openingHourSpec.opens}}
+    @onChange={{fn (mut this.openingHourSpec.opens)}}
   />
-  {{#if this.errorOpenHour}}
-  error formaat
-  {{/if}}
 </div>
-
 <div class="au-c-form__row">
-  <AuInput
+  <Forms::Input::Time
+    @label="Tot"
     @value={{this.openingHourSpec.closes}}
+    @onChange={{fn (mut this.openingHourSpec.closes)}}
   />
-  {{#if this.errorCloseHour}}
-  error formaat
-  {{/if}}
 </div>
 
 <AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
