@@ -155,6 +155,9 @@
             {{/if}}
           </div>
           <div class="au-c-form__row">
+            <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
+          </div>
+          <div class="au-c-form__row">
             <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
             <!-- <AuInput
                  disabled
@@ -178,50 +181,50 @@
               error email
             {{/if}}
           </div>
-        </div>
 
-        <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
-        <div class="au-c-form">
-          <div class="au-c-form__row">
-            {{#if @localBusiness.openingHoursSpecifications}}
-              {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-                <Forms::Input::OpeningHoursSpecificationEdit
-                  @openingHoursSpecification={{openingHour}}
-                  @onRemove={{this.removeOpeningHoursSpecification}}
-                />
-              {{/each}}
-              <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-                <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                  <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-                </svg>
-                Voeg extra blok met openingsuren toe
-              </AuButton>
+          <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
+          <div class="au-c-form">
+            <div class="au-c-form__row">
+              {{#if @localBusiness.openingHoursSpecifications}}
+                {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
+                  <Forms::Input::OpeningHoursSpecificationEdit
+                    @openingHoursSpecification={{openingHour}}
+                    @onRemove={{this.removeOpeningHoursSpecification}}
+                  />
+                {{/each}}
+                <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+                  <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                    <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+                  </svg>
+                  Voeg extra blok met openingsuren toe
+                </AuButton>
           {{else}}
-              <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-                <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                  <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-                </svg>
-                Voeg blok met openingsuren toe
-              </AuButton>
-            {{/if}}
+                <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+                  <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                    <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+                  </svg>
+                  Voeg blok met openingsuren toe
+                </AuButton>
+              {{/if}}
+            </div>
+
+            <div class="au-c-form__row">
+              <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
+
+              <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+                @locale="nl"
+                @dateFormat="d/m/yy"
+                @onChange={{this.updateValidityFrom}} />
+
+              <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+                @locale="nl"
+                @dateFormat="d/m/yy"
+                @onChange={{this.updateValidityTo}} />
+            </div>
           </div>
 
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
-
-            <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
-              @locale="nl"
-              @dateFormat="d/m/yy"
-              @onChange={{this.updateValidityFrom}} />
-
-            <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
-              @locale="nl"
-              @dateFormat="d/m/yy"
-              @onChange={{this.updateValidityTo}} />
-          </div>
+          <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
         </div>
-
-        <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
       </div>
     </div>
   </div>

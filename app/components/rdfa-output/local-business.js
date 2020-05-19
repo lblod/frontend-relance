@@ -30,7 +30,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     const description = this.localBusiness.description ? `<div property="schema:description">${this.localBusiness.description}</div>` : '';
     const website = this.localBusiness.url ? `<a property="schema:url" href="${this.localBusiness.url}">${this.localBusiness.url}</a>` : '';
     const email = this.localBusiness.email ? `<a property="schema:email" href="mailto:${this.localBusiness.email}">${this.localBusiness.email}</a>` : '';
-    const phone = this.localBusiness.telephone ? `<a property="schema:telephone" href="tel:${this.localBusiness.telephone}">${this.localBusiness.telephone}</a>` : '';
+    const phone = this.localBusiness.telephone ? `<a property="schema:telephone">${this.localBusiness.telephone}</a>` : '';
 
     let location = '';
     if (this.location) {
@@ -38,7 +38,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const postalCode = this.location.postalCode ? `<div property="schema:postalCode">${this.location.postalCode}</div>` : '';
       const city = this.location.city ? `<div property="schema:addressLocality">${this.location.city}</div>` : '';
       location = `
-        <div property="schema:location" resource="${this.location.uri}" typeof="schema:PostalAddress">
+        <div property="schema:address" resource="${this.location.uri}" typeof="schema:PostalAddress">
           ${street}
           ${postalCode}
           ${city}
@@ -72,9 +72,13 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     }
 
     const nacebelUris = this.naceBelCodes.map(c => c.uri).join(' ');
+
+
+    const image = `<span property="schema:image" resource="${this.localBusiness.imageUrl}">
+                        <img src="${this.localBusiness.imageUrl}"/>
+                   </span>`;
     this.rdfaSnippet = `
-        <div style="display:none;"
-             resource="${this.args.localBusiness.uri}"
+        <div resource="${this.args.localBusiness.uri}"
              typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
             prefix="schema: http://schema.org/ nacebel: http://data.gift/vocabularies/nace-bel/ skos: http://www.w3.org/2004/02/skos/core#">
           ${naceBelCodes}
@@ -85,6 +89,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
           ${phone}
           ${location}
           ${openingHours}
+          ${image}
         </div>
     `;
   }

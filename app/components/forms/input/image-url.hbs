@@ -1,0 +1,32 @@
+<AuLabel for="{{this.inputFor}}-website">Afbeelding voor zoekmachine</AuLabel>
+<AuInput
+  @value={{this._value}}
+  size="40"
+  id="{{this.inputFor}}-website"
+  {{on "blur" this.updateUrl}}
+/>
+<br>
+{{#if this.canShowImage}}
+  {{#if this.showImage}}
+    <AuButton @skin="tertiary" {{on "click" this.toggleImage}}>
+      <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+        <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+      </svg>
+      Verberg afbeelding.
+    </AuButton>
+    <img src="{{this._value}}">
+  {{else}}
+    <AuButton @skin="tertiary" {{on "click" this.toggleImage}}>
+      <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+        <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+      </svg>
+      Laat afbeelding zien.
+    </AuButton>
+  {{/if}}
+{{else}}
+  Indien de link naar de afbeelding correct ingevuld werd, zal deze hieronder verschijnen.
+{{/if}}
+<br>
+{{#if this.errorUrl}}
+  error url
+{{/if}}
