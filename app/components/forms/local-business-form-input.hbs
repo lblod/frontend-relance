@@ -74,7 +74,7 @@
           />
         </div>
         <div class="au-o-grid au-o-grid--flush">
-          <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium">
+          <div class="au-o-grid__item au-u-1-1 au-u-1-4@medium">
             <div class="au-c-form__row">
               <AuLabel>Postcode</AuLabel>
               <AuInput
@@ -83,7 +83,7 @@
               />
             </div>
           </div>
-          <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium">
+          <div class="au-o-grid__item au-u-1-1 au-u-3-4@medium">
             <div class="au-c-form__row">
               <AuLabel>Gemeente</AuLabel>
               <AuInput
@@ -106,25 +106,32 @@
         <div class="au-c-form__row">
           <AuLabel>Website</AuLabel>
           <AuInput
+            @value={{@localBusiness.telephone}}
+            disabled
+            class="au-c-input--pre"
+            size="6"
+            value="https://"
+          />
+          <AuInput
             @value={{@localBusiness.url}}
             @width="block"
           />
           {{#if this.errorUrl}}
             error url
           {{/if}}
-          <AuHelpText>Start altijd met http://</AuHelpText>
         </div>
         <div class="au-c-form__row">
           <AuLabel>Telefoon</AuLabel>
           <AuInput
             @value={{@localBusiness.telephone}}
             disabled
+            class="au-c-input--pre"
             size="3"
+            value="+32"
           />
           <AuInput
             @value={{@localBusiness.telephone}}
           />
-          <AuHelpText>Start altijd met http://</AuHelpText>
         </div>
         <div class="au-c-form__row">
           <AuLabel>E-mail</AuLabel>

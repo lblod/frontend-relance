@@ -40,6 +40,17 @@ i {
   margin-bottom: $au-unit - $au-unit-tiny;
 }
 
+.au-c-input--pre {
+  background-color: $au-gray-200;
+  pointer-events: none;
+  float: left;
+}
+
+.au-c-input--pre + .au-c-input {
+  margin-left: -.1rem;
+}
+
+
 
 
 
