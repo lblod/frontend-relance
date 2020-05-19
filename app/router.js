@@ -12,8 +12,8 @@ Router.map(function() {
     this.route('edit', { path: '/:id' }, function() {
       this.route('step-1', { path: '/stap-1' });
       this.route('step-2', { path: '/stap-2' });
-      this.route('step-3', { path: '/stap-3' });
     });
+    this.route('validate');
   });
 
   this.route('local-governments', { path: '/lokale-besturen' }, function() {});
