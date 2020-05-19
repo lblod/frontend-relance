@@ -1,21 +1,20 @@
-<div class="au-c-form__row">
-  <AuLabel>Dag</AuLabel>
-  <PowerSelect
-          @searchField={{"name"}}
-          @searchEnabled={{true}}
-          @selected={{this.openingHourSpec.dayOfWeek}}
-          @options={{this.daysOfWeek}}
-          @onChange={{this.updateDay}}
-          @allowClear={{true}}
-          @loadingMessage="Aan het laden..."
-          @noMatchesMessage="Geen resultaten gevonden"
-          as |day|>
-    {{day.name}}
-  </PowerSelect>
-</div>
-
-<div class="au-o-grid au-o-grid--flush">
-  <div class="au-o-grid__item au-u-1-2">
+<div class="au-o-grid">
+  <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+    <AuLabel>Dag</AuLabel>
+    <PowerSelect
+      @searchField={{"name"}}
+      @searchEnabled={{true}}
+      @selected={{this.openingHourSpec.dayOfWeek}}
+      @options={{this.daysOfWeek}}
+      @onChange={{this.updateDay}}
+      @allowClear={{true}}
+      @loadingMessage="Aan het laden..."
+      @noMatchesMessage="Geen resultaten gevonden"
+      as |day|>
+      {{day.name}}
+    </PowerSelect>
+  </div>
+  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
     <div class="au-c-form__row">
       <Forms::Input::Time
         @label="Van"
@@ -24,7 +23,7 @@
       />
     </div>
   </div>
-  <div class="au-o-grid__item au-u-1-2">
+  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
     <div class="au-c-form__row">
       <Forms::Input::Time
         @label="Tot"
@@ -33,7 +32,12 @@
       />
     </div>
   </div>
+  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
+    <AuButton @skin="tertiary" {{on "click" this.removeEntry}} @alert="true">
+      <AuIcon @icon="bin" @alignment="left" /> Verwijder
+    </AuButton>
+  </div>
 </div>
 
-<AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
+<hr>
 {{yield}}
