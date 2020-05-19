@@ -1,1 +1,12 @@
-{{yield}}
+<PowerSelect
+  @search={{perform this.loadOptions}}
+  @searchEnabled={{true}}
+  @selected={{this.selected}}
+  @options={{this.options}}
+  @onChange={{this.update}}
+  @allowClear={{true}}
+  @loadingMessage="Aan het laden..."
+  @noMatchesMessage="Geen resultaten gevonden"
+  as |category|>
+  {{category.label}}
+</PowerSelect>

@@ -27,6 +27,11 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   }
 
   @action
+  addCategory(category){
+    this.localBusiness.categories.setObjects([category]);
+  }
+
+  @action
   updateValidityFrom(dates){
     if(!dates.length) return;
     this.openingHoursValidFrom = dates[0];

@@ -23,6 +23,10 @@ Telefoon
   @value={{@localBusiness.telephone}}
 />
 </div>
+<h3>categorie</h3>
+<div>
+  <Forms::Input::BusinessCategorySelector  @selected={{@localBusiness.categories.firstObject}} @onUpdate={{this.addCategory}}/>
+</div>
 
 <h3>Adres</h3>
 <div>
