@@ -19,16 +19,11 @@ export default class EntrepreneursValidateController extends Controller {
     this.localBusinesses = [];
 
     try {
-      const endpoint = `/harvest/business?url=${encodeURIComponent(this.url)}`;
+      const endpoint = `/extract/business?url=${encodeURIComponent(this.url)}`;
       const options = {
         headers: { 'Accept': 'application/vnd.api+json' }
       };
       this.localBusinesses = yield (yield fetch(endpoint, options)).json();
-
-      this.localBusinesses = [
-        { name: 'Test 1' },
-        { name: 'Test 2' }
-      ];
     } catch (e) {
       warn(`Failed to harvest URL ${this.url}: ${e.message}`, { id: 'harvest-error' });
     }
