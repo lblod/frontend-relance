@@ -53,6 +53,11 @@
     </div>
 
     <div class="au-c-form__row">
+      <AuLabel>Subcategorie</AuLabel>
+      <Forms::Input::NaceBelCodesSelector  @selections={{@localBusiness.naceBelCodes}} @onUpdate={{this.addNacebelCodes}}/>
+    </div>
+
+    <div class="au-c-form__row">
       <AuLabel>Beschrijving</AuLabel>
       <AuTextarea
         @value={{@localBusiness.description}}

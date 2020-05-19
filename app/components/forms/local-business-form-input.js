@@ -48,6 +48,13 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   }
 
   @action
+  async addNacebelCodes(selections){
+    this.localBusiness.naceBelCodes.setObjects([]);
+    await this.localBusiness.save();
+    this.localBusiness.naceBelCodes.setObjects(selections);
+  }
+
+  @action
   updateValidityFrom(dates){
     if(!dates.length) return;
     this.openingHoursValidFrom = dates[0];
