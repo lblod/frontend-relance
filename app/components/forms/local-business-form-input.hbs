@@ -1,10 +1,6 @@
 <div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
   <a href="/" class="au-c-link">
-    <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <g class="arrow-left">
-        <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
-      </g>
-    </svg> Terug naar overzicht
+    <AuIcon @icon="arrow-left" @alignment="left" @size="large" @ariaHidden="false" /> Terug naar overzicht
   </a>
   <AuHeading @skin="1" class="au-u-margin-bottom">
     Voor ondernemers 
@@ -18,7 +14,7 @@
 
 <div class="au-o-layout au-o-layout--large au-u-margin-top-large">
   <div class="au-o-grid au-o-grid--large">
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
+    <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium au-u-border-right">
       <div class="au-o-grid">
         <div class="au-o-grid__item au-u-1-6">
           <AuBadge @icon="check" @skin="action" />
@@ -59,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
+    <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
       <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
@@ -79,7 +75,7 @@
         />
         </div>
         <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-categorie">Subcategorie</AuLabel>
+          <AuLabel for="{{this.inputFor}}-categorie">Gedetailleerde categorieën (Nacebelcodes)</AuLabel>
           <Forms::Input::NaceBelCodesSelector
             @selections={{@localBusiness.naceBelCodes}}
             @onUpdate={{this.addNacebelCodes}}
@@ -186,8 +182,42 @@
         </div>
       </div>
 
-      <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
+      <AuHeading @level="4" @skin="4" class="au-u-margin-bottom">Openingsuren</AuHeading>
+
+      <AuHeading @level="5" @skin="5" class="au-u-margin-bottom-small">Geef de verschillende dagen en diens openingsuren in</AuHeading>
       <div class="au-c-form">
+        <div class="au-c-form__row">
+          <div class="au-o-grid">
+            <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+              <label class="au-c-label ">Dag</label>
+              <div class="ember-view ember-basic-dropdown-trigger  ember-power-select-trigger " role="button">
+                <span class="ember-power-select-selected-item">Maandagfakedagikwerkniet</span>
+                <span class="ember-power-select-clear-btn">×</span>
+                <span class="ember-power-select-status-icon"></span>
+              </div>
+            </div>
+            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
+              <div class="au-c-form__row">
+                <label class="au-c-label ">Van</label>
+                <input id="ember223" class="ember-text-field ember-view au-c-input" type="text" value="10:00">
+              </div>
+            </div>
+            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
+              <div class="au-c-form__row">
+                <label class="au-c-label ">Tot</label>
+                <input id="ember224" class="ember-text-field ember-view au-c-input" type="text" value="18:00">
+              </div>
+            </div>
+            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium au-u-text-right">
+              <button class="au-c-button au-c-button--tertiary au-c-button--alert au-u-margin-top">
+                <AuIcon @icon="bin" @alignment="left" /> Verwijder rij
+              </button>
+            </div>
+          </div>
+
+          <hr>
+        </div>
+
         <div class="au-c-form__row">
           {{#if @localBusiness.openingHoursSpecifications}}
             {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
@@ -197,33 +227,39 @@
               />
             {{/each}}
             <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-              </svg>
-              Voeg extra blok met openingsuren toe
+              <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
+              Voeg extra dag(deel) met openingsuren toe
             </AuButton>
           {{else}}
             <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-              </svg>
-              Voeg blok met openingsuren toe
+              <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
+              Voeg dag(deel) met openingsuren toe
             </AuButton>
           {{/if}}
         </div>
 
         <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
+          <AuHeading @level="5" @skin="5" class="au-u-margin-bottom-small">Geef de verschillende dagen en diens openingsuren in</AuHeading>
 
-          <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
-            @locale="nl"
-            @dateFormat="d/m/yy"
-            @onChange={{this.updateValidityFrom}} />
+          <div class="au-o-grid">
+            <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+              <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig van</AuLabel>
+              <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+                @locale="nl"
+                @dateFormat="d/m/yy"
+                @onChange={{this.updateValidityFrom}}
+                class="au-c-input au-c-input--date"  />
+            </div>
+            <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
 
-          <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
-            @locale="nl"
-            @dateFormat="d/m/yy"
-            @onChange={{this.updateValidityTo}} />
+              <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig tot</AuLabel>
+              <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+                @locale="nl"
+                @dateFormat="d/m/yy"
+                @onChange={{this.updateValidityTo}}
+                class="au-c-input au-c-input--date" />
+            </div>
+          </div>
         </div>
       </div>
 
