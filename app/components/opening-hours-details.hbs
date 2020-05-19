@@ -1,0 +1,18 @@
+{{#if this.hasOpeningHours}}
+  <div>
+    Geldig van {{this.validFrom}} tot {{this.validThrough}}
+  </div>
+
+  {{#each this.groupedOpeningsHours as |group|}}
+    <div>
+      {{group.day.name}}
+      {{#each group.hours as |openingHour|}}
+        {{openingHour.opens}} - {{openingHour.closes}}
+      {{/each}}
+    </div>
+  {{/each}}
+{{else}}
+  Geen openingsuren gevonden
+{{/if}}
+
+{{yield}}
