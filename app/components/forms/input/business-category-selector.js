@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
-import { task } from 'ember-concurrency-decorators';
+import { keepLatestTask } from 'ember-concurrency-decorators';
+import { timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
@@ -15,11 +16,14 @@ export default class FormsInputBusinessCategorySelectorComponent extends Compone
     this.loadOptions.perform();
   }
 
-  @task
-  *loadOptions(searchData){
-    let query = {};
-    if(searchData){
-      query = {'filter[label]': searchData};
+  @keepLatestTask
+  *loadOptions(searchData) {
+    const query = {
+      page: { size: 200 }
+    };
+    if (searchData) {
+      yield timeout(500);
+      query['filter[label]'] = searchData;
     }
     const categories = yield this.store.query('category', query);
     this.options = categories.sortBy('label');
