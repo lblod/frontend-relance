@@ -1,19 +1,21 @@
-<div>
-  Live? Check!
+<CrossAnimateTags>
+  <div>
+    Live? Check!
 
-  Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
-</div>
+    Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
+  </div>
 
-<div>
-  <AuLabel for="url-input">Link naar de pagina</AuLabel>
-  <AuInput id="url-input" @value={{this.url}} />
-  <AuButton
-    @loading={{this.harvestUrl.isRunning}}
-    @disabled={{this.isDisabled}}
-    {{on "click" (perform this.harvestUrl)}}>
-    Test
-  </AuButton>
-</div>
+  <div>
+    <AuLabel for="url-input">Link naar de pagina</AuLabel>
+    <AuInput id="url-input" @value={{this.url}} />
+    <AuButton
+      @loading={{this.harvestUrl.isRunning}}
+      @disabled={{this.isDisabled}}
+      {{on "click" (perform this.harvestUrl)}}>
+      Test
+    </AuButton>
+  </div>
+</CrossAnimateTags>
 
 {{#unless this.harvestUrl.isRunning}}
   {{#if this.localBusinesses}}
