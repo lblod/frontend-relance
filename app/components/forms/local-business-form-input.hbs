@@ -15,33 +15,52 @@
   </AuHeading>
 </div>
 <hr>
-<div class="au-o-layout au-u-border-bottom au-u-margin-top-large au-u-padding-bottom-large au-u-margin-bottom-large">
-  <AuHeading @level="2" @skin="4" class="au-u-margin-bottom au-u-light">
-    Stap voor stap jouw informatie op het internet
-  </AuHeading>
 
-  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
-    Stap 1:
-    <br>
-    Vul de gegevens van uw onderneming in
-  </AuHeading>
+<div class="au-o-layout au-o-layout--large au-u-margin-top-large">
+  <div class="au-o-grid au-o-grid--large">
+    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="check" @skin="action" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 1:
+            <br>
+            Vul de gegevens van uw onderneming in
+          </AuHeading>
+        </div>
+      </div>
 
-  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
-    Stap 2:
-    <br>
-    Plak de gegenereerde code in jouw site en publiceer je site
-  </AuHeading>
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="arrow-right" @skin="border" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 2:
+            <br>
+            Plak de gegenereerde code in jouw site en publiceer je site
+          </AuHeading>
+        </div>
+      </div>
 
-  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
-    Stap 3 [LATER]:
-    <br>
-    Test en zie het resultaat
-  </AuHeading>
-</div>
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-6">
+          <AuBadge @icon="arrow-right" @skin="border" />
+        </div>
+        <div class="au-o-grid__item au-u-5-6">
 
-<div class="au-o-layout au-u-border-bottom au-u-padding-bottom-large au-u-margin-bottom-large">
-  <div class="au-o-grid">
-    <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium">
+          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+            Stap 3 [LATER]:
+            <br>
+            Test en zie het resultaat
+          </AuHeading>
+        </div>
+      </div>
+
+    </div>
+    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
       <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
@@ -162,18 +181,29 @@
       <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-onderneming">Openingsuren</AuLabel>
-          <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
+          {{#if @localBusiness.openingHoursSpecifications}}
+            {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
+              <Forms::Input::OpeningHoursSpecificationEdit
+                @openingHoursSpecification={{openingHour}}
+                @onRemove={{this.removeOpeningHoursSpecification}}
+              />
+            {{/each}}
+            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+              </svg>
+              Voeg extra blok met openingsuren toe
+            </AuButton>
+          {{else}}
+            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+              </svg>
+              Voeg blok met openingsuren toe
+            </AuButton>
+          {{/if}}
         </div>
 
-        <div>
-          {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-            <Forms::Input::OpeningHoursSpecificationEdit
-              @openingHoursSpecification={{openingHour}}
-              @onRemove={{this.removeOpeningHoursSpecification}}
-            />
-          {{/each}}
-        </div>
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
 
@@ -186,11 +216,10 @@
             @locale="nl"
             @dateFormat="d/m/yy"
             @onChange={{this.updateValidityTo}} />
-
         </div>
       </div>
 
-      <AuButton {{on "click" this.submit}}> Volgende stap</AuButton>
+      <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
     </div>
   </div>
 </div>
