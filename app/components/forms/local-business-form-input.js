@@ -21,16 +21,16 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   addOpeningHoursSpecification(){
     const hours = this.store.createRecord('opening-hours-specification', {
       localBusiness: this.localBusiness,
-      opens: '00:00',
-      closes: '00:00'
+      opens: '10:00',
+      closes: '18:00'
     } );
     this.localBusiness.openingHoursSpecifications.pushObject(hours);
   }
 
   applyValidityPeriod(){
     this.localBusiness.openingHoursSpecifications.forEach(hourSpec => {
-      hourSpec.validFrom = this.openingHoursValidFrom.toISOString().split("T")[0];
-      hourSpec.validThrough = this.openingHoursValidTo.toISOString().split("T")[0];
+      hourSpec.validFrom = this.openingHoursValidFrom;
+      hourSpec.validThrough = this.openingHoursValidTo;
     });
   }
 
