@@ -22,7 +22,7 @@ export default class OpeningHoursDetailsComponent extends Component {
       page: { size: 10 }
     });
     const openingHours = yield this.args.openingHours;
-    this.openingHours = openingHours ? openinsgHours.toArray() : [];
+    this.openingHours = openingHours ? openingHours.toArray() : [];
   }
 
   get hasOpeningHours() {
