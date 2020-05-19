@@ -20,7 +20,8 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@appuniversum/ember-appuniversum": "github:appuniversum/ember-appuniversum",
+    "@appuniversum/ember-appuniversum": "0.0.18",
+    "@appuniversum/appuniversum": "^0.0.7",
     "@ember/optional-features": "^1.3.0",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
@@ -39,6 +40,7 @@
     "ember-cli-deploy-ssh-index": "^1.0.0",
     "ember-cli-htmlbars": "^4.2.3",
     "ember-cli-inject-live-reload": "^2.0.2",
+    "ember-cli-sass": "^7.1.7",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^3.0.0",
     "ember-concurrency": "^1.1.7",

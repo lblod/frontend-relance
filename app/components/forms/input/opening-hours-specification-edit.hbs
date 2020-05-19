@@ -1,4 +1,5 @@
-dag
+<div class="au-c-form__row">
+  <AuLabel>Dag</AuLabel>
   <PowerSelect
           @searchField={{"name"}}
           @searchEnabled={{true}}
@@ -11,21 +12,26 @@ dag
           as |day|>
     {{day.name}}
   </PowerSelect>
+</div>
 
-  open vanaf
-          <AuInput
-            @value={{this.openingHourSpec.opens}}
-          />
-          {{#if this.errorOpenHour}}
-          error formaat
-          {{/if}}
+<div class="au-c-form__row">
+  <AuLabel>Open vanaf</AuLabel>
+  <AuInput
+    @value={{this.openingHourSpec.opens}}
+  />
+  {{#if this.errorOpenHour}}
+  error formaat
+  {{/if}}
+</div>
 
-   open tot
-          <AuInput
-            @value={{this.openingHourSpec.closes}}
-          />
-          {{#if this.errorCloseHour}}
-          error formaat
-          {{/if}}
-          <AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
+<div class="au-c-form__row">
+  <AuInput
+    @value={{this.openingHourSpec.closes}}
+  />
+  {{#if this.errorCloseHour}}
+  error formaat
+  {{/if}}
+</div>
+
+<AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
 {{yield}}

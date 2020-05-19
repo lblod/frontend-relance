@@ -1,0 +1,42 @@
+/* ==========================================================================
+   #SHAME
+   Dirty temporary css for demo purposes.
+   Some parts will be reused, but most of them will not.
+   ========================================================================== */
+
+$au-button-height-large                       : $au-unit-large !default;
+
+a.au-c-button:visited {
+  background-color: $au-blue-600;
+}
+
+.au-c-button--large {
+  font-size: $au-h4;
+  padding: $au-unit-small $au-unit-small .1rem+$au-unit-small;
+  height: $au-button-height-large;
+}
+
+
+
+
+
+
+.au-u-border-bottom {
+  border-bottom: .1rem solid $au-gray-300;
+}
+
+
+i {
+  font-style: italic;
+}
+
+
+
+
+.au-c-form {
+  margin-bottom: $au-unit;
+}
+
+.au-c-form__row {
+  margin-bottom: $au-unit - $au-unit-tiny;
+}
