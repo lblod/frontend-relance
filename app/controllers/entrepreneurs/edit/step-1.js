@@ -11,6 +11,7 @@ export default class EntrepreneursEditStep1Controller extends Controller {
       await category.save();
     }
     await (await localBusiness.location).save();
+    await localBusiness.save();
   }
 
   @action
