@@ -64,7 +64,10 @@ Openingsuren:  <AuButton {{on "click" this.addOpeningHoursSpecification}}> Voeg 
 
 {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
   <div>
-    <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
+    <Forms::Input::OpeningHoursSpecificationEdit
+      @openingHoursSpecification={{openingHour}}
+      @onRemove={{this.removeOpeningHoursSpecification}}
+    />
   </div>
 {{/each}}
 
