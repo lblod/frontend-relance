@@ -47,11 +47,13 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     let openingHours = '';
     for (let openingHour of this.openingHours) {
       const dayOfWeek = yield openingHour.dayOfWeek;
-      const day = dayOfWeek ? `<span property="schema:dayOfWeek" href="">${dayOfWeek.name}</span>` : '';
-      const opens = openingHour.opens ? `<span property="schema:opens" content="${openingHour.opens}">${openingHour.opens}</span>` : '';
-      const closes = openingHour.closes ? `<span property="schema:closes" content="${openingHour.closes}">${openingHour.closes}</span>` : '';
-      const validFrom = openingHour.validFrom ? `<span property="schema:validFrom" content="${openingHour.validFrom}">${openingHour.validFrom}</span>` : '';
-      const validThrough = openingHour.validThrough ? `<span property="schema:validThrough" content="${openingHour.validThrough}">${openingHour.validThrough}</span>` : '';
+      const day = dayOfWeek ? `<span property="schema:dayOfWeek" href="${dayOfWeek.uri}">${dayOfWeek.name}</span>` : '';
+      const opens = openingHour.opens ? `<span property="schema:opens" content="${openingHour.opens}" datatype="xsd:time">${openingHour.opens}</span>` : '';
+      const closes = openingHour.closes ? `<span property="schema:closes" content="${openingHour.closes}" datatype="xsd:time">${openingHour.closes}</span>` : '';
+      const validFromStr = openingHour.validFrom ? openingHour.validFrom.toISOString().substr(0, 10) : null;
+      const validFrom = validFromStr ? `<span property="schema:validFrom" content="${validFromStr}" datatype="xsd:date">${validFromStr}</span>` : '';
+      const validThroughStr = openingHour.validThrough ? openingHour.validThrough.toISOString().substr(0, 10) : null;
+      const validThrough = validThroughStr ? `<span property="schema:validThrough" content="${validThroughStr}" datatype="xsd:date">${validThroughStr}</span>` : '';
       openingHours += `
         <div property="schema:openingHoursSpecification" resource="${openingHour.uri}" typeof="schema:OpeningHoursSpecification">
           ${day}: van ${opens} tot ${closes}
