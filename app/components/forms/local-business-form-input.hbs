@@ -58,7 +58,6 @@
           </AuHeading>
         </div>
       </div>
-
     </div>
     <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
       <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
@@ -79,6 +78,15 @@
           id="{{this.inputFor}}-categorie"
         />
         </div>
+        <div class="au-c-form__row">
+          <AuLabel for="{{this.inputFor}}-categorie">Subcategorie</AuLabel>
+          <Forms::Input::NaceBelCodesSelector
+            @selections={{@localBusiness.naceBelCodes}}
+            @onUpdate={{this.addNacebelCodes}}
+            id="{{this.inputFor}}-categorie"
+          />
+        </div>
+
 
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
