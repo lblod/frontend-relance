@@ -1,6 +1,11 @@
 <AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Relance Lokale Ondernemingen">
 </AuMainHeader>
 
+<AnimatedTools />
+{{!-- <AnimatedTools @hideUntilKeys="Ctrl-Shift-KeyA"  />  --}}
+
+{{animated-orphans}}
+
 <div class="au-o-region-large">
   {{outlet}}
 </div>

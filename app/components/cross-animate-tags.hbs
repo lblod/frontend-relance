@@ -1,0 +1,5 @@
+<AnimatedContainer>
+  <AnimatedIf @predicate={{this.predicate}} @use={{this.transition}} @initialInsertion={{true}} @finalRemoval={{true}} @duration={{500}}>
+    {{yield}}
+  </AnimatedIf>
+</AnimatedContainer>

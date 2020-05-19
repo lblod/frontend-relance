@@ -1,227 +1,229 @@
-<div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
-  {{#link-to "index" class="au-c-link"}}
-    <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <g class="arrow-left">
-        <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
-      </g>
-    </svg> Terug naar overzicht
-  {{/link-to}}
-  <AuHeading @skin="1" class="au-u-margin-bottom">
-    Voor ondernemers 
-    <br>
-    Laat de wereld stap-voor-stap weten
-    <br>
-    dat je weer <i>Open for Business</i> bent
-  </AuHeading>
-</div>
-<hr>
+<CrossAnimateTags>
+  <div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
+    {{#link-to "index" class="au-c-link"}}
+      <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <g class="arrow-left">
+          <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
+        </g>
+      </svg> Terug naar overzicht
+    {{/link-to}}
+    <AuHeading @skin="1" class="au-u-margin-bottom">
+      Voor ondernemers 
+      <br>
+      Laat de wereld stap-voor-stap weten
+      <br>
+      dat je weer <i>Open for Business</i> bent
+    </AuHeading>
+  </div>
+  <hr>
 
-<div class="au-o-layout au-o-layout--large au-u-margin-top-large">
-  <div class="au-o-grid au-o-grid--large">
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="check" @skin="action" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 1:
-            <br>
-            Vul de gegevens van uw onderneming in
-          </AuHeading>
-        </div>
-      </div>
-
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="arrow-right" @skin="border" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 2:
-            <br>
-            Plak de gegenereerde code in jouw site en publiceer je site
-          </AuHeading>
-        </div>
-      </div>
-
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="arrow-right" @skin="border" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
-
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 3 [LATER]:
-            <br>
-            Test en zie het resultaat
-          </AuHeading>
-        </div>
-      </div>
-    </div>
-    <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
-      <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
-      <div class="au-c-form">
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
-          <AuInput
-            @value={{@localBusiness.name}}
-            size="40"
-            id="{{this.inputFor}}-onderneming"
-          />
-        </div>
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-categorie">Categorieën</AuLabel>
-          <Forms::Input::BusinessCategorySelector
-          @selections={{@localBusiness.categories}}
-          @onUpdate={{this.addCategories}}
-          id="{{this.inputFor}}-categorie"
-        />
-        </div>
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-categorie">Detail categorie</AuLabel>
-          <Forms::Input::NaceBelCodesSelector
-            @selections={{@localBusiness.naceBelCodes}}
-            @onUpdate={{this.addNacebelCodes}}
-            id="{{this.inputFor}}-categorie"
-          />
-        </div>
-
-
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
-          <AuTextarea
-            @value={{@localBusiness.description}}
-            @width="block"
-            rows="5"
-            id="{{this.inputFor}}-beschrijving"
-          />
-        </div>
-      </div>
-
-      <AuHeading @level="4" @skin="4">Adres</AuHeading>
-      <div class="au-c-form">
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
-          <AuInput
-            @value={{@localBusiness.location.streetAddress}}
-            id="{{this.inputFor}}-straat-nummer-bus"
-          />
-        </div>
-        <div class="au-o-grid au-o-grid--flush">
-          <div class="au-o-grid__item au-u-1-4">
-            <div class="au-c-form__row">
-              <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
-              <AuInput
-                @value={{@localBusiness.location.postalCode}}
-                size="6"
-                id="{{this.inputFor}}-postcode"
-              />
-            </div>
+  <div class="au-o-layout au-o-layout--large au-u-margin-top-large">
+    <div class="au-o-grid au-o-grid--large">
+      <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium au-u-border-right">
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="check" @skin="action" />
           </div>
-          <div class="au-o-grid__item au-u-3-4">
-            <div class="au-c-form__row">
-              <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
-              <AuInput
-                @value={{@localBusiness.location.city}}
-                size="40"
-                id="{{this.inputFor}}-gemeente"
-              />
-            </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+              Stap 1:
+              <br>
+              Vul de gegevens van uw onderneming in
+            </AuHeading>
           </div>
         </div>
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-land">Land</AuLabel>
-          <AuInput
-            @value={{@localBusiness.location.country}}
-            id="{{this.inputFor}}-land"
-            disabled
-          />
+
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="arrow-right" @skin="border" />
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+              Stap 2:
+              <br>
+              Plak de gegenereerde code in jouw site en publiceer je site
+            </AuHeading>
+          </div>
+        </div>
+
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="arrow-right" @skin="border" />
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+
+            <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+              Stap 3 [LATER]:
+              <br>
+              Test en zie het resultaat
+            </AuHeading>
+          </div>
         </div>
       </div>
+      <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
+        <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
+        <div class="au-c-form">
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
+            <AuInput
+              @value={{@localBusiness.name}}
+              size="40"
+              id="{{this.inputFor}}-onderneming"
+            />
+          </div>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-categorie">Categorieën</AuLabel>
+            <Forms::Input::BusinessCategorySelector
+              @selections={{@localBusiness.categories}}
+              @onUpdate={{this.addCategories}}
+              id="{{this.inputFor}}-categorie"
+            />
+          </div>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-categorie">Detail categorie</AuLabel>
+            <Forms::Input::NaceBelCodesSelector
+              @selections={{@localBusiness.naceBelCodes}}
+              @onUpdate={{this.addNacebelCodes}}
+              id="{{this.inputFor}}-categorie"
+            />
+          </div>
 
-      <AuHeading @level="4" @skin="4">Contactgegevens</AuHeading>
-      <div class="au-c-form">
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
-          <AuInput
-            @value={{@localBusiness.url}}
-            size="40"
-            id="{{this.inputFor}}-website"
-          />
-          {{#if this.errorUrl}}
-            error url
-          {{/if}}
-        </div>
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
-          <!-- <AuInput
-            disabled
-            class="au-c-input--pre"
-            size="3"
-            value="+32"
-            id="{{this.inputFor}}-telefoon"
-          /> -->
-          <AuInput
-            @value={{@localBusiness.telephone}}
-          />
-        </div>
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-e-mail">E-mail</AuLabel>
-          <AuInput
-            @value={{@localBusiness.email}}
-            size="40"
-            id="{{this.inputFor}}-e-mail"
-          />
-          {{#if this.errorEmail}}
-            error email
-          {{/if}}
-        </div>
-      </div>
 
-      <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
-      <div class="au-c-form">
-        <div class="au-c-form__row">
-          {{#if @localBusiness.openingHoursSpecifications}}
-            {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-              <Forms::Input::OpeningHoursSpecificationEdit
-                @openingHoursSpecification={{openingHour}}
-                @onRemove={{this.removeOpeningHoursSpecification}}
-              />
-            {{/each}}
-            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-              </svg>
-              Voeg extra blok met openingsuren toe
-            </AuButton>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
+            <AuTextarea
+              @value={{@localBusiness.description}}
+              @width="block"
+              rows="5"
+              id="{{this.inputFor}}-beschrijving"
+            />
+          </div>
+        </div>
+
+        <AuHeading @level="4" @skin="4">Adres</AuHeading>
+        <div class="au-c-form">
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
+            <AuInput
+              @value={{@localBusiness.location.streetAddress}}
+              id="{{this.inputFor}}-straat-nummer-bus"
+            />
+          </div>
+          <div class="au-o-grid au-o-grid--flush">
+            <div class="au-o-grid__item au-u-1-4">
+              <div class="au-c-form__row">
+                <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
+                <AuInput
+                  @value={{@localBusiness.location.postalCode}}
+                  size="6"
+                  id="{{this.inputFor}}-postcode"
+                />
+              </div>
+            </div>
+            <div class="au-o-grid__item au-u-3-4">
+              <div class="au-c-form__row">
+                <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
+                <AuInput
+                  @value={{@localBusiness.location.city}}
+                  size="40"
+                  id="{{this.inputFor}}-gemeente"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-land">Land</AuLabel>
+            <AuInput
+              @value={{@localBusiness.location.country}}
+              id="{{this.inputFor}}-land"
+              disabled
+            />
+          </div>
+        </div>
+
+        <AuHeading @level="4" @skin="4">Contactgegevens</AuHeading>
+        <div class="au-c-form">
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
+            <AuInput
+              @value={{@localBusiness.url}}
+              size="40"
+              id="{{this.inputFor}}-website"
+            />
+            {{#if this.errorUrl}}
+              error url
+            {{/if}}
+          </div>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
+            <!-- <AuInput
+                 disabled
+                 class="au-c-input--pre"
+                 size="3"
+                 value="+32"
+                 id="{{this.inputFor}}-telefoon"
+                 /> -->
+            <AuInput
+              @value={{@localBusiness.telephone}}
+            />
+          </div>
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-e-mail">E-mail</AuLabel>
+            <AuInput
+              @value={{@localBusiness.email}}
+              size="40"
+              id="{{this.inputFor}}-e-mail"
+            />
+            {{#if this.errorEmail}}
+              error email
+            {{/if}}
+          </div>
+        </div>
+
+        <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
+        <div class="au-c-form">
+          <div class="au-c-form__row">
+            {{#if @localBusiness.openingHoursSpecifications}}
+              {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
+                <Forms::Input::OpeningHoursSpecificationEdit
+                  @openingHoursSpecification={{openingHour}}
+                  @onRemove={{this.removeOpeningHoursSpecification}}
+                />
+              {{/each}}
+              <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+                <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                  <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+                </svg>
+                Voeg extra blok met openingsuren toe
+              </AuButton>
           {{else}}
-            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-                <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-              </svg>
-              Voeg blok met openingsuren toe
-            </AuButton>
-          {{/if}}
+              <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
+                <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
+                  <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
+                </svg>
+                Voeg blok met openingsuren toe
+              </AuButton>
+            {{/if}}
+          </div>
+
+          <div class="au-c-form__row">
+            <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
+
+            <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+              @locale="nl"
+              @dateFormat="d/m/yy"
+              @onChange={{this.updateValidityFrom}} />
+
+            <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+              @locale="nl"
+              @dateFormat="d/m/yy"
+              @onChange={{this.updateValidityTo}} />
+          </div>
         </div>
 
-        <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
-
-          <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
-            @locale="nl"
-            @dateFormat="d/m/yy"
-            @onChange={{this.updateValidityFrom}} />
-
-          <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
-            @locale="nl"
-            @dateFormat="d/m/yy"
-            @onChange={{this.updateValidityTo}} />
-        </div>
+        <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
       </div>
-
-      <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
     </div>
   </div>
-</div>
+</CrossAnimateTags>
 {{yield}}
