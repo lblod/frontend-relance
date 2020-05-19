@@ -9,6 +9,7 @@ export default class LocalBusinessModel extends Model {
   @attr telephone;
 
   @hasMany('opening-hours-specification') openingHoursSpecifications;
+  @hasMany('nace-bel-code') naceBelCodes;
   @belongsTo('location') location;
   @hasMany('category') categories;
 }

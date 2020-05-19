@@ -19,6 +19,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     this.localBusiness = this.args.localBusiness;
     this.location = yield this.localBusiness.location;
     this.categories = (yield this.localBusiness.categories).toArray();
+    this.naceBelCodes = (yield this.localBusiness.naceBelCodes).toArray();
     this.openingHours = (yield this.localBusiness.openingHoursSpecifications).toArray();
     this.generateRdfaSnippet.perform();
   }
@@ -60,11 +61,23 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
           ${validFrom} - ${validThrough}
         </div>`;
     }
-
     const categories = this.categories.map(c => c.uri).join(' ');
 
+    let naceBelCodes = '';
+    for(const code of this.naceBelCodes){
+      const codeString = `<span resource=${code.uri} typeof="nacebel:NaceBelCode skos:Concept">
+                            <span property="skos:prefLabel">${code.label}</span>
+                          </span>`;
+      naceBelCodes += codeString;
+    }
+
+    const nacebelUris = this.naceBelCodes.map(c => c.uri).join(' ');
     this.rdfaSnippet = `
-        <div resource="${this.args.localBusiness.uri}" typeof="schema:LocalBusiness ${categories}" prefix="schema: http://schema.org/">
+        <div class="display:none;"
+             resource="${this.args.localBusiness.uri}"
+             typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
+            prefix="schema: http://schema.org/ nacebel: http://data.gift/vocabularies/nace-bel/ skos: http://www.w3.org/2004/02/skos/core#">
+          ${naceBelCodes}
           ${name}
           ${description}
           ${website}
