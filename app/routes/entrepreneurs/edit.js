@@ -12,9 +12,4 @@ export default class EntrepreneursEditRoute extends Route {
     });
     return businesses.firstObject;
   }
-
-  afterModel(model) {
-    this.transitionTo('entrepreneurs.edit.step-1', model);
-  }
-
 }
