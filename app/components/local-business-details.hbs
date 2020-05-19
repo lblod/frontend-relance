@@ -1,25 +1,77 @@
-<div>
-  {{@localBusiness.name}}
-</div>
+<div class="au-o-box au-o-box--medium au-o-box--border">
+  <div class="au-u-margin-bottom">
+    <AuHeading @skin="2">
+      {{#if @localBusiness.name}}
+        {{@localBusiness.name}}
+      {{else}}
+        <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen ondernemingsnaam gevonden</i>
+      {{/if}}
+    </AuHeading>
+    <p class="au-c-heading au-c-heading--3 au-u-font au-u-light">
+      {{#if @localBusiness.name}}{{@localBusiness.description}}
+      {{else}}
+        <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen beschrijving gevonden</i>
+      {{/if}}
+    </p>
+  </div>
 
-<div>
-  {{@localBusiness.description}}
-</div>
+  <div class="au-u-margin-bottom">
+    <div class="au-o-grid au-o-grid--large">
+      <div class="au-o-grid__item au-u-1-1 au-u-2-5@medium">
 
-<div>Adres:</div>
-<div>
-  {{@localBusiness.location.streetAddress}}
-  {{@localBusiness.location.postalCode}} {{@localBusiness.location.city}}
-</div>
+        <div class="au-u-margin-bottom">
+          <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Adres</AuHeading>
+          <p>
+            {{#if @localBusiness.location.streetAddress}}
+              {{@localBusiness.location.streetAddress}}
+            {{else}}
+              <i>Geen straat en huisnummer gevonden</i>
+            {{/if}}
+            <br>
+            {{#if @localBusiness.location.postalCode}}
+              {{@localBusiness.location.postalCode}},
+            {{else}}
+              <i>Geen postcode gevonden</i>,
+            {{/if}}
+            {{#if @localBusiness.location.city}}
+              {{@localBusiness.location.city}}
+            {{else}}
+              <i>geen gemeente gevonden</i>
+            {{/if}}
+          </p>
+        </div>
 
-<div>Contact:</div>
-<div>
-  {{@localBusiness.telephone}}
-  {{@localBusiness.email}}
-  {{@localBusiness.url}}
-</div>
+        <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Contact</AuHeading>
+        <p>
+          {{#if @localBusiness.telephone}}
+            <a href="tel:{{@localBusiness.telephone}}">{{@localBusiness.telephone}}</a>
+          {{else}}
+            <i>Geen telefoonnummer gevonden</i>
+          {{/if}}
+        <p>
+        </p>
+          {{#if @localBusiness.email}}
+            <a href="mailto:{{@localBusiness.email}}">{{@localBusiness.email}}</a>
+          {{else}}
+            <i>Geen telefoonnummer gevonden</i>
+          {{/if}}
+        <p>
+        </p>
+          {{#if @localBusiness.url}}
+            <a href="{{@localBusiness.url}}">{{@localBusiness.url}}</a>
+          {{else}}
+            <i>Geen telefoonnummer gevonden</i>
+          {{/if}}
+        </p>
+      </div>
 
-<div>Openingsuren:</div>
-<OpeningHoursDetails @openingHours={{@localBusiness.openingHoursSpecifications}} />
+      <div class="au-o-grid__item au-u-1-1 au-u-3-5@medium">
+        <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Openingsuren:</AuHeading>
+        <OpeningHoursDetails @openingHours={{@localBusiness.openingHoursSpecifications}} />
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {{yield}}

@@ -1,32 +1,30 @@
-<AuLabel for="{{this.inputFor}}-website">Afbeelding voor zoekmachine</AuLabel>
-<AuInput
-  @value={{this._value}}
-  size="40"
-  id="{{this.inputFor}}-website"
-  {{on "blur" this.updateUrl}}
-/>
-<br>
+<AuLabel for="{{this.inputFor}}-website">Afbeelding voor zoekmachines</AuLabel>
+<div>
+  <AuInput
+    @value={{this._value}}
+    size="40"
+    id="{{this.inputFor}}-website"
+    {{on "blur" this.updateUrl}}
+  />
+</div>
 {{#if this.canShowImage}}
-  {{#if this.showImage}}
-    <AuButton @skin="tertiary" {{on "click" this.toggleImage}}>
-      <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-        <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-      </svg>
-      Verberg afbeelding.
-    </AuButton>
+  <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
     <img src="{{this._value}}">
-  {{else}}
-    <AuButton @skin="tertiary" {{on "click" this.toggleImage}}>
-      <svg role="img" class="au-c-icon au-c-icon--plus-text au-c-icon--large" aria-hidden="true">
-        <use xlink:href="/ember-appuniversum/@appuniversum/ember-appuniversum/appuniversum-symbolset.svg#plus-text"></use>
-      </svg>
-      Laat afbeelding zien.
-    </AuButton>
-  {{/if}}
+  </div>
+  <AuButtonGroup>
+    {{#if this.showImage}}
+      <AuButton @skin="secondary" {{on "click" this.toggleImage}}>
+        Verberg afbeelding
+      </AuButton>
+    {{else}}
+      <AuButton @skin="secondary" {{on "click" this.toggleImage}}>
+        Laat afbeelding zien
+      </AuButton>
+    {{/if}}
+  </AuButtonGroup>
 {{else}}
-  Indien de link naar de afbeelding correct ingevuld werd, zal deze hieronder verschijnen.
+  <AuHelpText>Indien de link naar de afbeelding correct ingevuld werd, zal deze hieronder verschijnen. Deze afbeelding wordt enkel gebruikt door zoekmachines.</AuHelpText>
 {{/if}}
-<br>
 {{#if this.errorUrl}}
-  error url
+  <AuHelpText @error="true">Er is geen afbeelding gevonden op deze link.</AuHelpText>
 {{/if}}

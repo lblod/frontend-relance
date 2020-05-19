@@ -1,39 +1,40 @@
-<div class="au-c-form__row">
-  <AuLabel>Dag</AuLabel>
-  <PowerSelect
-          @searchField={{"name"}}
-          @searchEnabled={{true}}
-          @selected={{this.openingHourSpec.dayOfWeek}}
-          @options={{this.daysOfWeek}}
-          @onChange={{this.updateDay}}
-          @allowClear={{true}}
-          @loadingMessage="Aan het laden..."
-          @noMatchesMessage="Geen resultaten gevonden"
-          as |day|>
-    {{day.name}}
-  </PowerSelect>
-</div>
-
-<div class="au-o-grid au-o-grid--flush">
-  <div class="au-o-grid__item au-u-1-2">
-    <div class="au-c-form__row">
+<div class="au-o-box au-o-box--small au-u-border-bottom">
+  <div class="au-o-grid au-o-grid--small">
+    <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+      <AuLabel>Dag</AuLabel>
+      <PowerSelect
+        @searchField={{"name"}}
+        @searchEnabled={{true}}
+        @selected={{this.openingHourSpec.dayOfWeek}}
+        @options={{this.daysOfWeek}}
+        @onChange={{this.updateDay}}
+        @allowClear={{true}}
+        @loadingMessage="Aan het laden..."
+        @noMatchesMessage="Geen resultaten gevonden"
+        as |day|>
+        {{day.name}}
+      </PowerSelect>
+    </div>
+    <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
       <Forms::Input::Time
         @label="Van"
         @value={{this.openingHourSpec.opens}}
         @onChange={{fn (mut this.openingHourSpec.opens)}}
       />
     </div>
-  </div>
-  <div class="au-o-grid__item au-u-1-2">
-    <div class="au-c-form__row">
+    <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
       <Forms::Input::Time
         @label="Tot"
         @value={{this.openingHourSpec.closes}}
         @onChange={{fn (mut this.openingHourSpec.closes)}}
       />
     </div>
+    <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium au-u-text-right">
+      <AuButton @skin="tertiary" {{on "click" this.removeEntry}} @alert="true">
+        <AuIcon @icon="bin" @alignment="left" /> Verwijder rij
+      </AuButton>
+    </div>
   </div>
 </div>
 
-<AuButton {{on "click" this.removeEntry}}> verwijder </AuButton>
 {{yield}}

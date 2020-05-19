@@ -1,35 +1,94 @@
 <CrossAnimateTags>
-  <div>
-    Live? Check!
-
-    Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
+  <div class="au-o-layout au-o-layout--large au-u-padding-bottom-large au-u-margin-bottom-large au-u-border-bottom">
+    <a href="/" class="au-c-link">
+      <AuIcon @icon="arrow-left" @alignment="left" @size="large" @ariaHidden="false" /> Terug naar overzicht
+    </a>
+    <AuHeading level="1" @skin="1" class="au-u-margin-bottom">
+      Voor ondernemers 
+      <br>
+      Laat de wereld stap-voor-stap weten
+      <br>
+      dat je weer <i>Open for Business</i> bent
+    </AuHeading>
   </div>
 
-  <div>
-    <AuLabel for="url-input">Link naar de pagina</AuLabel>
-    <AuInput id="url-input" @value={{this.url}} />
-    <AuButton
-      @loading={{this.harvestUrl.isRunning}}
-      @disabled={{this.isDisabled}}
-      {{on "click" (perform this.harvestUrl)}}>
-      Test
-    </AuButton>
+  <div class="au-o-layout au-o-layout--large">
+
+    <div class="au-o-grid au-o-grid--flush">
+      <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
+        <div class="au-u-padding-right-large">
+          <div class="au-o-grid">
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="check" @skin="action" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                <strong>Stap 1</strong>
+                <br>
+                Vul de gegevens van uw onderneming in.
+              </p>
+            </div>
+
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="arrow-right" @skin="action" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                <strong>Stap 2</strong>
+                <br>
+                Plak de gegenereerde code in jouw site, en publiceer je site.
+              </p>
+            </div>
+
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="check" @skin="border" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+
+              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                <strong>Stap 3</strong>
+                <br>
+                Test en zie het resultaat. Klaar!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+        Live? Check!
+
+        Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
+
+        <div>
+          <AuLabel for="url-input">Link naar de pagina</AuLabel>
+          <AuInput id="url-input" @value={{this.url}} />
+          <AuButton
+            @loading={{this.harvestUrl.isRunning}}
+            @disabled={{this.isDisabled}}
+            {{on "click" (perform this.harvestUrl)}}>
+            Test
+          </AuButton>
+        </div>
+
+        {{#unless this.harvestUrl.isRunning}}
+          {{#if this.localBusinesses}}
+            Dat werkt! Dit is de informatie die we vonden:
+
+            {{#each this.localBusinesses as |localBusiness|}}
+              <LocalBusinessDetails @localBusiness={{localBusiness}} />
+            {{/each}}
+        {{else}}
+            {{#if this.error}}
+              Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.
+            {{else if this.harvestUrl.performCount}}
+              Oeps, we vonden geen informatie!
+            {{/if}}
+          {{/if}}
+        {{/unless}}
+      </div>
+
+    </div>
   </div>
 </CrossAnimateTags>
-
-{{#unless this.harvestUrl.isRunning}}
-  {{#if this.localBusinesses}}
-    Dat werkt! Dit is de informatie die we vonden:
-
-    {{#each this.localBusinesses as |localBusiness|}}
-      <LocalBusinessDetails @localBusiness={{localBusiness}} />
-    {{/each}}
-  {{else}}
-    {{#if this.error}}
-      Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.
-    {{else if this.harvestUrl.performCount}}
-      Oeps, we vonden geen informatie!
-    {{/if}}
-  {{/if}}
-{{/unless}}
 {{outlet}}

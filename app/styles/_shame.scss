@@ -4,18 +4,9 @@
    Some parts will be reused, but most of them will not.
    ========================================================================== */
 
-$au-button-height-large                       : $au-unit-large !default;
-
 a.au-c-button:visited {
   background-color: $au-blue-600;
 }
-
-.au-c-button--large {
-  font-size: $au-h4;
-  padding: $au-unit-small $au-unit-small .1rem+$au-unit-small;
-  height: $au-button-height-large;
-}
-
 
 
 
@@ -23,6 +14,10 @@ a.au-c-button:visited {
 
 .au-u-border-bottom {
   border-bottom: .1rem solid $au-gray-300;
+}
+
+.au-u-border-top {
+  border-top: .1rem solid $au-gray-300;
 }
 
 .au-u-border-right {
@@ -34,6 +29,15 @@ i {
 }
 
 
+.au-o-box--gray-200 {
+  background-color: $au-gray-200;
+}
+
+.au-o-box--border {
+  border: .1rem solid $au-gray-300;
+  box-shadow: 0 2px 2px $au-gray-100;
+}
+
 
 
 .au-c-form {
@@ -42,6 +46,10 @@ i {
 
 .au-c-form__row {
   margin-bottom: $au-unit - $au-unit-tiny;
+}
+
+.au-c-input--pre {
+  background-color: $au-gray-200;
 }
 
 .au-c-input--pre {
@@ -170,7 +178,7 @@ i {
 .ember-power-select-multiple-trigger,
 .ember-power-select-trigger {
   line-height: 2.2rem !important;
-  padding: $au-unit-tiny/2 0 $au-unit-tiny/2 $au-unit-tiny !important;
+  padding: $au-unit-small/2 0 $au-unit-tiny/2 $au-unit-tiny !important;
   position: relative;
 }
 
@@ -191,7 +199,7 @@ i {
 
   .ember-power-select-option[aria-selected="true"],
   .ember-power-select-option[aria-current="true"] {
-    background-color: $au-gray-300 !important;
+    background-color: $au-gray-200 !important;
     color: $au-blue-600 !important;
     text-decoration: underline;
   }
@@ -248,3 +256,17 @@ i {
   .ember-power-select-trigger[aria-disabled="true"] .ember-power-select-placeholder {
     color: $au-gray-600;
   }
+
+
+
+
+
+/* Code Styles */
+pre {
+  background-color: $au-gray-100;
+  overflow: auto;
+}
+
+code {
+  font-family: Courier, 'New Courier', monospace;
+}
