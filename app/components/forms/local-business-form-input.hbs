@@ -92,6 +92,10 @@
             id="{{this.inputFor}}-beschrijving"
           />
         </div>
+
+        <div class="au-c-form__row">
+          <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
+        </div>
       </div>
 
       <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
@@ -148,9 +152,6 @@
           {{#if this.errorUrl}}
             error url
           {{/if}}
-        </div>
-        <div class="au-c-form__row">
-          <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
         </div>
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-telefoon">Telefoonnummer</AuLabel>
