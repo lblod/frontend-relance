@@ -135,6 +135,7 @@
           <AuInput
             @value={{@localBusiness.location.country}}
             id="{{this.inputFor}}-land"
+            disabled
           />
         </div>
       </div>
@@ -143,13 +144,6 @@
       <div class="au-c-form">
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
-          <AuInput
-            @value={{@localBusiness.telephone}}
-            disabled
-            class="au-c-input--pre"
-            size="6"
-            value="https://"
-          />
           <AuInput
             @value={{@localBusiness.url}}
             size="40"
@@ -162,7 +156,6 @@
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
           <AuInput
-            @value={{@localBusiness.telephone}}
             disabled
             class="au-c-input--pre"
             size="3"

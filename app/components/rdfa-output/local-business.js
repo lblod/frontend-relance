@@ -30,7 +30,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     const description = this.localBusiness.description ? `<div property="schema:description">${this.localBusiness.description}</div>` : '';
     const website = this.localBusiness.url ? `<a property="schema:url" href="${this.localBusiness.url}">${this.localBusiness.url}</a>` : '';
     const email = this.localBusiness.email ? `<a property="schema:email" href="mailto:${this.localBusiness.email}">${this.localBusiness.email}</a>` : '';
-    const phone = this.localBusiness.telephone ? `<a property="schema:telephone" href="tel:${this.localBusiness.telephone}">${this.localBusiness.telephone}</a>` : '';
+    const phone = this.localBusiness.telephone ? `<a property="schema:telephone" href="tel:+32${this.localBusiness.telephone}">${this.localBusiness.telephone}</a>` : '';
 
     let location = '';
     if (this.location) {
