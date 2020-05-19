@@ -28,8 +28,10 @@ export default class FormsInputOpeningHoursSpecificationEditComponent extends Co
 
   @task
   *loadDaysOfWeek(){
-    const days = yield this.store.findAll('day-of-week');
-    this.daysOfWeek = days.sortBy('position');
+    this.daysOfWeek = yield this.store.query('day-of-week', {
+      sort: 'position',
+      page: { size: 10 }
+    });
   }
 
   @action
