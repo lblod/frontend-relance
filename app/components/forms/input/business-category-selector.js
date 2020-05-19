@@ -8,6 +8,7 @@ export default class FormsInputBusinessCategorySelectorComponent extends Compone
   @tracked selected;
   @tracked options;
   @service store;
+
   constructor(){
     super(...arguments);
     this.selected = this.args.selected;
@@ -15,7 +16,7 @@ export default class FormsInputBusinessCategorySelectorComponent extends Compone
   }
 
   @task
-    *loadOptions(searchData){
+  *loadOptions(searchData){
     let query = {};
     if(searchData){
       query = {'filter[label]': searchData};
