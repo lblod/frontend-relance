@@ -1,7 +1,7 @@
 {{#unless this.loadData.isRunning}}
   {{#if this.hasOpeningHours}}
     <div>
-      Geldig van {{this.validFrom}} tot {{this.validThrough}}
+      Geldig van {{moment-format this.validFrom 'DD-MM-YYYY'}} tot {{moment-format this.validThrough 'DD-MM-YYYY'}}
     </div>
 
     {{#each this.groupedOpeningHours as |group|}}
