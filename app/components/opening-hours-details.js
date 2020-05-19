@@ -21,7 +21,8 @@ export default class OpeningHoursDetailsComponent extends Component {
       sort: 'position',
       page: { size: 10 }
     });
-    this.openingHours = (yield this.args.openingHours).toArray();
+    const openingHours = yield this.args.openingHours;
+    this.openingHours = openingHours ? openinsgHours.toArray() : [];
   }
 
   get hasOpeningHours() {

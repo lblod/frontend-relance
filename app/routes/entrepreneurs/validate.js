@@ -5,5 +5,6 @@ export default class EntrepreneursValidateRoute extends Route {
     super.setupController(...arguments);
     controller.url = null;
     controller.localBusinesses = [];
+    controller.error = null;
   }
 }

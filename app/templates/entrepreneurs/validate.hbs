@@ -21,7 +21,9 @@ Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
       <LocalBusinessDetails @localBusiness={{localBusiness}} />
     {{/each}}
   {{else}}
-    {{#if this.harvestUrl.performCount}}
+    {{#if this.error}}
+      Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.
+    {{else if this.harvestUrl.performCount}}
       Oeps, we vonden geen informatie!
     {{/if}}
   {{/if}}
