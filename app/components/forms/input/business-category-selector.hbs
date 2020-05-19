@@ -1,7 +1,7 @@
-<PowerSelect
+<PowerSelectMultiple
   @search={{perform this.loadOptions}}
   @searchEnabled={{true}}
-  @selected={{this.selected}}
+  @selected={{this.selections}}
   @options={{this.options}}
   @onChange={{this.update}}
   @allowClear={{true}}
@@ -9,4 +9,4 @@
   @noMatchesMessage="Geen resultaten gevonden"
   as |category|>
   {{category.label}}
-</PowerSelect>
+</PowerSelectMultiple>

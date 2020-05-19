@@ -25,7 +25,7 @@ Telefoon
 </div>
 <h3>categorie</h3>
 <div>
-  <Forms::Input::BusinessCategorySelector  @selected={{@localBusiness.categories.firstObject}} @onUpdate={{this.addCategory}}/>
+  <Forms::Input::BusinessCategorySelector  @selections={{@localBusiness.categories}} @onUpdate={{this.addCategories}}/>
 </div>
 
 <h3>Adres</h3>

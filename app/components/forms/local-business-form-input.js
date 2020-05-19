@@ -27,8 +27,10 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   }
 
   @action
-  addCategory(category){
-    this.localBusiness.categories.setObjects([category]);
+  async addCategories(selections){
+    this.localBusiness.categories.setObjects([]);
+    await this.localBusiness.save();
+    this.localBusiness.categories.setObjects(selections);
   }
 
   @action

@@ -5,13 +5,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class FormsInputBusinessCategorySelectorComponent extends Component {
-  @tracked selected;
+  @tracked selections;
   @tracked options;
   @service store;
 
   constructor(){
     super(...arguments);
-    this.selected = this.args.selected;
+    this.selections = this.args.selections;
     this.loadOptions.perform();
   }
 
@@ -26,8 +26,8 @@ export default class FormsInputBusinessCategorySelectorComponent extends Compone
   }
 
   @action
-  update(selection){
-    this.selected = selection;
-    this.args.onUpdate(selection);
+  update(selections){
+    this.selected = selections;
+    this.args.onUpdate(selections);
   }
 }
