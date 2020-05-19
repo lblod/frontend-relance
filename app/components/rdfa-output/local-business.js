@@ -73,8 +73,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
 
     const nacebelUris = this.naceBelCodes.map(c => c.uri).join(' ');
     this.rdfaSnippet = `
-        <div style="display:none;"
-             resource="${this.args.localBusiness.uri}"
+        <div resource="${this.args.localBusiness.uri}"
              typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
             prefix="schema: http://schema.org/ nacebel: http://data.gift/vocabularies/nace-bel/ skos: http://www.w3.org/2004/02/skos/core#">
           ${naceBelCodes}
