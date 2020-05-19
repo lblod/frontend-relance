@@ -14,10 +14,19 @@ Website (rechstreeks)
 <AuInput
   @value={{@localBusiness.url}}
 />
+{{#if this.errorUrl}}
+  error url
+{{/if}}
+
+
 Email
 <AuInput
   @value={{@localBusiness.email}}
 />
+{{#if this.errorEmail}}
+  error email
+{{/if}}
+
 Telefoon
 <AuInput
   @value={{@localBusiness.telephone}}
