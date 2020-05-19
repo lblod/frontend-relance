@@ -45,22 +45,29 @@
       <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <AuLabel>Naam onderneming</AuLabel>
+          <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
           <AuInput
             @value={{@localBusiness.name}}
-          size="40" />
+            size="40"
+            id="{{this.inputFor}}-onderneming"
+          />
         </div>
         <div class="au-c-form__row">
-          <AuLabel>Categorieën</AuLabel>
-          <Forms::Input::BusinessCategorySelector  @selections={{@localBusiness.categories}} @onUpdate={{this.addCategories}}/>
+          <AuLabel for="{{this.inputFor}}-categorie">Categorieën</AuLabel>
+          <Forms::Input::BusinessCategorySelector
+          @selections={{@localBusiness.categories}}
+          @onUpdate={{this.addCategories}}
+          id="{{this.inputFor}}-categorie"
+        />
         </div>
 
         <div class="au-c-form__row">
-          <AuLabel>Beschrijving</AuLabel>
+          <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
           <AuTextarea
             @value={{@localBusiness.description}}
             @width="block"
             rows="5"
+            id="{{this.inputFor}}-beschrijving"
           />
         </div>
       </div>
@@ -68,35 +75,39 @@
       <AuHeading @level="4" @skin="4">Adres</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <AuLabel>Straat en nummer (bus optioneel)</AuLabel>
+          <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
           <AuInput
             @value={{@localBusiness.location.streetAddress}}
+            id="{{this.inputFor}}-straat-nummer-bus"
           />
         </div>
         <div class="au-o-grid au-o-grid--flush">
-          <div class="au-o-grid__item au-u-1-1 au-u-1-4@medium">
+          <div class="au-o-grid__item au-u-1-4">
             <div class="au-c-form__row">
-              <AuLabel>Postcode</AuLabel>
+              <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
               <AuInput
                 @value={{@localBusiness.location.postalCode}}
                 size="6"
+                id="{{this.inputFor}}-postcode"
               />
             </div>
           </div>
-          <div class="au-o-grid__item au-u-1-1 au-u-3-4@medium">
+          <div class="au-o-grid__item au-u-3-4">
             <div class="au-c-form__row">
-              <AuLabel>Gemeente</AuLabel>
+              <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
               <AuInput
                 @value={{@localBusiness.location.city}}
-                @width="block"
+                size="40"
+                id="{{this.inputFor}}-gemeente"
               />
             </div>
           </div>
         </div>
         <div class="au-c-form__row">
-          <AuLabel>Land</AuLabel>
+          <AuLabel for="{{this.inputFor}}-land">Land</AuLabel>
           <AuInput
             @value={{@localBusiness.location.country}}
+            id="{{this.inputFor}}-land"
           />
         </div>
       </div>
@@ -104,7 +115,7 @@
       <AuHeading @level="4" @skin="4">Contactgegevens</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <AuLabel>Website</AuLabel>
+          <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
           <AuInput
             @value={{@localBusiness.telephone}}
             disabled
@@ -114,30 +125,33 @@
           />
           <AuInput
             @value={{@localBusiness.url}}
-            @width="block"
+            size="40"
+            id="{{this.inputFor}}-website"
           />
           {{#if this.errorUrl}}
             error url
           {{/if}}
         </div>
         <div class="au-c-form__row">
-          <AuLabel>Telefoon</AuLabel>
+          <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
           <AuInput
             @value={{@localBusiness.telephone}}
             disabled
             class="au-c-input--pre"
             size="3"
             value="+32"
+            id="{{this.inputFor}}-telefoon"
           />
           <AuInput
             @value={{@localBusiness.telephone}}
           />
         </div>
         <div class="au-c-form__row">
-          <AuLabel>E-mail</AuLabel>
+          <AuLabel for="{{this.inputFor}}-e-mail">E-mail</AuLabel>
           <AuInput
             @value={{@localBusiness.email}}
             size="40"
+            id="{{this.inputFor}}-e-mail"
           />
           {{#if this.errorEmail}}
             error email
@@ -148,7 +162,7 @@
       <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <AuLabel>Openingsuren</AuLabel>
+          <AuLabel for="{{this.inputFor}}-onderneming">Openingsuren</AuLabel>
           <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
         </div>
 
@@ -161,7 +175,7 @@
           {{/each}}
         </div>
         <div class="au-c-form__row">
-          <AuLabel>Geldigheid openingsuren</AuLabel>
+          <AuLabel for="{{this.inputFor}}-onderneming">Geldigheid openingsuren</AuLabel>
 
           <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
             @locale="nl"

@@ -2,12 +2,15 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { guidFor } from '@ember/object/internals';
 
 export default class FormsLocalBusinessFormInputComponent extends Component {
   @service store;
   @tracked localBusiness = this.args.localBusiness;
   @tracked openingHoursValidFrom = new Date();
   @tracked openingHoursValidTo = new Date();
+
+  inputId = guidFor(this);
 
   get errorUrl(){
     return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
