@@ -23,6 +23,10 @@ Email
 <AuInput
   @value={{@localBusiness.email}}
 />
+{{#if this.errorEmail}}
+  error email
+{{/if}}
+
 Telefoon
 <AuInput
   @value={{@localBusiness.telephone}}

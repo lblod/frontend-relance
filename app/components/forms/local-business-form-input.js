@@ -13,6 +13,10 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
   }
 
+  get errorEmail(){
+    return this.localBusiness.email && !this.localBusiness.email.match(/\S+@\S+\.\S+/);
+  }
+
   @action
   addOpeningHoursSpecification(){
     const hours = this.store.createRecord('opening-hours-specification', {
