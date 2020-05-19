@@ -5,7 +5,7 @@ export default class LocationModel extends Model {
   @attr streetAddress;
   @attr postalCode;
   @attr city;
-  @attr country;
+  @attr('string', { defaultValue: 'België' }) country;
 
   @hasMany('local-business') localBusinesses;
 }

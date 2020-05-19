@@ -75,11 +75,11 @@
         />
         </div>
         <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-categorie">Gedetailleerde categorieën (Nacebelcodes)</AuLabel>
+          <AuLabel for="{{this.inputFor}}-nacebel">Gedetailleerde categorieën (Nacebelcodes)</AuLabel>
           <Forms::Input::NaceBelCodesSelector
             @selections={{@localBusiness.naceBelCodes}}
             @onUpdate={{this.addNacebelCodes}}
-            id="{{this.inputFor}}-categorie"
+            id="{{this.inputFor}}-nacebel"
           />
         </div>
 
@@ -131,6 +131,7 @@
           <AuInput
             @value={{@localBusiness.location.country}}
             id="{{this.inputFor}}-land"
+            disabled
           />
         </div>
       </div>
@@ -139,13 +140,6 @@
       <div class="au-c-form">
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
-          <AuInput
-            @value={{@localBusiness.telephone}}
-            disabled
-            class="au-c-input--pre"
-            size="6"
-            value="https://"
-          />
           <AuInput
             @value={{@localBusiness.url}}
             size="40"
@@ -157,14 +151,13 @@
         </div>
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
-          <AuInput
-            @value={{@localBusiness.telephone}}
+          <!-- <AuInput
             disabled
             class="au-c-input--pre"
             size="3"
             value="+32"
             id="{{this.inputFor}}-telefoon"
-          />
+          /> -->
           <AuInput
             @value={{@localBusiness.telephone}}
           />
