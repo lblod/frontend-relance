@@ -150,6 +150,9 @@
           {{/if}}
         </div>
         <div class="au-c-form__row">
+          <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
+        </div>
+        <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
           <!-- <AuInput
             disabled

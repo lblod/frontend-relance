@@ -74,4 +74,9 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     this.applyValidityPeriod();
     this.args.onSubmit(this.localBusiness);
   }
+
+  @action
+  updateImageUrl(url){
+    this.localBusiness.imageUrl = url;
+  }
 }

@@ -5,6 +5,7 @@ export default class LocalBusinessModel extends Model {
   @attr name;
   @attr description;
   @attr url;
+  @attr imageUrl;
   @attr email;
   @attr telephone;
 
