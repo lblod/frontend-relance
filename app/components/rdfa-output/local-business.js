@@ -38,7 +38,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
       const postalCode = this.location.postalCode ? `<div property="schema:postalCode">${this.location.postalCode}</div>` : '';
       const city = this.location.city ? `<div property="schema:addressLocality">${this.location.city}</div>` : '';
       location = `
-        <div property="schema:location" resource="${this.location.uri}" typeof="schema:PostalAddress">
+        <div property="schema:address" resource="${this.location.uri}" typeof="schema:PostalAddress">
           ${street}
           ${postalCode}
           ${city}
