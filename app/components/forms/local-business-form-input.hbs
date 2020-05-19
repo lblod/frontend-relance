@@ -1,8 +1,8 @@
-<div class="au-o-layout au-o-layout--large au-u-margin-bottom-large">
+<div class="au-o-layout au-o-layout--large au-u-padding-bottom-large au-u-margin-bottom-large au-u-border-bottom">
   <a href="/" class="au-c-link">
     <AuIcon @icon="arrow-left" @alignment="left" @size="large" @ariaHidden="false" /> Terug naar overzicht
   </a>
-  <AuHeading @skin="1" class="au-u-margin-bottom">
+  <AuHeading level="1" @skin="1" class="au-u-margin-bottom">
     Voor ondernemers 
     <br>
     Laat de wereld stap-voor-stap weten
@@ -10,53 +10,52 @@
     dat je weer <i>Open for Business</i> bent
   </AuHeading>
 </div>
-<hr>
 
-<div class="au-o-layout au-o-layout--large au-u-margin-top-large">
-  <div class="au-o-grid au-o-grid--large">
-    <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium au-u-border-right">
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="check" @skin="action" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 1:
-            <br>
-            Vul de gegevens van uw onderneming in
-          </AuHeading>
-        </div>
-      </div>
+<div class="au-o-layout au-o-layout--large">
 
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="arrow-right" @skin="border" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 2:
-            <br>
-            Plak de gegenereerde code in jouw site en publiceer je site
-          </AuHeading>
-        </div>
-      </div>
+  <div class="au-o-grid au-o-grid--flush">
+    <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
+      <div class="au-u-padding-right-large">
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="pencil" @skin="border" />
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+              <strong>Stap 1</strong>
+              <br>
+              Vul de gegevens van uw onderneming in.
+            </p>
+          </div>
 
-      <div class="au-o-grid">
-        <div class="au-o-grid__item au-u-1-6">
-          <AuBadge @icon="arrow-right" @skin="border" />
-        </div>
-        <div class="au-o-grid__item au-u-5-6">
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+              <strong>Stap 2</strong>
+              <br>
+              Plak de gegenereerde code in jouw site, en publiceer je site.
+            </p>
+          </div>
 
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
-            Stap 3 [LATER]:
-            <br>
-            Test en zie het resultaat
-          </AuHeading>
+          <div class="au-o-grid__item au-u-1-6">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+
+            <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+              <strong>Stap 3</strong>
+              <br>
+              Test en zie het resultaat. Klaar!
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
     <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-      <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
+      <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Over uw onderneming</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
@@ -95,7 +94,7 @@
         </div>
       </div>
 
-      <AuHeading @level="4" @skin="4">Adres</AuHeading>
+      <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
@@ -104,18 +103,19 @@
             id="{{this.inputFor}}-straat-nummer-bus"
           />
         </div>
-        <div class="au-o-grid au-o-grid--flush">
-          <div class="au-o-grid__item au-u-1-4">
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-5">
             <div class="au-c-form__row">
               <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
               <AuInput
+                @width="block"
                 @value={{@localBusiness.location.postalCode}}
                 size="6"
                 id="{{this.inputFor}}-postcode"
               />
             </div>
           </div>
-          <div class="au-o-grid__item au-u-3-4">
+          <div class="au-o-grid__item au-u-4-5">
             <div class="au-c-form__row">
               <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
               <AuInput
@@ -136,7 +136,7 @@
         </div>
       </div>
 
-      <AuHeading @level="4" @skin="4">Contactgegevens</AuHeading>
+      <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
           <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
@@ -150,16 +150,16 @@
           {{/if}}
         </div>
         <div class="au-c-form__row">
-          <AuLabel for="{{this.inputFor}}-telefoon">Telefoon</AuLabel>
+          <AuLabel for="{{this.inputFor}}-telefoon">Telefoonnummer</AuLabel>
           <!-- <AuInput
             disabled
             class="au-c-input--pre"
             size="3"
             value="+32"
-            id="{{this.inputFor}}-telefoon"
           /> -->
           <AuInput
             @value={{@localBusiness.telephone}}
+            id="{{this.inputFor}}-telefoon"
           />
         </div>
         <div class="au-c-form__row">
@@ -175,65 +175,54 @@
         </div>
       </div>
 
-      <AuHeading @level="4" @skin="4" class="au-u-margin-bottom">Openingsuren</AuHeading>
+      <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
 
-      <AuHeading @level="5" @skin="5" class="au-u-margin-bottom-small">Geef de verschillende dagen en diens openingsuren in</AuHeading>
       <div class="au-c-form">
         <div class="au-c-form__row">
-          <div class="au-o-grid">
-            <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
-              <label class="au-c-label ">Dag</label>
-              <div class="ember-view ember-basic-dropdown-trigger  ember-power-select-trigger " role="button">
-                <span class="ember-power-select-selected-item">Maandagfakedagikwerkniet</span>
-                <span class="ember-power-select-clear-btn">×</span>
-                <span class="ember-power-select-status-icon"></span>
+          <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van uw onderneming in</AuHeading>
+          <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
+            <div class="au-o-box au-o-box--small au-u-border-bottom">
+              <div class="au-o-grid au-o-grid--small">
+                <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+                  <label class="au-c-label ">Dag</label>
+                  <div class="ember-view ember-basic-dropdown-trigger  ember-power-select-trigger " role="button">
+                    <span class="ember-power-select-selected-item">Maandagfakedagikwerkniet</span>
+                    <span class="ember-power-select-clear-btn">×</span>
+                    <span class="ember-power-select-status-icon"></span>
+                  </div>
+                </div>
+                <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
+                  <label class="au-c-label ">Van</label>
+                  <input id="ember223" class="ember-text-field ember-view au-c-input" type="text" value="10:00">
+                </div>
+                <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
+                  <label class="au-c-label ">Tot</label>
+                  <input id="ember224" class="ember-text-field ember-view au-c-input" type="text" value="18:00">
+                </div>
+                <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium au-u-text-right">
+                  <button class="au-c-button au-c-button--tertiary au-c-button--alert au-u-margin-top">
+                    <AuIcon @icon="bin" @alignment="left" /> Verwijder rij
+                  </button>
+                </div>
               </div>
             </div>
-            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
-              <div class="au-c-form__row">
-                <label class="au-c-label ">Van</label>
-                <input id="ember223" class="ember-text-field ember-view au-c-input" type="text" value="10:00">
-              </div>
-            </div>
-            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
-              <div class="au-c-form__row">
-                <label class="au-c-label ">Tot</label>
-                <input id="ember224" class="ember-text-field ember-view au-c-input" type="text" value="18:00">
-              </div>
-            </div>
-            <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium au-u-text-right">
-              <button class="au-c-button au-c-button--tertiary au-c-button--alert au-u-margin-top">
-                <AuIcon @icon="bin" @alignment="left" /> Verwijder rij
-              </button>
-            </div>
-          </div>
-
-          <hr>
-        </div>
-
-        <div class="au-c-form__row">
-          {{#if @localBusiness.openingHoursSpecifications}}
             {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
               <Forms::Input::OpeningHoursSpecificationEdit
                 @openingHoursSpecification={{openingHour}}
                 @onRemove={{this.removeOpeningHoursSpecification}}
               />
             {{/each}}
-            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
-              Voeg extra dag(deel) met openingsuren toe
-            </AuButton>
-          {{else}}
-            <AuButton @skin="tertiary" {{on "click" this.addOpeningHoursSpecification}}>
-              <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
-              Voeg dag(deel) met openingsuren toe
-            </AuButton>
-          {{/if}}
+            <div class="au-o-box au-u-text-center">
+              <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}>
+                <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
+                Voeg rij met openingsuren toe
+              </AuButton>
+            </div>
+          </div>
         </div>
 
         <div class="au-c-form__row">
-          <AuHeading @level="5" @skin="5" class="au-u-margin-bottom-small">Geef de verschillende dagen en diens openingsuren in</AuHeading>
-
+          <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de geldigheidsperiode van deze openingsuren in</AuHeading>
           <div class="au-o-grid">
             <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
               <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig van</AuLabel>
@@ -241,22 +230,21 @@
                 @locale="nl"
                 @dateFormat="d/m/yy"
                 @onChange={{this.updateValidityFrom}}
-                class="au-c-input au-c-input--date"  />
+                class="au-c-input au-c-input--date au-c-input--block" />
             </div>
             <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
-
               <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig tot</AuLabel>
               <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
                 @locale="nl"
                 @dateFormat="d/m/yy"
                 @onChange={{this.updateValidityTo}}
-                class="au-c-input au-c-input--date" />
+                class="au-c-input au-c-input--date au-c-input--block" />
             </div>
           </div>
         </div>
       </div>
 
-      <AuButton {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
+      <AuButton @size="large" {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
     </div>
   </div>
 </div>
