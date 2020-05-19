@@ -4,6 +4,16 @@
    Some parts will be reused, but most of them will not.
    ========================================================================== */
 
+.position-higher {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.white-background {
+  background-color: white;
+}
+
 a.au-c-button:visited {
   background-color: $au-blue-600;
 }

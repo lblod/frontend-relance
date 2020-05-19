@@ -3,6 +3,9 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
+import { fadeIn, fadeOut } from 'ember-animated/motions/opacity';
+import move from 'ember-animated/motions/move';
+import adjustCSS from 'ember-animated/motions/adjust-css';
 
 export default class FormsLocalBusinessFormInputComponent extends Component {
   @service store;
@@ -18,6 +21,23 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
 
   get errorEmail(){
     return this.localBusiness.email && !this.localBusiness.email.match(/\S+@\S+\.\S+/);
+  }
+
+  *openingHoursTransition({insertedSprites, removedSprites, keptSprites}) {
+    console.log( "inserted: ", insertedSprites );
+    console.log( "removed: ", removedSprites );
+    for( const sprite of insertedSprites ) {
+      fadeIn( sprite );
+    }
+
+    for( const sprite of keptSprites ) {
+      move( sprite );
+    }
+
+    for( const sprite of removedSprites ) {
+      sprite.applyStyles({ "z-index": "-1" });
+      fadeOut( sprite );
+    }
   }
 
   @action

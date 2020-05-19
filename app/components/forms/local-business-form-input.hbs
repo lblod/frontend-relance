@@ -204,13 +204,15 @@
                   </div>
                 </div>
               </div>
-              {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-                <Forms::Input::OpeningHoursSpecificationEdit
-                  @openingHoursSpecification={{openingHour}}
-                  @onRemove={{this.removeOpeningHoursSpecification}}
-                />
-              {{/each}}
-              <div class="au-o-box au-u-text-center">
+              <AnimatedContainer>
+                {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
+                  <Forms::Input::OpeningHoursSpecificationEdit
+                    @openingHoursSpecification={{openingHour}}
+                    @onRemove={{this.removeOpeningHoursSpecification}}
+                  />
+                {{/animated-each}}
+              </AnimatedContainer>
+              <div class="au-o-box au-u-text-center position-higher">
                 <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}>
                   <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
                   Voeg rij met openingsuren toe
