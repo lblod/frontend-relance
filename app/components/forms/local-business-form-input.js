@@ -9,6 +9,10 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @tracked openingHoursValidFrom = new Date();
   @tracked openingHoursValidTo = new Date();
 
+  get errorUrl(){
+    return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
+  }
+
   @action
   addOpeningHoursSpecification(){
     const hours = this.store.createRecord('opening-hours-specification', {
