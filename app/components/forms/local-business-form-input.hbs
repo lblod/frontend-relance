@@ -1,73 +1,139 @@
-<h2>Vul het formulier in</h2>
+<div class="au-o-layout au-o-layout--large au-u-border-bottom au-u-margin-bottom-large">
+  <a href="/" class="au-c-link">
+    <svg role="img" class="au-c-icon au-c-icon--arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <g class="arrow-left">
+        <path d="M8.11 15l-1.42 1.41L2 11.69 6.69 7l1.42 1.41-2.3 2.28H22v2H5.81L8.11 15z" class="Vector"/>
+      </g>
+    </svg> Terug naar overzicht
+  </a>
+  <AuHeading @skin="1" class="au-u-margin-bottom">
+    Voor ondernemers :
+    <br>
+    Laat de wereld stap-voor-stap weten
+    <br>
+    dat je weer <i>Open for Business</i> bent
+  </AuHeading>
+</div>
+<div class="au-o-layout au-o-layout--large au-u-border-bottom au-u-padding-bottom-large au-u-margin-bottom-large">
+  <AuHeading @level="2" @skin="4" class="au-u-margin-bottom au-u-light">
+    Stap voor stap jouw informatie op het internet
+  </AuHeading>
 
-<h3>Bedrijf</h3>
-<div>
-Naam:
-<AuInput
-  @value={{@localBusiness.name}}
-/>
-Beschrijving:
-<AuInput
-  @value={{@localBusiness.description}}
-/>
-Website (rechstreeks)
-<AuInput
-  @value={{@localBusiness.url}}
-/>
-Email
-<AuInput
-  @value={{@localBusiness.email}}
-/>
-Telefoon
-<AuInput
-  @value={{@localBusiness.telephone}}
-/>
+  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
+    Stap 1:
+    <br>
+    Vul de gegevens van uw onderneming in
+  </AuHeading>
+
+  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
+    Stap 2:
+    <br>
+    Plak de gegenereerde code in jouw site en publiceer je site
+  </AuHeading>
+
+  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-light">
+    Stap 3 [LATER]:
+    <br>
+    Test en zie het resultaat
+  </AuHeading>
 </div>
 
-<h3>Adres</h3>
-<div>
-Straat en nummer
-<AuInput
-  @value={{@localBusiness.location.streetAddress}}
-/>
-Postcode
-<AuInput
-  @value={{@localBusiness.location.postalCode}}
-/>
-Stad
-<AuInput
-  @value={{@localBusiness.location.city}}
-/>
-Land
-<AuInput
-  @value={{@localBusiness.location.country}}
-/>
 
-</div>
-
-<h3>Openingsuren</h3>
-<div>
-Openingsuren:  <AuButton {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
-
-{{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
-  <div>
-    <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
+<div class="au-o-layout au-o-layout--large au-u-border-bottom au-u-padding-bottom-large au-u-margin-bottom-large">
+  <AuHeading @level="4" @skin="4">Uw onderneming</AuHeading>
+  <div class="au-c-form">
+    <div class="au-c-form__row">
+      <AuLabel>Naam onderneming</AuLabel>
+      <AuInput
+        @value={{@localBusiness.name}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Beschrijving</AuLabel>
+      <AuInput
+        @value={{@localBusiness.description}}
+      />
+    </div>
   </div>
-{{/each}}
 
-<br>
+  <AuHeading @level="4" @skin="4">Adres</AuHeading>
+  <div class="au-c-form">
+    <div class="au-c-form__row">
+      <AuLabel>Straat en nummer</AuLabel>
+      <AuInput
+        @value={{@localBusiness.location.streetAddress}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Postcode</AuLabel>
+      <AuInput
+        @value={{@localBusiness.location.postalCode}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Gemeente</AuLabel>
+      <AuInput
+        @value={{@localBusiness.location.city}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Land</AuLabel>
+      <AuInput
+        @value={{@localBusiness.location.country}}
+      />
+    </div>
+  </div>
 
-<EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
-  @locale="nl"
-  @dateFormat="d/m/yy"
-  @onChange={{this.updateValidityFrom}} />
+  <AuHeading @level="4" @skin="4">Contactgegevens</AuHeading>
+  <div class="au-c-form">
+    <div class="au-c-form__row">
+      <AuLabel>Website (rechstreeks)</AuLabel>
+      <AuInput
+        @value={{@localBusiness.url}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Telefoon</AuLabel>
+      <AuInput
+        @value={{@localBusiness.telephone}}
+      />
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>E-mail</AuLabel>
+      <AuInput
+        @value={{@localBusiness.email}}
+      />
+    </div>
+  </div>
 
-<EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
-  @locale="nl"
-  @dateFormat="d/m/yy"
-  @onChange={{this.updateValidityTo}} />
+  <AuHeading @level="4" @skin="4">Openingsuren</AuHeading>
+  <div class="au-c-form">
+    <div class="au-c-form__row">
+      <AuLabel>Openingsuren</AuLabel>
+      <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}> Voeg uren toe </AuButton>
 
+      {{#each @localBusiness.openingHoursSpecifications as |openingHour| }}
+        <div>
+          <Forms::Input::OpeningHoursSpecificationEdit @openingHoursSpecification={{openingHour}} />
+        </div>
+      {{/each}}
+    </div>
+    <div class="au-c-form__row">
+      <AuLabel>Geldigheid openingsuren</AuLabel>
+
+      <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+        @locale="nl"
+        @dateFormat="d/m/yy"
+        @onChange={{this.updateValidityFrom}} />
+
+      <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+        @locale="nl"
+        @dateFormat="d/m/yy"
+        @onChange={{this.updateValidityTo}} />
+
+    </div>
+  </div>
+
+  <AuButton {{on "click" this.submit}}> Volgende stap</AuButton>
 </div>
-<AuButton {{on "click" this.submit}}> Volgende stap</AuButton>
-
 {{yield}}
