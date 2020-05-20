@@ -14,6 +14,10 @@ Router.map(function() {
       this.route('step-2', { path: '/stap-2' });
     });
     this.route('validate');
+
+    this.route('subject-pages', function() {
+      this.route('show', { path: '/:id/details' });
+    });
   });
 
   this.route('local-governments', { path: '/lokale-besturen' }, function() {});
