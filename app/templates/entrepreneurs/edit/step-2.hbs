@@ -57,6 +57,7 @@
       <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
         <div class="au-u-padding-left">
           <AuAlert @alertIcon="info-circle" @alertTitle="Voor u de code in uw website plakt, kijk uw gegevens even na:"  @alertskin={{"info"}} @alertsize={{"small"}} />
+          <p class="au-c-heading--5 au-u-light">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
 
           <article class="au-u-margin-bottom-large">
             <div class="au-u-margin-bottom-small">
@@ -76,18 +77,20 @@
           <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
             Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
           </AuHeading>
+          <p class="au-c-heading--5 au-u-light au-u-margin-bottom-tiny">Het is belangrijk dat deze informatie zichtbaar is op uw website, om ervoor te zorgen dat zoekmachines de gegevens kunnen valideren.</p>
+          <p class="au-c-heading--5 au-u-light">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
           <div class="au-u-margin-bottom">
-              <AuButtonGroup>
-                {{#if this.displayCodeBlock}}
-                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
-                    Verberg broncode
-                  </AuButton>
-                {{else}}
-                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
-                    Toon broncode
-                  </AuButton>
-                {{/if}}
-              </AuButtonGroup>
+            <div class="au-u-text-right">
+              {{#if this.displayCodeBlock}}
+                <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                  Verberg broncode
+                </AuButton>
+              {{else}}
+                <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                  Toon broncode
+                </AuButton>
+              {{/if}}
+            </div>
             {{#if this.displayCodeBlock}}
               <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
             {{/if}}
