@@ -74,9 +74,13 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     const nacebelUris = this.naceBelCodes.map(c => c.uri).join(' ');
 
 
-    const image = `<span property="schema:image" resource="${this.localBusiness.imageUrl}">
+    let image = '';
+    if (this.localBusiness.imageUrl) {
+      image = `<span property="schema:image" resource="${this.localBusiness.imageUrl}">
                         <img src="${this.localBusiness.imageUrl}"/>
                    </span>`;
+    }
+
     this.rdfaSnippet = `
         <div resource="${this.args.localBusiness.uri}"
              typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
