@@ -19,7 +19,7 @@
         <div class="au-u-padding-right-large">
           <div class="au-o-grid">
             <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="check" @skin="action" />
+              <AuBadge @icon="check" @skin="success" />
             </div>
             <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
               <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="arrow-right" @skin="action" />
+              <AuBadge @icon="check" @skin="success" />
             </div>
             <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
               <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="au-o-grid__item au-u-1-6">
-              <AuBadge @icon="check" @skin="border" />
+              <AuBadge @icon="pencil" @skin="border" />
             </div>
             <div class="au-o-grid__item au-u-5-6">
 
@@ -55,40 +55,47 @@
         </div>
       </div>
 
-      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-        Live? Check!
+      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium au-u-2-6@medium">
+        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom-small">Bekijk welke informatie we vinden op uw website</AuHeading>
+        <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-light">Zorg dat de website live staat met de aangepaste broncode, en link ons naar de juiste pagina om te testen. De test werkt enkel voor websites waar machineleesbare informatie in de broncode zit.</p>
 
-        Zorg dat de website live staat, en link ons naar de juiste pagina om te testen
+        <div class="au-u-margin-bottom-large">
+          <AuLabel for="url-input">Link naar uw website</AuLabel>
+          <div class="au-o-grid au-o-grid--flush">
+            <div class="au-o-grid__item au-u-1-1 au-u-5-6@medium">
+              <AuInput id="url-input" @value={{this.url}} @width="block" />
+            </div>
+            <div class="au-o-grid__item au-u-1-1 au-u-1-6@medium">
+              <AuButton
+                @loading={{this.harvestUrl.isRunning}}
+                @disabled={{this.isDisabled}}
+                {{on "click" (perform this.harvestUrl)}}>
+                Zoek informatie
+              </AuButton>
+            </div>
+          </div>
 
-        <div>
-          <AuLabel for="url-input">Link naar de pagina</AuLabel>
-          <AuInput id="url-input" @value={{this.url}} />
-          <AuButton
-            @loading={{this.harvestUrl.isRunning}}
-            @disabled={{this.isDisabled}}
-            {{on "click" (perform this.harvestUrl)}}>
-            Test
-          </AuButton>
+          {{#unless this.harvestUrl.isRunning}}
+            {{#if this.localBusinesses}}
+              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">We hebben informatie op jouw website gevonden</AuHeading>
+              <p class="au-u-heading au-u-heading--5">Dit is de informatie die we vonden:</p>
+              {{#each this.localBusinesses as |localBusiness|}}
+                <LocalBusinessDetails @localBusiness={{localBusiness}} />
+              {{/each}}
+          {{else}}
+              {{#if this.error}}
+                <AuHelpText @error="true">Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.</AuHelpText>
+              {{else if this.harvestUrl.performCount}}
+                <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Oeps, we vonden geen informatie!</AuHeading>
+                <p class="au-u-heading au-u-heading--5">Kijk na of u de nieuwe informatie live staat op uw website. Kijk ook na of de code in dezelfde pagina werd gestopt die u ons heeft doorgegeven; bij voorkeur is dat de landingspagina.</p>
+                <p class="au-u-heading au-u-heading--5">Neem contact op met uw webbeheerder indien dit blijft aanhouden.</p>
+              {{/if}}
+            {{/if}}
+          {{/unless}}
         </div>
 
-        {{#unless this.harvestUrl.isRunning}}
-          {{#if this.localBusinesses}}
-            Dat werkt! Dit is de informatie die we vonden:
-
-            {{#each this.localBusinesses as |localBusiness|}}
-              <LocalBusinessDetails @localBusiness={{localBusiness}} />
-            {{/each}}
-        {{else}}
-            {{#if this.error}}
-              Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.
-            {{else if this.harvestUrl.performCount}}
-              Oeps, we vonden geen informatie!
-            {{/if}}
-          {{/if}}
-        {{/unless}}
-
-
-        <p>Wil u zien hoe Google de gegevens op uw website interpreteert? Ga naar <a href="https://search.google.com/test/rich-results">Test voor uitgebreide resultaten van Google</a>.</p>
+        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Wil u zien hoe Google de gegevens op uw website interpreteert?</AuHeading>
+        <p class="au-u-heading au-u-heading--5">Ga naar <a href="https://search.google.com/test/rich-results">Test voor uitgebreide resultaten van Google</a>.</p>
       </div>
 
     </div>
