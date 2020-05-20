@@ -1,8 +1,5 @@
 <CrossAnimateTags>
   <div class="au-o-layout au-o-layout--large au-u-padding-bottom-large au-u-margin-bottom-large au-u-border-bottom">
-    {{#link-to "index" class="au-c-link"}}
-      <AuIcon @icon="arrow-left" @alignment="left" @size="large" @ariaHidden="false" /> Terug naar overzicht
-    {{/link-to}}
     <AuHeading level="1" @skin="1" class="au-u-margin-bottom">
       Voor ondernemers
       <br>
@@ -77,7 +74,7 @@
 
           {{#unless this.harvestUrl.isRunning}}
             {{#if this.localBusinesses}}
-              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">We hebben informatie op jouw website gevonden</AuHeading>
+              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-margin-bottom--large">We hebben informatie op jouw website gevonden</AuHeading>
               <p class="au-u-heading au-u-heading--5">Dit is de informatie die we vonden:</p>
               {{#each this.localBusinesses as |localBusiness|}}
                 <LocalBusinessDetails @localBusiness={{localBusiness}} />
