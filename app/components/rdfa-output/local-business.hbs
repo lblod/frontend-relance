@@ -1,5 +1,9 @@
-<pre>
-<code>
-{{this.rdfaSnippet}}
-</code>
-</pre>
+{{#if @renderSnippet}}
+  {{{this.rdfaSnippet}}}
+{{else}}
+  <pre>
+  <code>
+  {{this.rdfaSnippet}}
+  </code>
+  </pre>
+{{/if}}
