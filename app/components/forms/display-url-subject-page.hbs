@@ -1,0 +1,15 @@
+<div class="au-c-form__row">
+  <AuInput
+    @value={{@providedUrl}}
+    size="100"
+    id="{{this.inputFor}}-onderneming"
+    disabled
+  />
+  <CopyButton
+    class="ember-view au-c-button au-c-button--large au-c-button--secondary"
+    @clipboardText={{@providedUrl}}
+    title="Kopieer de link"
+  >
+    Kopieer de link
+  </CopyButton>
+</div>
