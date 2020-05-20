@@ -1,10 +1,35 @@
 {{#unless this.loadData.isRunning}}
   {{#if this.hasOpeningHours}}
-    <p class="au-u-margin-bottom">
-      Geldig van {{moment-format this.validFrom 'DD-MM-YYYY'}} tot {{moment-format this.validThrough 'DD-MM-YYYY'}}
+    <p>
+      Geldig van <strong>{{moment-format this.validFrom 'DD-MM-YYYY'}}</strong> tot <strong>{{moment-format this.validThrough 'DD-MM-YYYY'}}</strong>
     </p>
+    <br>
+    <table style="width:100%;">
+      <thead>
+        <th style="text-align:left;"><strong>Dag</strong></th>
+        <th style="text-align:left;"><strong>Openingsuren</strong></th>
+        <th></th>
+      </thead>
+      <tbody>
+        {{#each this.groupedOpeningHours as |group|}}
+        <tr>
+          <th style="text-align:left;"><strong>{{group.day.name}}</strong></th>
+          {{#each group.hours as |openingHour|}}
+            <td style="text-align:left;">
+              <FormatTime @time={{openingHour.opens}} /> - <FormatTime @time={{openingHour.closes}} />
+            </td>
+          {{else}}
+            <td style="text-align:left;">
+              Gesloten
+            </td>
+          {{/each}}
+        </tr>
+        {{/each}}
 
-    <div class="au-o-grid au-o-grid--tiny au-u-margin-bottom-small">
+      </tbody>
+    </table>
+
+{{!--     <div class="au-o-grid au-o-grid--tiny au-u-margin-bottom-small">
       <div class="au-o-grid__item au-u-1-3">
         <strong>Dag</strong>
       </div>
@@ -34,9 +59,11 @@
           </div>
         {{/each}}
       </div>
-    {{/each}}
+    {{/each}} --}}
+
   {{else}}
     <i>Geen openingsuren gevonden</i>
   {{/if}}
+
 {{/unless}}
 {{yield}}
