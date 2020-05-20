@@ -44,16 +44,16 @@
         <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Contact</AuHeading>
         <p>
           {{#if @localBusiness.telephone}}
-            <a href="tel:{{@localBusiness.telephone}}">{{@localBusiness.telephone}}</a>
+            <a href="{{@localBusiness.telephone}}"><FormatTelephone @value={{@localBusiness.telephone}} /></a>
           {{else}}
             <i>Geen telefoonnummer gevonden</i>
           {{/if}}
         <p>
         </p>
           {{#if @localBusiness.email}}
-            <a href="mailto:{{@localBusiness.email}}">{{@localBusiness.email}}</a>
+            <a href="{{@localBusiness.email}}"><FormatEmail @value={{@localBusiness.email}} /></a>
           {{else}}
-            <i>Geen telefoonnummer gevonden</i>
+            <i>Geen email gevonden</i>
           {{/if}}
         <p>
         </p>

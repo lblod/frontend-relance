@@ -1,0 +1,9 @@
+<AuLabel>{{@label}}</AuLabel>
+<AuInput
+  @value={{this._value}}
+  @error={{this.hasError}}
+  {{on "blur" this.updateValue}}
+/>
+{{#if this.error}}
+  <AuHelpText @error={{"error"}}>Ongeldig telefoonnummer</AuHelpText>
+{{/if}}

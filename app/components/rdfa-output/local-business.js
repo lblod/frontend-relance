@@ -29,8 +29,8 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     const name = this.localBusiness.name ? `<div property="schema:name">${this.localBusiness.name}</div>` : '';
     const description = this.localBusiness.description ? `<div property="schema:description">${this.localBusiness.description}</div>` : '';
     const website = this.localBusiness.url ? `<a property="schema:url" href="${this.localBusiness.url}">${this.localBusiness.url}</a>` : '';
-    const email = this.localBusiness.email ? `<a property="schema:email" href="mailto:${this.localBusiness.email}">${this.localBusiness.email}</a>` : '';
-    const phone = this.localBusiness.telephone ? `<a property="schema:telephone">${this.localBusiness.telephone}</a>` : '';
+    const email = this.localBusiness.email ? `<a property="schema:email" href="${this.localBusiness.email}">${this.localBusiness.email.slice('mailto:'.length)}</a>` : '';
+    const phone = this.localBusiness.telephone ? `<a property="schema:telephone" content="${this.localBusiness.telephone}">${this.localBusiness.telephone.slice('tel:'.length)}</a>` : '';
 
     let location = '';
     if (this.location) {
@@ -74,10 +74,10 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     const nacebelUris = this.naceBelCodes.map(c => c.uri).join(' ');
 
     let image = '';
-    if(this.localBusiness.imageUrl){
+    if (this.localBusiness.imageUrl) {
       image = `<span property="schema:image" resource="${this.localBusiness.imageUrl}">
-                          <img src="${this.localBusiness.imageUrl}"/>
-                     </span>`;
+                        <img src="${this.localBusiness.imageUrl}"/>
+                   </span>`;
     }
 
     this.rdfaSnippet = `
