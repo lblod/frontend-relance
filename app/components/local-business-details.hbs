@@ -84,15 +84,30 @@
       <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen ondernemingsnaam gevonden</i>
     {{/if}}
   </h1>
+  <h2>
+{{!--     {{#if @localBusiness.categories}}
+      {{@localBusiness.categories}}
+    {{else}} --}}
+      <i>Geen categorieën gevonden</i>
+    {{!-- {{/if}} --}}
+  </h2>
+  <h2>
+{{!--     {{#if @localBusiness.nacebel}}
+      {{@localBusiness.nacebel}}
+    {{else}} --}}
+      <i>Geen nacebelcodes gevonden</i>
+    {{!-- {{/if}} --}}
+  </h2>
+
   <p>
     {{#if @localBusiness.description}}
       {{@localBusiness.description}}
     {{else}}
-      <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen beschrijving gevonden</i>
+      <i>Geen beschrijving gevonden</i>
     {{/if}}
   </p>
   {{#if @localBusiness.imageUrl}}
-    {{@localBusiness.imageUrl}}
+    <img src="{{@localBusiness.imageUrl}}" class="au-c-image au-c-image--small">
   {{else}}
     <i>Geen straat en huisnummer gevonden</i>
   {{/if}}
