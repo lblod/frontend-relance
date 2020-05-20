@@ -1,0 +1,10 @@
+<AuLabel>{{@label}}</AuLabel>
+<AuInput
+  @value={{this._value}}
+  @error={{this.hasError}}
+  size="40"
+  {{on "blur" this.updateValue}}
+/>
+{{#if this.error}}
+  <AuHelpText @error={{"error"}}>Ongeldig emailadres</AuHelpText>
+{{/if}}

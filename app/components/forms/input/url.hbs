@@ -1,0 +1,10 @@
+<AuLabel>{{@label}}</AuLabel>
+<AuInput
+  @value={{this._value}}
+  @error={{this.hasError}}
+  {{on "blur" this.updateValue}}
+  size="40"
+/>
+{{#if this.error}}
+  <AuHelpText @error={{"error"}}>Ongeldig URL. Een URL moet steeds met http:// of https:// beginnen.</AuHelpText>
+{{/if}}
