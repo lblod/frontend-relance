@@ -101,7 +101,7 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
 
   @action
   updateImageUrl(url){
-    this.localBusiness.imageUrl = url;
+    this.args.localBusiness.imageUrl = url;
   }
 
   @action
@@ -112,6 +112,5 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     const uploadedFile = this.store.peekRecord( 'file', result.body.data.id );
     console.log(uploadedFile);
     this.args.localBusiness.imageFile = uploadedFile;
-    this.args.localBusiness.floopie = uploadedFile;
   }
 }

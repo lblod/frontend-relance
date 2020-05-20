@@ -19,10 +19,10 @@
   </FileUpload>
 </div>
 
-{{#if this.canShowImage}}
+{{#if @localBusiness.displayImageUrl}}
   {{#if this.showImage}}
     <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
-      <img src="{{this.imageUrl}}" alt="Afbeelding van de onderneming">
+      <img src={{@localBusiness.displayImageUrl}} alt="Afbeelding van de onderneming">
     </div>
   {{/if}}
   <AuButtonGroup>

@@ -1,5 +1,5 @@
-export default function sizedImageUrl(id, params) {
-  // const params = { width, height };
+export default function sizedImageUrl(id, { width = null, height = null }) {
+  const params = { width, height };
 
   // build query params string
   var esc = encodeURIComponent;

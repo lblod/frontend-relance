@@ -97,10 +97,9 @@
           <div class="au-c-form__row">
             <Forms::Input::ImageUrl
               @imageUrl={{@localBusiness.imageUrl}}
-              @imageFile={{@localBusiness.imageFile}}
-              @floopie={{@localBusiness.floopie}}
               @onUpdateUrl={{this.updateImageUrl}}
               @onUpdateImage={{this.updateImageFile}}
+              @localBusiness={{@localBusiness}}
             />
           </div>
         </div>

@@ -16,10 +16,6 @@ export default class FormsInputImageUrlComponent extends Component {
     }
   }
 
-  get imageFile(){
-    return this.args.imageFile;
-  }
-
   /**
    * Truethy if the supplied URL is a valid URL for an image.
    *
@@ -55,17 +51,7 @@ export default class FormsInputImageUrlComponent extends Component {
     if( this.validImageUrl )
       return this.validImageUrl;
     else {
-      console.log("Going to get the updated image url");
-      return this.uploadedImageUrl || undefined;
-    }
-  }
-
-  get uploadedImageUrl() {
-    const functor = get(this, "imageFile.sizedImageUrl");
-
-    if( functor ) {
-      return functor
-        .bind(get(this,"imageFile"))({width: 400, height: 400});
+      return this.args.localBusiness && this.args.localBusiness.uploadedImageUrl;
     }
   }
 
@@ -78,10 +64,10 @@ export default class FormsInputImageUrlComponent extends Component {
   updateUrl(){
     if (this._value) {
       this.errorUrl = !this.isValidUrl(this._value);
-      this.args.onUpdate(this._value);
+      this.args.onUpdateUrl(this._value);
     }
     else {
-      this.args.onUpdate(null);
+      this.args.onUpdateUrl(null);
     }
   }
 }
