@@ -143,35 +143,25 @@
         <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
         <div class="au-c-form">
           <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
-            <AuInput
+            <Forms::Input::Url
+              @label="Website"
               @value={{@localBusiness.url}}
-              size="40"
-              id="{{this.inputFor}}-website"
+              @onChange={{fn (mut @localBusiness.url)}}
             />
-            <AuHelpText>Zorg dat er steeds https:// of http:// voor de link staat, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
-            {{#if this.errorUrl}}
-              <AuHelpText @error="true">Deze link lijkt niet correct. Kijk even na.</AuHelpText>
-            {{/if}}
           </div>
           <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-telefoon">Telefoonnummer</AuLabel>
-            <AuInput
+            <Forms::Input::Telephone
+              @label="Telefoonnnummer"
               @value={{@localBusiness.telephone}}
-              id="{{this.inputFor}}-telefoon"
+              @onChange={{fn (mut @localBusiness.telephone)}}
             />
           </div>
           <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-e-mail">E-mail</AuLabel>
-            <AuInput
+            <Forms::Input::Email
+              @label="Email"
               @value={{@localBusiness.email}}
-              size="40"
-              id="{{this.inputFor}}-e-mail"
+              @onChange={{fn (mut @localBusiness.email)}}
             />
-            <AuHelpText>Zorg dat er steeds een @ (apenstaartje) gebruikt wordt, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
-            {{#if this.errorEmail}}
-              <AuHelpText @error="true">Dit e-mailaderes lijkt niet correct. Kijk even na.</AuHelpText>
-            {{/if}}
           </div>
 
           <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
