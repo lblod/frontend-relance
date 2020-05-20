@@ -18,7 +18,15 @@ a.au-c-button:visited {
   background-color: $au-blue-600;
 }
 
+ol.au-c-list--numbered {
+  list-style: decimal;
+  margin-left: $au-unit-small;
 
+  li {
+    padding-left: $au-unit-small;
+    margin-bottom: $au-unit;
+  }
+}
 
 
 
