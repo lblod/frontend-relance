@@ -85,18 +85,18 @@
     {{/if}}
   </h1>
   <h2>
-{{!--     {{#if @localBusiness.categories}}
-      {{@localBusiness.categories}}
-    {{else}} --}}
+    {{#if this.categories.length}}
+      {{this.categoryLabels}}
+    {{else}}
       <i>Geen categorieën gevonden</i>
-    {{!-- {{/if}} --}}
+    {{/if}}
   </h2>
   <h2>
-{{!--     {{#if @localBusiness.nacebel}}
-      {{@localBusiness.nacebel}}
-    {{else}} --}}
-      <i>Geen nacebelcodes gevonden</i>
-    {{!-- {{/if}} --}}
+    {{#if this.nacebelLabels.length}}
+      {{this.nacebelLabels}}
+    {{else}}
+      <i>Geen Nacebelcodes gevonden</i>
+    {{/if}}
   </h2>
 
   <p>
