@@ -6,11 +6,29 @@
     id="{{this.inputFor}}-website"
     {{on "blur" this.updateUrl}}
   />
+  OF
+  <FileUpload
+    @name="afbeelding"
+    @accept="image/*"
+    @multiple={{false}}
+    @onfileadd={{@onUpdateImage}}>
+    <span class="au-c-button au-c-button--secondary">
+      {{!-- Sorry, I'm not allowed to use a button here --}}
+      Laad afbeelding op
+    </span>
+  </FileUpload>
 </div>
+
+{{#if @imageFile}}
+  {{@imageFile.id}}
+{{else}}
+  No image file
+{{/if}}
+
 {{#if this.canShowImage}}
   {{#if this.showImage}}
     <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
-      <img src="{{this._value}}">
+      <img src="{{this.imageUrl}}" alt="Afbeelding van de onderneming">
     </div>
   {{/if}}
   <AuButtonGroup>

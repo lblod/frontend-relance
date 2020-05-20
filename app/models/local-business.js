@@ -13,4 +13,5 @@ export default class LocalBusinessModel extends Model {
   @hasMany('nace-bel-code') naceBelCodes;
   @belongsTo('location') location;
   @hasMany('category') categories;
+  @belongsTo('file') imageFile;
 }

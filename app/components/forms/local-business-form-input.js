@@ -1,3 +1,4 @@
+import { set } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
@@ -9,11 +10,14 @@ import adjustCSS from 'ember-animated/motions/adjust-css';
 
 export default class FormsLocalBusinessFormInputComponent extends Component {
   @service store;
-  @tracked localBusiness = this.args.localBusiness;
   @tracked openingHoursValidFrom = new Date();
   @tracked openingHoursValidTo = new Date();
 
   inputId = guidFor(this);
+
+  get localBusiness() {
+    return this.args.localBusiness;
+  }
 
   get errorUrl(){
     return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
@@ -98,5 +102,16 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @action
   updateImageUrl(url){
     this.localBusiness.imageUrl = url;
+  }
+
+  @action
+  async updateImageFile(file){
+    const result = await file.upload("/files");
+    result.body.data.type = "file";
+    this.store.push(result.body);
+    const uploadedFile = this.store.peekRecord( 'file', result.body.data.id );
+    console.log(uploadedFile);
+    this.args.localBusiness.imageFile = uploadedFile;
+    this.args.localBusiness.floopie = uploadedFile;
   }
 }
