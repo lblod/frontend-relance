@@ -8,9 +8,11 @@
   />
 </div>
 {{#if this.canShowImage}}
-  <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
-    <img src="{{this._value}}">
-  </div>
+  {{#if this.showImage}}
+    <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
+      <img src="{{this._value}}">
+    </div>
+  {{/if}}
   <AuButtonGroup>
     {{#if this.showImage}}
       <AuButton @skin="secondary" {{on "click" this.toggleImage}}>
