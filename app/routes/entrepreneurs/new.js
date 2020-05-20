@@ -12,7 +12,7 @@ export default class EntrepreneursNewRoute extends Route {
     })).firstObject;
 
     const openingHours = [this.store.createRecord('opening-hours-specification', {
-      opens: "09:30:00",
+      opens: "10:00:00",
       closes: "18:00:00",
       dayOfWeek: firstDay
     })];

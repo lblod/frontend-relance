@@ -1,4 +1,4 @@
-<div class="au-o-box au-o-box--medium au-o-box--border">
+{{!-- <div class="au-o-box au-o-box--medium au-o-box--border">
   <div class="au-u-margin-bottom">
     <AuHeading @skin="2">
       {{#if @localBusiness.name}}
@@ -66,12 +66,83 @@
       </div>
 
       <div class="au-o-grid__item au-u-1-1 au-u-3-5@medium">
-        <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Openingsuren:</AuHeading>
+        <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">Openingsuren</AuHeading>
         <OpeningHoursDetails @openingHours={{@localBusiness.openingHoursSpecifications}} />
       </div>
     </div>
   </div>
 
 </div>
+
+{{yield}} --}}
+
+<article class="au-o-box au-o-box--medium au-o-box--border">
+  <h1>
+    {{#if @localBusiness.name}}
+      {{@localBusiness.name}}
+    {{else}}
+      <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen ondernemingsnaam gevonden</i>
+    {{/if}}
+  </h1>
+  <p>
+    {{#if @localBusiness.description}}
+      {{@localBusiness.description}}
+    {{else}}
+      <AuBadge @icon="info-circle" @skin="error" @size="small" /> <i>Geen beschrijving gevonden</i>
+    {{/if}}
+  </p>
+  {{#if @localBusiness.imageUrl}}
+    {{@localBusiness.imageUrl}}
+  {{else}}
+    <i>Geen straat en huisnummer gevonden</i>
+  {{/if}}
+
+  <br>
+  <h2>Adres</h2>
+  <p>
+    {{#if @localBusiness.location.streetAddress}}
+      {{@localBusiness.location.streetAddress}}
+    {{else}}
+      <i>Geen straat en huisnummer gevonden</i>
+    {{/if}}
+    <br>
+    {{#if @localBusiness.location.postalCode}}
+      {{@localBusiness.location.postalCode}},
+    {{else}}
+      <i>Geen postcode gevonden</i>,
+    {{/if}}
+    {{#if @localBusiness.location.city}}
+      {{@localBusiness.location.city}}
+    {{else}}
+      <i>geen gemeente gevonden</i>
+    {{/if}}
+  </p>
+  <br>
+  <h2>Contact</h2>
+  <p>
+    {{#if @localBusiness.telephone}}
+      <a href="tel:{{@localBusiness.telephone}}">{{@localBusiness.telephone}}</a>
+    {{else}}
+      <i>Geen telefoonnummer gevonden</i>
+    {{/if}}
+  <p>
+  </p>
+    {{#if @localBusiness.email}}
+      <a href="mailto:{{@localBusiness.email}}">{{@localBusiness.email}}</a>
+    {{else}}
+      <i>Geen telefoonnummer gevonden</i>
+    {{/if}}
+  <p>
+  </p>
+    {{#if @localBusiness.url}}
+      <a href="{{@localBusiness.url}}">{{@localBusiness.url}}</a>
+    {{else}}
+      <i>Geen telefoonnummer gevonden</i>
+    {{/if}}
+  </p>
+  <br>
+  <h2>Openingsuren</h2>
+  <OpeningHoursDetails @openingHours={{@localBusiness.openingHoursSpecifications}} />
+</article>
 
 {{yield}}
