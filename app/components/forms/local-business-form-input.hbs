@@ -179,31 +179,6 @@
           <div class="au-c-form__row">
             <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van uw onderneming in</AuHeading>
             <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
-              <div class="au-o-box au-o-box--small au-u-border-bottom">
-                <div class="au-o-grid au-o-grid--small">
-                  <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
-                    <label class="au-c-label ">Dag</label>
-                    <div class="ember-view ember-basic-dropdown-trigger  ember-power-select-trigger " role="button">
-                      <span class="ember-power-select-selected-item">Maandagfakedagikwerkniet</span>
-                      <span class="ember-power-select-clear-btn">×</span>
-                      <span class="ember-power-select-status-icon"></span>
-                    </div>
-                  </div>
-                  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
-                    <label class="au-c-label ">Van</label>
-                    <input id="ember223" class="ember-text-field ember-view au-c-input" type="text" value="10:00">
-                  </div>
-                  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium">
-                    <label class="au-c-label ">Tot</label>
-                    <input id="ember224" class="ember-text-field ember-view au-c-input" type="text" value="18:00">
-                  </div>
-                  <div class="au-o-grid__item au-u-1-2 au-u-1-5@medium au-u-text-right">
-                    <button class="au-c-button au-c-button--tertiary au-c-button--alert au-u-margin-top">
-                      <AuIcon @icon="bin" @alignment="left" /> Verwijder rij
-                    </button>
-                  </div>
-                </div>
-              </div>
               <AnimatedContainer>
                 {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
                   <Forms::Input::OpeningHoursSpecificationEdit
