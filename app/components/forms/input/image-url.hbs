@@ -1,9 +1,9 @@
-<AuLabel for="{{this.inputFor}}-website">Afbeelding voor zoekmachines</AuLabel>
+<AuLabel for="{{this.inputFor}}-afbeelding">Afbeelding voor zoekmachines</AuLabel>
 <div>
   <AuInput
     @value={{this._value}}
     size="40"
-    id="{{this.inputFor}}-website"
+    id="{{this.inputFor}}-afbeelding"
     {{on "blur" this.updateUrl}}
   />
   OF
@@ -21,8 +21,8 @@
 
 {{#if @localBusiness.displayImageUrl}}
   {{#if this.showImage}}
-    <div class="au-o-box au-o-box--border au-u-margin-bottom au-u-margin-top">
-      <img src={{@localBusiness.displayImageUrl}} alt="Afbeelding van de onderneming">
+    <div class="">
+      <img src={{@localBusiness.displayImageUrl}} class="au-c-image au-c-image--small au-o-box au-o-box--flush au-o-box--border au-u-margin-bottom-small au-u-margin-top-small" alt="Afbeelding van de onderneming">
     </div>
   {{/if}}
   <AuButtonGroup>

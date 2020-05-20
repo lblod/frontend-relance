@@ -18,7 +18,15 @@ a.au-c-button:visited {
   background-color: $au-blue-600;
 }
 
+ol.au-c-list--numbered {
+  list-style: decimal;
+  margin-left: $au-unit-small;
 
+  li {
+    padding-left: $au-unit-small;
+    margin-bottom: $au-unit;
+  }
+}
 
 
 
@@ -92,9 +100,14 @@ i {
   }
 
 .au-c-hero__usp {
-  margin: $au-unit-huge 0;
   z-index: 1;
 }
+
+
+.au-c-image--small {
+  max-height: $au-unit-huge+$au-unit-huge;
+}
+
 
 
 /* ==========================================================================

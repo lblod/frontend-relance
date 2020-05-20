@@ -1,26 +1,172 @@
 <CrossAnimateTags>
   <div class="au-o-layout au-o-layout--large au-o-box">
-    <LinkTo @route="index" class="au-c-link">Terug naar overzicht</LinkTo>
-    <AuHeading @skin="1" class="au-u-margin-bottom">
-      Voor lokale besturen
-      <br>
-      die lokale ondernemers ondersteunen bij hun relance.
-    </AuHeading>
+    <div class="au-o-grid">
+      <div class="au-o-grid__item au-1-1 au-u-2-3@medium au-u-1-2@large">
+        <LinkTo @route="index" class="au-c-link"><AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Terug naar overzicht</LinkTo>
+        <AuHeading @level="1" @skin="6" class="au-u-margin-bottom">Relance voor lokale besturen</AuHeading>
+        <AuHeading @level="2" @skin="1" class="au-u-margin-bottom">Hoe ondernemers helpen met hun informatie <strong>online correct en uniform</strong> verspreiden?</AuHeading>
+      </div>
+    </div>
   </div>
 
   <div class="au-o-layout au-o-layout--large au-o-box">
-    <p class="au-c-heading--3 au-u-light au-u-font">
-      Een stukje uitleg, de stappen
-    </p>
-    <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--large">Publiceer de relances van jullie ondernemingen</LinkTo>
-  </div>
+    <div class="au-o-grid">
+      <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
+        <div class="au-u-padding-right">
+          <div class="au-o-grid">
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="arrow-right" @skin="info" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+                <strong>Stap 0</strong>
+                <br>
+                Stuur uw ondernemers de link <a href="relance.lblod.info" target="_blank" rel="noopener">relance.lblod.info</a>, en help hun met hun informatie correct en machineleesbaar te verspreiden!
+              </AuHeading>
+            </div>
 
-  <div class="au-o-layout au-o-layout--large au-o-box">
-    <p class="au-c-heading--3 au-u-light au-u-font">
-      Een stukje uitleg, de stappen
-    </p>
-    <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--large">Publiceer de relances van jullie ondernemingen</LinkTo>
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="arrow-right" @skin="info" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+                <strong>Stap 1</strong>
+                <br>Wil u deze informatie ook correct en machineleesbaar publiceren op de site van uw lokaal bestuur?<br><br>Vul het formulier in voor elke onderneming. Er wordt een stukje machineleesbare code gegenereerd.
+              </AuHeading>
+            </div>
+
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="arrow-right" @skin="info" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+                <strong>Stap 2</strong>
+                <br>
+                Plak de gegenereerde code in jouw site, en publiceer de site.<br><br>Op deze manier kunnen zoekmachines nu ook de juiste informatie terugvinden.
+              </AuHeading>
+            </div>
+
+            <div class="au-o-grid__item au-u-1-6">
+              <AuBadge @icon="arrow-right" @skin="info" />
+            </div>
+            <div class="au-o-grid__item au-u-5-6">
+              <AuHeading @level="3" @skin="4" class="au-u-margin-bottom au-u-light">
+                <strong>Stap 3</strong>
+                <br>
+                Test of zoekmachines de juiste informatie terugvinden na publicatie van uw website. Klaar!
+              </AuHeading>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+        <div class="au-o-grid">
+          <div class="au-o-grid__item au-u-1-6 au-u-text-right">
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <AuHeading @level="3" @skin="2">De stappen in detail</AuHeading>
+          </div>
+
+          <div class="au-o-grid__item au-u-1-6 au-u-text-right">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-4-6">
+            <AuHeading @level="4" @skin="5" class="au-u-margin-bottom au-u-margin-bottom au-u-font au-u-light">
+              <strong>Stap 0</strong>
+              <br>
+              Stuur uw ondernemers de link <a href="relance.lblod.info" target="_blank" rel="noopener">relance.lblod.info</a>, en help hun met hun informatie correct en machineleesbaar te verspreiden!
+            </AuHeading>
+            <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-font au-u-light">
+              De eerste stap naar uw burgers correct informeren en ondernemers te ondersteunen met hun relance, is ondernemers op de hoogte brengen van dit initiatief. Maak ze duidelijk hoe ze hun online presence kunnen corrigeren met Relance.
+            </p>
+            <img src="{{rootURL}}assets/images/relance-shops-larger.png" class="au-u-margin-bottom-large">
+          </div>
+          <div class="au-o-grid__item au-u-1-6">
+          </div>
+
+          <div class="au-o-grid__item au-u-1-6 au-u-text-right">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-3-6">
+            <AuHeading @level="4" @skin="5" class="au-u-margin-bottom au-u-margin-bottom au-u-font au-u-light">
+              <strong>Stap 1</strong>
+              <br>Wil u deze informatie ook correct en machineleesbaar publiceren op de site van uw lokaal bestuur?<br><br>Vul het formulier in voor elke onderneming. Er wordt een stukje machineleesbare code gegenereerd.
+            </AuHeading>
+            <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-font au-u-light">
+              Schitterend dat u dit initiatief onderneemt! <strong>U helpt ook zo ondernemers uit de nood die geen website hebben.</strong>
+              <br><br>
+              In het formulier wordt informatie zoals beschrijving, adres en de openingsuren van de onderneming gevraagd. Deze genereert een stukje code dat zowel op jouw website als die van de onderneming terecht kan komen.
+            </p>
+          </div>
+          <div class="au-o-grid__item au-u-2-6">
+            <img src="{{rootURL}}assets/images/relance-form.svg" class="au-u-margin-bottom-large">
+          </div>
+
+          <div class="au-o-grid__item au-u-1-6 au-u-text-right">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-3-6">
+            <AuHeading @level="4" @skin="5" class="au-u-margin-bottom au-u-margin-bottom au-u-font au-u-light">
+              <strong>Stap 2</strong>
+              <br>
+              Plak de gegenereerde code in jouw site, en publiceer de site.<br><br>Op deze manier kunnen zoekmachines nu ook de juiste informatie terugvinden.
+            </AuHeading>
+            <p class="au-c-heading au-c-heading--6 au-u-font au-u-light au-u-margin-bottom">
+              Om ervoor te zorgen dat zoekmachines en mensen de juiste informatie terugvinden, moet de informatie op een duidelijke machine-leesbare manier te vinden zijn.
+            </p>
+            <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-font au-u-light">
+              We hebben hier 3 opties:
+              <ol class="au-c-list--numbered au-u-margin-top-small">
+                <li>
+                  <AuPill @skin="success">Beste resultaat</AuPill><br><br><strong>Plak de gegenereerde code in de broncode van de uw eigen website.</strong><br><br>Zoekmachines en burgers vertrouwen websites van lokale besturen en de ondernemers zelf het meest. Dit zal het beste resultaat opleveren.<br><br>Neem indien nodig contact op met uw websitebeheerder om de mogelijkheden te bekijken.
+                  <br>
+                  <br>
+                  <strong>Contacteer ondernemers zonder website</strong>, zodat zij ook de nodige gegevens correct kunnen verspreiden.
+                </li>
+                <li>
+                  <AuPill>U kan niet aan de broncode</AuPill><br><br>Kan u niet aan de broncode, maar enkel inhoud aanpassen? Geen probleem.<br><br>U krijgt een link voor elk van de ondernemingen van ons waarnaar u kan refereren op uw eigen website. Zoekmachines zullen dit iets minder snel oppikken dan de code rechtstreeks op uw eigen website, maar dit is ook absoluut correct.
+                </li>
+              </ol>
+            </p>
+          </div>
+          <div class="au-o-grid__item au-u-2-6">
+            <img src="{{rootURL}}assets/images/relance-code.svg" class="au-u-margin-bottom-large">
+          </div>
+
+          <div class="au-o-grid__item au-u-1-6 au-u-text-right">
+            <AuBadge @icon="arrow-right" @skin="info" />
+          </div>
+          <div class="au-o-grid__item au-u-3-6">
+            <AuHeading @level="4" @skin="5" class="au-u-margin-bottom au-u-margin-bottom au-u-font au-u-light">
+              <strong>Stap 3</strong>
+              <br>
+              Test of zoekmachines de juiste informatie terugvinden na publicatie van uw website. Klaar!
+            </AuHeading>
+            <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-font au-u-light">
+              We helpen u met ontdekken of dat zoekmachines nu de juiste informatie <i>kunnen</i> oppikken.
+            </p>
+            <AuAlert @alertIcon="info-circle" @alertTitle="Het duurt enkele dagen voor zoekmachines uw website scannen en de gewenste informatie opslaan, maar dan bent u er in elk geval hélemaal klaar voor."  @alertskin={{"info"}} @alertsize={{"small"}} />
+          </div>
+          <div class="au-o-grid__item au-u-2-6">
+            <img src="{{rootURL}}assets/images/relance-test.svg">
+          </div>
+
+
+          <div class="au-o-grid__item au-u-1-6">
+          </div>
+          <div class="au-o-grid__item au-u-5-6">
+            <p class="au-c-heading au-c-headi8g--3 au-u-margin-bottom au-u-font au-u-light">
+              <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--large"><AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Aan de slag met relance!</LinkTo>
+            </p>
+            <p>Benieuwd hoe goed jouw website het nu doet? <LinkTo @route="entrepreneurs.validate">Bekijk welke informatie zoekmachines op jouw website vinden.</LinkTo></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </CrossAnimateTags>
+
+{{outlet}}
 
 {{outlet}}

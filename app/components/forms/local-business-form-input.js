@@ -15,18 +15,6 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
 
   inputId = guidFor(this);
 
-  get localBusiness() {
-    return this.args.localBusiness;
-  }
-
-  get errorUrl(){
-    return this.localBusiness.url && !this.localBusiness.url.match(/^(http|ftp)s?:\/\/[\w.-]+\.\w+(\/.*)?/);
-  }
-
-  get errorEmail(){
-    return this.localBusiness.email && !this.localBusiness.email.match(/\S+@\S+\.\S+/);
-  }
-
   *openingHoursTransition({insertedSprites, removedSprites, keptSprites}) {
     console.log( "inserted: ", insertedSprites );
     console.log( "removed: ", removedSprites );
