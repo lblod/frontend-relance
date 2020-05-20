@@ -12,7 +12,7 @@ export default class EntrepreneursValidateController extends Controller {
   @tracked error
 
   get isDisabled() {
-    return isEmpty(this.url);
+    return isEmpty(this.url) || this.harvestUrl.isRunning ? "true" : "false";
   }
 
   @task
