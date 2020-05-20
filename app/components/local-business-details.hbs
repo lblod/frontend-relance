@@ -85,18 +85,22 @@
     {{/if}}
   </h1>
   <h2>
-    {{#if this.categories.length}}
-      {{this.categoryLabels}}
-    {{else}}
-      <i>Geen categorieën gevonden</i>
-    {{/if}}
+    {{#unless this.loadData.isRunning}}
+      {{#if this.categories.length}}
+        {{this.categoryLabels}}
+      {{else}}
+        <i>Geen categorieën gevonden</i>
+      {{/if}}
+    {{/unless}}
   </h2>
   <h2>
-    {{#if this.nacebelLabels.length}}
-      {{this.nacebelLabels}}
-    {{else}}
-      <i>Geen Nacebelcodes gevonden</i>
-    {{/if}}
+    {{#unless this.loadData.isRunning}}
+      {{#if this.nacebelLabels.length}}
+        {{this.nacebelLabels}}
+      {{else}}
+        <i>Geen Nacebelcodes gevonden</i>
+      {{/if}}
+    {{/unless}}
   </h2>
 
   <p>
