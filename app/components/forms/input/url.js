@@ -13,7 +13,7 @@ export default class FormsInputUrlComponent extends Component {
   }
 
   get hasError() {
-    return this.error.toString();
+    return this._value && this.error.toString();
   }
 
   get error() {
