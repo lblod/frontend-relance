@@ -11,7 +11,7 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   @service store;
   @tracked localBusiness = this.args.localBusiness;
   @tracked openingHoursValidFrom = new Date();
-  @tracked openingHoursValidTo = new Date();
+  @tracked openingHoursValidTo = new Date('2020-12-31');
 
   inputId = guidFor(this);
 
