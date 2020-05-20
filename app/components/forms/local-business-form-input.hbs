@@ -99,7 +99,7 @@
           </div>
         </div>
 
-        <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
+        <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
         <div class="au-c-form">
           <div class="au-c-form__row">
             <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
@@ -140,7 +140,7 @@
           </div>
         </div>
 
-        <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
+        <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
         <div class="au-c-form">
           <div class="au-c-form__row">
             <AuLabel for="{{this.inputFor}}-website">Website</AuLabel>
@@ -174,10 +174,10 @@
             {{/if}}
           </div>
 
-          <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
+          <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
           <div class="au-c-form">
             <div class="au-c-form__row">
-              <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van de onderneming in</AuHeading>
+              <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van de onderneming in</AuHeading>
               <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
                 <AnimatedContainer>
                   {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
@@ -197,7 +197,7 @@
             </div>
 
             <div class="au-c-form__row">
-              <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de geldigheidsperiode van deze openingsuren in</AuHeading>
+              <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de geldigheidsperiode van deze openingsuren in</AuHeading>
               <div class="au-o-grid">
                 <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
                   <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig van</AuLabel>
@@ -220,7 +220,10 @@
           </div>
         </div>
 
-        <AuButton @size="large" {{on "click" this.submit}}>Genereer code of link voor jouw website</AuButton>
+        <AuButton @size="large" {{on "click" this.submit}}>
+          <AuIcon @icon="nav-right" @alignment="left" @size="large" @ariaHidden="false" />
+          Volgende stap: genereer code of link voor jouw website
+        </AuButton>
 
       </div>
     </div>
