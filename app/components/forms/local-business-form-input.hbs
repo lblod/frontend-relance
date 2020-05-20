@@ -25,7 +25,7 @@
               <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
                 <strong>Stap 1</strong>
                 <br>
-                Vul de gegevens van uw onderneming in.
+                Vul de gegevens van de onderneming in.
               </p>
             </div>
 
@@ -56,7 +56,7 @@
       </div>
 
       <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Over uw onderneming</AuHeading>
+        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Over de onderneming</AuHeading>
         <div class="au-c-form">
           <div class="au-c-form__row">
             <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
@@ -149,8 +149,9 @@
               size="40"
               id="{{this.inputFor}}-website"
             />
+            <AuHelpText>Zorg dat er steeds https:// of http:// voor de link staat, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
             {{#if this.errorUrl}}
-              error url
+              <AuHelpText @error="true">Deze link lijkt niet correct. Kijk even na.</AuHelpText>
             {{/if}}
           </div>
           <div class="au-c-form__row">
@@ -167,15 +168,16 @@
               size="40"
               id="{{this.inputFor}}-e-mail"
             />
+            <AuHelpText>Zorg dat er steeds een @ (apenstaartje) gebruikt wordt, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
             {{#if this.errorEmail}}
-              error email
+              <AuHelpText @error="true">Dit e-mailaderes lijkt niet correct. Kijk even na.</AuHelpText>
             {{/if}}
           </div>
 
           <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
           <div class="au-c-form">
             <div class="au-c-form__row">
-              <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van uw onderneming in</AuHeading>
+              <AuHeading @level="4" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van de onderneming in</AuHeading>
               <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
                 <AnimatedContainer>
                   {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
@@ -218,7 +220,7 @@
           </div>
         </div>
 
-        <AuButton @size="large" {{on "click" this.submit}}>Genereer code voor jouw website</AuButton>
+        <AuButton @size="large" {{on "click" this.submit}}>Genereer code of link voor jouw website</AuButton>
 
       </div>
     </div>
