@@ -72,15 +72,20 @@
 
           <AuHeading @level="3" @skin="2" class="au-u-margin-bottom">
             Gegevens in orde?
-            <br>
+          </AuHeading>
+          <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
             Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
           </AuHeading>
 
           <div class="au-u-margin-bottom">
             <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
           </div>
-          of, kopieer deze link
-          {{this.urlForSubjectPage}}
+          <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
+            Of, kopieer de onderstaande link en plak deze vervolgens in de broncode van de landingspagina:
+          </AuHeading>
+          <div class="au-u-margin-bottom">
+            <Forms::DisplayUrlSubjectPage @providedUrl={{this.urlForSubjectPage}}/>
+          </div>
           <AuButtonGroup>
             <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--large au-c-button--secondary">
               <AuIcon @icon="nav-left" @alignment="left" @size="large" @ariaHidden="false" />
