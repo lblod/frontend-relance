@@ -78,7 +78,20 @@
           </AuHeading>
 
           <div class="au-u-margin-bottom">
+              <AuButtonGroup>
+                {{#if this.displayCodeBlock}}
+                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                    Verberg broncode
+                  </AuButton>
+                {{else}}
+                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                    Laat broncode zien
+                  </AuButton>
+                {{/if}}
+              </AuButtonGroup>
+            {{#if this.displayCodeBlock}}
             <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+            {{/if}}
           </div>
           <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
             Of, kopieer de onderstaande link en plak deze vervolgens in de broncode van de landingspagina:
