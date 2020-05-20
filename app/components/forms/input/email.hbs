@@ -5,6 +5,7 @@
   size="40"
   {{on "blur" this.updateValue}}
 />
+<AuHelpText>Zorg dat er steeds een @ (apenstaartje) gebruikt wordt, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
 {{#if this.error}}
   <AuHelpText @error={{"error"}}>Ongeldig emailadres</AuHelpText>
 {{/if}}

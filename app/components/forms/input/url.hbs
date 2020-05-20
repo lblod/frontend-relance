@@ -5,6 +5,7 @@
   {{on "blur" this.updateValue}}
   size="40"
 />
+<AuHelpText>Zorg dat er steeds https:// of http:// voor de link staat, en dat bijvoorbeeld <i>.com</i> of <i>.be</i> als extensie gebruikt wordt.</AuHelpText>
 {{#if this.error}}
   <AuHelpText @error={{"error"}}>Ongeldig URL. Een URL moet steeds met http:// of https:// beginnen.</AuHelpText>
 {{/if}}
