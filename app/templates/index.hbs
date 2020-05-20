@@ -1,5 +1,5 @@
 <CrossAnimateTags>
-  <div class="au-o-layout au-o-layout--large au-c-hero au-o-box au-o-box--large">
+  <div class="au-o-layout au-o-layout--large au-c-hero au-o-box au-o-box--large au-u-border-bottom">
     <div class="au-o-grid au-o-grid--center">
       <div class="au-o-grid__item au-u-1-1 au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-large-up">
         <svg width="404px" height="373px" viewBox="0 0 404 373" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -26,17 +26,19 @@
       </div>
 
       <div class="au-o-grid__item au-u-1-1 au-u-2-3@medium au-u-2-4@large au-c-hero__usp">
-        <AuHeading @skin="1" class="au-u-margin-bottom">
-          Open for business?
-          <br>
-          Iedereen mag het weten!  
-        </AuHeading>
+        <AuHeading @skin="1" class="au-u-margin-bottom">Open for business?<br>Iedereen mag het weten!  </AuHeading>
         <p class="au-c-heading--3 au-u-light au-u-font">
-          Lokale ondernemers brengen de stad weer tot leven
+          Ondernemers maken zich klaar voor<br>een relance na de <i>lockdown-light</i>.<br><br>Zorg dat <strong>informatie zoals openingsuren, <br>de nieuwe diensten en locaties online<br>correct</strong> te vinden zijn.
+          <br>
+          <br>
+          <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large au-u-margin-bottom-small">
+            <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Relance voor lokale ondernemers</LinkTo>
+          <br>
+          <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large au-u-margin-bottom-small">
+            <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Relance voor lokale besturen</LinkTo>
         </p>
       </div>
       <div class="au-o-grid__item au-u-1-1 au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-medium-up">
-
         <svg width="501px" height="385px" viewBox="0 0 501 385" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <title>Artboard Copy 5</title>
           <g id="Artboard-Copy-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -74,27 +76,51 @@
       </div>
     </div>
   </div>
-  <hr>
+
   <div class="au-o-region-large">
-    <div class="au-o-layout au-o-layout--large au-o-box">
-      <div class="au-o-grid au-o-grid--center">
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-6@large">
-          <AuHeading level="2" @skin="3">
-            Ondernemers,
-            <br>
-            in het midden van de relance
-          </AuHeading>
-          <p class="au-c-heading--4 au-u-light au-u-margin-top-tiny au-u-margin-bottom">Zorg dat iedereen jouw business online weer kan vinden &mdash; wat, waar en wanneer.</p>
-          <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large">Lanceer je business</LinkTo>
+    <div class="au-o-layout au-o-layout--large au-o-box au-u-border-bottom au-u-margin-bottom-large">
+      <div class="au-o-grid au-o-grid--flush au-o-grid--center">
+        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+          <div class="au-u-padding-right-large">
+            <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Online informatie over ondernemingen is vaak onvolledig, niet <i>up-to-date</i> of zelfs onvindbaar.</AuHeading>
+
+            <p class="au-c-heading--4 au-u-light au-u-margin-bottom">Burgers en zoekmachines zijn vandaag hard op zoek naar de <strong>juiste informatie over ondernemingen die weer opstarten</strong>.</p>
+            <p class="au-c-heading--4 au-u-light au-u-margin-bottom">Ondernemers missen opportuniteiten, en burgers staan vaak voor een gesloten deur.</p>
+          </div>
         </div>
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-6@large">
-          <AuHeading level="2" @skin="3">
-            Lokale besturen
-            <br>
-            ondersteunen hun lokale handelaars
-          </AuHeading>
-          <p class="au-c-heading--4 au-u-light au-u-margin-top-tiny au-u-margin-bottom">Ondersteun je lokale besturen en help jouw gemeente weer opleven na COVID-19.</p>
-          <LinkTo @route="local-governments.index" class="au-c-button au-c-button--large">Steun lokale handelaars</LinkTo>
+        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+          <img src="{{rootURL}}assets/images/relance-shops-larger.png" class="au-u-margin-bottom-large">
+        </div>
+      </div>
+    </div>
+
+    <div class="au-o-layout au-o-layout--large au-o-box au-u-padding-top-large">
+      <div class="au-o-grid">
+        <div class="au-o-grid__item au-u-1-1">
+          <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Het doel van <i>Relance</i>&nbsp;:<br>informatie over ondernemingen <br><strong>correct</strong> verspreiden.</AuHeading>
+        </div>
+        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+          <div class="au-u-padding-right-large">
+            <AuHeading level="2" @skin="3">
+              Ondernemers: maak informatie over jullie diensten online beschikbaar
+            </AuHeading>
+            <p class="au-c-heading--4 au-u-light au-u-margin-top-tiny au-u-margin-bottom">Zorg dat iedereen jouw business online weer kan vinden &mdash; wat, waar en wanneer.</p>
+            <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large">
+              <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> <i>Relanceer</i>&nbsp;&nbsp;je onderneming
+            </LinkTo>
+          </div>
+        </div>
+        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+          <div class="au-u-padding-right-large">
+            <AuHeading level="2" @skin="3">
+              Lokale besturen: ondersteun jullie lokale ondernemingen bij hun relance
+            </AuHeading>
+            <p class="au-c-heading--4 au-u-light au-u-margin-top-tiny au-u-margin-bottom">Ondersteun je lokale besturen en help jouw gemeente weer opleven na COVID-19.</p>
+            <LinkTo @route="local-governments.index" class="au-c-button au-c-button--large">
+              <AuIcon @icon="arrow-right" @size="large" @alignment="left" />
+              Steun lokale handelaars
+            </LinkTo>
+          </div>
         </div>
       </div>
     </div>
