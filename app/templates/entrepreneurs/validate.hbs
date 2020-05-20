@@ -55,20 +55,25 @@
         </div>
       </div>
 
-      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom-small">Bekijk welke nieuwe informatie we vinden op jouw site</AuHeading>
-        <p class="au-c-heading au-c-heading--6 au-u-margin-bottom">Dit werkt alleen voor websites waar de machineleesbare code in de broncode zit. </AuHeading>
-        <p class="au-c-heading au-c-heading--6 au-u-margin-bottom">Zorg dat de website live staat, en link ons naar de juiste pagina om te testen</p>
+      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium au-u-2-6@medium">
+        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom-small">Bekijk welke informatie we vinden op uw website</AuHeading>
+        <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-light">Zorg dat de website live staat met de aangepaste broncode, en link ons naar de juiste pagina om te testen. De test werkt enkel voor websites waar machineleesbare informatie in de broncode zit.</p>
 
-        <div class="au-u-margin-bottom">
+        <div class="au-u-margin-bottom-large">
           <AuLabel for="url-input">Link naar uw website</AuLabel>
-          <AuInput id="url-input" @value={{this.url}} />
-          <AuButton
-            @loading={{this.harvestUrl.isRunning}}
-            @disabled={{this.isDisabled}}
-            {{on "click" (perform this.harvestUrl)}}>
-            Test
-          </AuButton>
+          <div class="au-o-grid au-o-grid--flush">
+            <div class="au-o-grid__item au-u-1-1 au-u-5-6@medium">
+              <AuInput id="url-input" @value={{this.url}} @width="block" />
+            </div>
+            <div class="au-o-grid__item au-u-1-1 au-u-1-6@medium">
+              <AuButton
+                @loading={{this.harvestUrl.isRunning}}
+                @disabled={{this.isDisabled}}
+                {{on "click" (perform this.harvestUrl)}}>
+                Zoek informatie
+              </AuButton>
+            </div>
+          </div>
 
           {{#unless this.harvestUrl.isRunning}}
             {{#if this.localBusinesses}}

@@ -22,7 +22,7 @@ export default class FormsInputBusinessCategorySelectorComponent extends Compone
       page: { size: 200 }
     };
     if (searchData) {
-      yield timeout(500);
+      yield timeout(300);
       query['filter[label]'] = searchData;
     }
     const categories = yield this.store.query('category', query);
