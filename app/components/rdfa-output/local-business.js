@@ -1,6 +1,5 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-import { task } from 'ember-concurrency-decorators';
 import { tracked } from '@glimmer/tracking';
 
 export default class RdfaOutputLocalBusinessComponent extends Component {
@@ -14,25 +13,10 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
 
   constructor() {
     super(...arguments);
-    if( ! this.fastboot.isFastboot )
-      this.loadData.perform();
-    else
-      this.syncLoadData();
+    this.initInternalData();
   }
 
-  @task
-  *loadData() {
-    this.localBusiness = this.args.localBusiness;
-    this.location = yield this.localBusiness.location;
-    this.categories = (yield this.localBusiness.categories).toArray();
-    this.naceBelCodes = (yield this.localBusiness.naceBelCodes).toArray();
-    this.openingHours = (yield this.localBusiness.openingHoursSpecifications).toArray();
-    for (const oh of this.openingHours )
-      yield this.openingHours.dayOfWeek;
-    this.generateRdfaSnippet();
-  }
-
-  syncLoadData() {
+  initInternalData() {
     this.localBusiness = this.args.localBusiness;
     this.location = this.localBusiness.location;
     this.categories = this.localBusiness.categories.toArray();
