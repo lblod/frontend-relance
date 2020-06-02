@@ -1,0 +1,50 @@
+/* ==================================
+   #CONTENT
+   ================================== */
+
+.au-c-intro {
+  @include au-font-size($au-h4);
+  font-weight: $au-light;
+  color: $au-gray-800;
+  max-width: 60ch;
+
+  & + & {
+    margin-top: $au-unit-small;
+  }
+
+  @include mq(medium) {
+    @include au-font-size($au-h3);
+    max-width: 35ch;
+
+    & + & {
+      margin-top: $au-unit;
+    }
+  }
+
+}
+
+.au-c-para {
+  @include au-font-size($au-h5);
+  font-weight: $au-light;
+  color: $au-gray-800;
+  max-width: 70ch;
+
+  & + & {
+    margin-top: $au-unit-small;
+  }
+
+  @include mq(medium) {
+    @include au-font-size($au-h4);
+
+    & + & {
+      margin-top: $au-unit;
+    }
+  }
+}
+
+.au-c-para-small {
+  @include au-font-size($au-h6);
+  font-weight: $au-light;
+  color: $au-gray-800;
+  max-width: 70ch;
+}

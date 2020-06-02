@@ -1,127 +1,127 @@
 <CrossAnimateTags>
-  <div class="au-o-layout au-o-layout--large au-u-padding-bottom-large au-u-margin-bottom-large au-u-border-bottom">
-    <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">
-      Voor ondernemers
-      <br>
-      Laat de wereld stap-voor-stap weten
-      <br>
-      dat je weer <i>Open for Business</i> bent
-    </AuHeading>
+  <div class="au-o-region-large au-c-hero">
+    <div class="au-o-layout au-o-layout--large">
+      <AuHeading @level="1" @skin="3" class="au-u-margin-bottom-small">Voor ondernemers</AuHeading>
+      <p class="au-c-heading au-c-heading--1">Laat de wereld stap-voor-stap weten
+        <br> dat je weer <i>Open for Business</i> bent.</p>
+    </div>
   </div>
 
-  <div class="au-o-layout au-o-layout--large">
+  <div class="au-o-region-large">
+    <div class="au-o-layout au-o-layout--large">
 
-    <div class="au-o-grid au-o-grid--flush">
-      <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
-        <div class="au-u-padding-right-large">
-          <div class="au-o-grid">
-            <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="check" @skin="success" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 1</strong>
-                <br>
-                Vul de gegevens van uw onderneming in.
-              </p>
-            </div>
+      <div class="au-o-grid au-o-grid--flush">
+        <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
+          <div class="au-u-padding-right-large">
+            <div class="au-o-grid">
+              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
+                <AuBadge @icon="check" @skin="success" />
+              </div>
+              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 1</strong>
+                  <br>
+                  Vul de gegevens van uw onderneming in.
+                </p>
+              </div>
 
-            <div class="au-o-grid__item au-u-1-6">
-              <AuBadge @icon="pencil" @skin="border" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6">
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 2</strong>
-                <br>
-                Plak de gegenereerde code in jouw site, en publiceer je site.
-              </p>
-            </div>
+              <div class="au-o-grid__item au-u-1-6">
+                <AuBadge @icon="pencil" @skin="border" />
+              </div>
+              <div class="au-o-grid__item au-u-5-6">
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 2</strong>
+                  <br>
+                  Plak de gegenereerde code in jouw site, en publiceer je site.
+                </p>
+              </div>
 
-            <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="arrow-right" @skin="info" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
+              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
+                <AuBadge @icon="arrow-right" @skin="info" />
+              </div>
+              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
 
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 3</strong>
-                <br>
-                Test en zie het resultaat. Klaar!
-              </p>
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 3</strong>
+                  <br>
+                  Test en zie het resultaat. Klaar!
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-        <div class="au-u-padding-left">
-          <AuAlert @alertIcon="info-circle" @alertTitle="Voor u de code in uw website plakt, kijk uw gegevens even na:"  @alertskin={{"info"}} @alertsize={{"small"}} />
-          <p class="au-c-heading--6 au-u-light au-u-margin-bottom-tiny">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
-          <article class="au-u-margin-bottom-large">
-            <div class="au-u-margin-bottom-small">
-              <LocalBusinessDetails @localBusiness={{@model}} />
-            </div>
-            <div class="au-u-text-right">
-              <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--secondary">
-                <AuIcon @icon="pencil" @alignment="left" @size="large" @ariaHidden="false" />
-                Editeer gegevens
-              </LinkTo>
-            </div>
-          </article>
+        <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+          <div class="au-u-padding-left">
+            <AuAlert @alertIcon="info-circle" @alertTitle="Voor u de code in uw website plakt, kijk uw gegevens even na:"  @alertskin={{"info"}} @alertsize={{"small"}} />
+            <p class="au-c-heading--6 au-u-light au-u-margin-bottom-tiny">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
+            <article class="au-u-margin-bottom-large">
+              <div class="au-u-margin-bottom-small">
+                <LocalBusinessDetails @localBusiness={{@model}} />
+              </div>
+              <div class="au-u-text-right">
+                <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--secondary">
+                  <AuIcon @icon="pencil" @alignment="left" @size="large" @ariaHidden="false" />
+                  Editeer gegevens
+                </LinkTo>
+              </div>
+            </article>
 
-          <div class="au-o-grid au-o-grid--flush">
-            <div class="au-o-grid__item au-u-1-1 au-u-3-5@large">
-              <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">
-                Gegevens in orde?
-              </AuHeading>
-              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
-                Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
-              </AuHeading>
-              <p class="au-c-heading--5 au-u-light au-u-margin-bottom-tiny">Het is belangrijk dat deze informatie zichtbaar is op uw website, om ervoor te zorgen dat zoekmachines de gegevens kunnen valideren.</p>
-              <p class="au-c-heading--5 au-u-light">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
+            <div class="au-o-grid au-o-grid--flush">
+              <div class="au-o-grid__item au-u-1-1 au-u-3-5@large">
+                <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">
+                  Gegevens in orde?
+                </AuHeading>
+                <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">
+                  Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
+                </AuHeading>
+                <p class="au-c-heading--5 au-u-light au-u-margin-bottom-tiny">Het is belangrijk dat deze informatie zichtbaar is op uw website, om ervoor te zorgen dat zoekmachines de gegevens kunnen valideren.</p>
+                <p class="au-c-heading--5 au-u-light">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
+              </div>
             </div>
-          </div>
-          <div class="au-u-margin-bottom">
-            <div class="au-u-text-right">
+            <div class="au-u-margin-bottom">
+              <div class="au-u-text-right">
+                {{#if this.displayCodeBlock}}
+                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                    Verberg broncode
+                  </AuButton>
+                {{else}}
+                  <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                    Toon broncode
+                  </AuButton>
+                {{/if}}
+              </div>
               {{#if this.displayCodeBlock}}
-                <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
-                  Verberg broncode
-                </AuButton>
-              {{else}}
-                <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
-                  Toon broncode
-                </AuButton>
+                <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
               {{/if}}
             </div>
-            {{#if this.displayCodeBlock}}
-              <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
-            {{/if}}
-          </div>
 
-          <div class="au-u-margin-bottom-large">
-            <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">
-              Kan u niet aan de broncode van uw website, maar enkel aan de tekst?
-            </AuHeading>
-            <p class="au-c-heading--6 au-u-light">Plak deze link op de landingspagina van uw website: <Forms::DisplayUrlSubjectPage @providedUrl={{this.urlForSubjectPage}}/></p>
-          </div>
+            <div class="au-u-margin-bottom-large">
+              <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">
+                Kan u niet aan de broncode van uw website, maar enkel aan de tekst?
+              </AuHeading>
+              <p class="au-c-heading--6 au-u-light">Plak deze link op de landingspagina van uw website: <Forms::DisplayUrlSubjectPage @providedUrl={{this.urlForSubjectPage}}/></p>
+            </div>
 
-          <div class="au-u-margin-bottom-large">
-            <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">
-              Heeft u als ondernemer geen website?
-            </AuHeading>
-            <p class="au-c-heading--6 au-u-light">
-              Neem contact op met uw lokaal bestuur en breng deze op de hoogte van dit initiatief, en stuur de link <a href="relance.lblod.info" target="_blank" rel="noopener">relance.lblod.info</a> samen met uw gegenereerde code door om op hun website te plakken.
-            </p>
-          </div>
+            <div class="au-u-margin-bottom-large">
+              <AuHeading @level="2" @skin="5" class="au-u-margin-bottom-tiny">
+                Heeft u als ondernemer geen website?
+              </AuHeading>
+              <p class="au-c-heading--6 au-u-light">
+                Neem contact op met uw lokaal bestuur en breng deze op de hoogte van dit initiatief, en stuur de link <a href="relance.lblod.info" target="_blank" rel="noopener">relance.lblod.info</a> samen met uw gegenereerde code door om op hun website te plakken.
+              </p>
+            </div>
 
-          <AuButtonGroup>
-            <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--large au-c-button--secondary">
-              <AuIcon @icon="nav-left" @alignment="left" @size="large" @ariaHidden="false" />
-              Vorige stap: pas inhoud aan
-            </LinkTo>
-            <LinkTo @route="entrepreneurs.validate" class="au-c-button au-c-button--large">
-              Volgende stap: valideer
-              <AuIcon @icon="nav-right" @alignment="right" @size="large" @ariaHidden="false" />
-            </LinkTo>
-          </AuButtonGroup>
+            <AuButtonGroup>
+              <LinkTo @route="entrepreneurs.edit.step-1" @model={{@model}} class="au-c-button au-c-button--large au-c-button--secondary">
+                <AuIcon @icon="nav-left" @alignment="left" @size="large" @ariaHidden="false" />
+                Vorige stap: pas inhoud aan
+              </LinkTo>
+              <LinkTo @route="entrepreneurs.validate" class="au-c-button au-c-button--large">
+                Volgende stap: valideer
+                <AuIcon @icon="nav-right" @alignment="right" @size="large" @ariaHidden="false" />
+              </LinkTo>
+            </AuButtonGroup>
+          </div>
         </div>
       </div>
     </div>

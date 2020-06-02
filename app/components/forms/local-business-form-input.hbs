@@ -1,220 +1,223 @@
 <CrossAnimateTags>
-  <div class="au-o-layout au-o-layout--large au-u-padding-bottom-large au-u-margin-bottom-large au-u-border-bottom">
-    {{#link-to "index" class="au-c-link"}}
-      <AuIcon @icon="arrow-left" @alignment="left" @size="large" @ariaHidden="false" /> Terug naar overzicht
-    {{/link-to}}
-    <AuHeading level="1" @skin="1" class="au-u-margin-bottom">
-      Voor ondernemers
-      <br>
-      Laat de wereld stap-voor-stap weten
-      <br>
-      dat je weer <i>Open for Business</i> bent
-    </AuHeading>
+  <div class="au-o-region-large au-c-hero">
+    <div class="au-o-layout au-o-layout--large">
+      <p class="au-c-para-small au-u-margin-bottom">
+        {{#link-to "index" class="au-c-link"}}
+          <AuIcon @icon="arrow-left" @alignment="left" @ariaHidden="false" /> Terug naar overzicht
+        {{/link-to}}
+      </p>
+      <AuHeading @level="1" @skin="3" class="au-u-margin-bottom-small">Voor ondernemers</AuHeading>
+      <p class="au-c-heading au-c-heading--1">Laat de wereld stap-voor-stap weten
+        <br> dat je weer <i>Open for Business</i> bent.
+      </p>
+    </div>
   </div>
 
-  <div class="au-o-layout au-o-layout--large">
+  <div class="au-o-region-large">
+    <div class="au-o-layout au-o-layout--large">
 
-    <div class="au-o-grid au-o-grid--flush">
-      <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
-        <div class="au-u-padding-right-large">
-          <div class="au-o-grid">
-            <div class="au-o-grid__item au-u-1-6">
-              <AuBadge @icon="pencil" @skin="border" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6">
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 1</strong>
-                <br>
-                Vul de gegevens van de onderneming in.
-              </p>
-            </div>
-
-            <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="arrow-right" @skin="info" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 2</strong>
-                <br>
-                Plak de gegenereerde code in jouw site, en publiceer je site.
-              </p>
-            </div>
-
-            <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-              <AuBadge @icon="arrow-right" @skin="info" />
-            </div>
-            <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
-
-              <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                <strong>Stap 3</strong>
-                <br>
-                Test en zie het resultaat. Klaar!
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
-        <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Over de onderneming</AuHeading>
-        <div class="au-c-form">
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
-            <AuInput
-              @value={{@localBusiness.name}}
-              size="40"
-              id="{{this.inputFor}}-onderneming"
-            />
-          </div>
-
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-categorie">Categorieën</AuLabel>
-            <Forms::Input::BusinessCategorySelector
-              @selections={{@localBusiness.categories}}
-              @onUpdate={{this.addCategories}}
-              id="{{this.inputFor}}-categorie"
-            />
-          </div>
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-nacebel">Gedetailleerde categorieën (Nacebelcodes)</AuLabel>
-            <Forms::Input::NaceBelCodesSelector
-              @selections={{@localBusiness.naceBelCodes}}
-              @onUpdate={{this.addNacebelCodes}}
-              id="{{this.inputFor}}-nacebel"
-            />
-          </div>
-
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
-            <AuTextarea
-              @value={{@localBusiness.description}}
-              @width="block"
-              rows="5"
-              id="{{this.inputFor}}-beschrijving"
-            />
-          </div>
-
-          <div class="au-c-form__row">
-            <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
-          </div>
-        </div>
-
-        <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
-        <div class="au-c-form">
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
-            <AuInput
-              @value={{@localBusiness.location.streetAddress}}
-              id="{{this.inputFor}}-straat-nummer-bus"
-            />
-          </div>
-          <div class="au-c-form__row">
+      <div class="au-o-grid au-o-grid--flush">
+        <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
+          <div class="au-u-padding-right-large">
             <div class="au-o-grid">
-              <div class="au-o-grid__item au-u-1-5">
-                <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
-                <AuInput
-                  @width="block"
-                  @value={{@localBusiness.location.postalCode}}
-                  size="6"
-                  id="{{this.inputFor}}-postcode"
-                />
+              <div class="au-o-grid__item au-u-1-6">
+                <AuBadge @icon="pencil" @skin="border" />
               </div>
-              <div class="au-o-grid__item au-u-4-5">
-                <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
-                <AuInput
-                  @value={{@localBusiness.location.city}}
-                  size="40"
-                  id="{{this.inputFor}}-gemeente"
-                />
+              <div class="au-o-grid__item au-u-5-6">
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 1</strong>
+                  <br>
+                  Vul de gegevens van de onderneming in.
+                </p>
+              </div>
+
+              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
+                <AuBadge @icon="arrow-right" @skin="info" />
+              </div>
+              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 2</strong>
+                  <br>
+                  Plak de gegenereerde code in jouw site, en publiceer je site.
+                </p>
+              </div>
+
+              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
+                <AuBadge @icon="arrow-right" @skin="info" />
+              </div>
+              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
+
+                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
+                  <strong>Stap 3</strong>
+                  <br>
+                  Test en zie het resultaat. Klaar!
+                </p>
               </div>
             </div>
           </div>
-
-          <div class="au-c-form__row">
-            <AuLabel for="{{this.inputFor}}-land">Land</AuLabel>
-            <AuInput
-              @value={{@localBusiness.location.country}}
-              id="{{this.inputFor}}-land"
-              disabled
-            />
-          </div>
         </div>
 
-        <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
-        <div class="au-c-form">
-          <div class="au-c-form__row">
-            <Forms::Input::Url
-              @label="Website"
-              @value={{@localBusiness.url}}
-              @onChange={{fn (mut @localBusiness.url)}}
-            />
-          </div>
-          <div class="au-c-form__row">
-            <Forms::Input::Telephone
-              @label="Telefoonnnummer"
-              @value={{@localBusiness.telephone}}
-              @onChange={{fn (mut @localBusiness.telephone)}}
-            />
-          </div>
-          <div class="au-c-form__row">
-            <Forms::Input::Email
-              @label="Email"
-              @value={{@localBusiness.email}}
-              @onChange={{fn (mut @localBusiness.email)}}
-            />
-          </div>
-
-          <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
+        <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+          <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Over de onderneming</AuHeading>
           <div class="au-c-form">
             <div class="au-c-form__row">
-              <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van de onderneming in</AuHeading>
-              <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
-                <AnimatedContainer>
-                  {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
-                    <Forms::Input::OpeningHoursSpecificationEdit
-                      @openingHoursSpecification={{openingHour}}
-                      @onRemove={{this.removeOpeningHoursSpecification}}
-                    />
-                  {{/animated-each}}
-                </AnimatedContainer>
-                <div class="au-o-box au-u-text-center position-higher">
-                  <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}>
-                    <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
-                    Voeg rij met openingsuren toe
-                  </AuButton>
+              <AuLabel for="{{this.inputFor}}-onderneming">Naam onderneming</AuLabel>
+              <AuInput
+                @value={{@localBusiness.name}}
+                size="40"
+                id="{{this.inputFor}}-onderneming"
+              />
+            </div>
+
+            <div class="au-c-form__row">
+              <AuLabel for="{{this.inputFor}}-categorie">Categorieën</AuLabel>
+              <Forms::Input::BusinessCategorySelector
+                @selections={{@localBusiness.categories}}
+                @onUpdate={{this.addCategories}}
+                id="{{this.inputFor}}-categorie"
+              />
+            </div>
+            <div class="au-c-form__row">
+              <AuLabel for="{{this.inputFor}}-nacebel">Gedetailleerde categorieën (Nacebelcodes)</AuLabel>
+              <Forms::Input::NaceBelCodesSelector
+                @selections={{@localBusiness.naceBelCodes}}
+                @onUpdate={{this.addNacebelCodes}}
+                id="{{this.inputFor}}-nacebel"
+              />
+            </div>
+
+            <div class="au-c-form__row">
+              <AuLabel for="{{this.inputFor}}-beschrijving">Beschrijving</AuLabel>
+              <AuTextarea
+                @value={{@localBusiness.description}}
+                @width="block"
+                rows="5"
+                id="{{this.inputFor}}-beschrijving"
+              />
+            </div>
+
+            <div class="au-c-form__row">
+              <Forms::Input::ImageUrl @imageUrl={{this.localBusiness.imageUrl}} @onUpdate={{this.updateImageUrl}}/>
+            </div>
+          </div>
+
+          <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Adres</AuHeading>
+          <div class="au-c-form">
+            <div class="au-c-form__row">
+              <AuLabel for="{{this.inputFor}}-straat-nummer-bus">Straat en nummer (bus optioneel)</AuLabel>
+              <AuInput
+                @value={{@localBusiness.location.streetAddress}}
+                id="{{this.inputFor}}-straat-nummer-bus"
+              />
+            </div>
+            <div class="au-c-form__row">
+              <div class="au-o-grid">
+                <div class="au-o-grid__item au-u-1-5">
+                  <AuLabel for="{{this.inputFor}}-postcode">Postcode</AuLabel>
+                  <AuInput
+                    @width="block"
+                    @value={{@localBusiness.location.postalCode}}
+                    size="6"
+                    id="{{this.inputFor}}-postcode"
+                  />
+                </div>
+                <div class="au-o-grid__item au-u-4-5">
+                  <AuLabel for="{{this.inputFor}}-gemeente">Gemeente</AuLabel>
+                  <AuInput
+                    @value={{@localBusiness.location.city}}
+                    size="40"
+                    id="{{this.inputFor}}-gemeente"
+                  />
                 </div>
               </div>
             </div>
 
             <div class="au-c-form__row">
-              <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de geldigheidsperiode van deze openingsuren in</AuHeading>
-              <div class="au-o-grid">
-                <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
-                  <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig van</AuLabel>
-                  <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
-                    @locale="nl"
-                    @dateFormat="d/m/yy"
-                    @onChange={{this.updateValidityFrom}}
-                    class="au-c-input au-c-input--date au-c-input--block" />
+              <AuLabel for="{{this.inputFor}}-land">Land</AuLabel>
+              <AuInput
+                @value={{@localBusiness.location.country}}
+                id="{{this.inputFor}}-land"
+                disabled
+              />
+            </div>
+          </div>
+
+          <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Contactgegevens</AuHeading>
+          <div class="au-c-form">
+            <div class="au-c-form__row">
+              <Forms::Input::Url
+                @label="Website"
+                @value={{@localBusiness.url}}
+                @onChange={{fn (mut @localBusiness.url)}}
+              />
+            </div>
+            <div class="au-c-form__row">
+              <Forms::Input::Telephone
+                @label="Telefoonnnummer"
+                @value={{@localBusiness.telephone}}
+                @onChange={{fn (mut @localBusiness.telephone)}}
+              />
+            </div>
+            <div class="au-c-form__row">
+              <Forms::Input::Email
+                @label="Email"
+                @value={{@localBusiness.email}}
+                @onChange={{fn (mut @localBusiness.email)}}
+              />
+            </div>
+
+            <AuHeading @level="4" @skin="3" class="au-u-margin-bottom">Openingsuren</AuHeading>
+            <div class="au-c-form">
+              <div class="au-c-form__row">
+                <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de openingsuren van de onderneming in</AuHeading>
+                <div class="au-u-border-top au-u-border-bottom au-u-margin-bottom-large">
+                  <AnimatedContainer>
+                    {{#animated-each @localBusiness.openingHoursSpecifications use=this.openingHoursTransition as |openingHour| }}
+                      <Forms::Input::OpeningHoursSpecificationEdit
+                        @openingHoursSpecification={{openingHour}}
+                        @onRemove={{this.removeOpeningHoursSpecification}}
+                      />
+                    {{/animated-each}}
+                  </AnimatedContainer>
+                  <div class="au-o-box au-u-text-center position-higher">
+                    <AuButton @skin="secondary" {{on "click" this.addOpeningHoursSpecification}}>
+                      <AuIcon @icon="plus-text" @alignment="left" @ariaHidden="false" />
+                      Voeg rij met openingsuren toe
+                    </AuButton>
+                  </div>
                 </div>
-                <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
-                  <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig tot</AuLabel>
-                  <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
-                    @locale="nl"
-                    @dateFormat="d/m/yy"
-                    @onChange={{this.updateValidityTo}}
-                    class="au-c-input au-c-input--date au-c-input--block" />
+              </div>
+
+              <div class="au-c-form__row">
+                <AuHeading @level="5" @skin="4" class="au-u-margin-bottom-small au-u-light">Geef de geldigheidsperiode van deze openingsuren in</AuHeading>
+                <div class="au-o-grid">
+                  <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+                    <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig van</AuLabel>
+                    <EmberFlatpickr @date={{readonly this.openingHoursValidFrom}}
+                      @locale="nl"
+                      @dateFormat="d/m/yy"
+                      @onChange={{this.updateValidityFrom}}
+                      class="au-c-input au-c-input--date au-c-input--block" />
+                  </div>
+                  <div class="au-o-grid__item au-u-1-2 au-u-2-5@medium">
+                    <AuLabel for="{{this.inputFor}}-geldigheid">Openingsuren geldig tot</AuLabel>
+                    <EmberFlatpickr @date={{readonly this.openingHoursValidTo}}
+                      @locale="nl"
+                      @dateFormat="d/m/yy"
+                      @onChange={{this.updateValidityTo}}
+                      class="au-c-input au-c-input--date au-c-input--block" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <AuButton @size="large" {{on "click" this.submit}}>
+            <AuIcon @icon="nav-right" @alignment="left" @size="large" @ariaHidden="false" />
+            Volgende stap: genereer code of link voor jouw website
+          </AuButton>
+
         </div>
-
-        <AuButton @size="large" {{on "click" this.submit}}>
-          <AuIcon @icon="nav-right" @alignment="left" @size="large" @ariaHidden="false" />
-          Volgende stap: genereer code of link voor jouw website
-        </AuButton>
-
       </div>
     </div>
   </div>

@@ -72,6 +72,15 @@
 @import "ember-appuniversum/c-textarea";
 @import "ember-appuniversum/c-toolbar";
 
+// PROJECT SPECIFIC COMPONENTS
+@import "project/c-content";
+@import "project/c-hero";
+@import "project/c-card";
+
+// THIRD PARTY PLUGINS
+@import "project/p-power-select";
+
+
 // UTILITIES
 @import "appuniversum/u-align-text";
 @import "appuniversum/u-headings";

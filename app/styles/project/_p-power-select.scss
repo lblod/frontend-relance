@@ -1,0 +1,169 @@
+/* ==========================================================================
+  Style overwrite ember-power-select
+ ========================================================================== */
+
+/* trigger */
+
+.ember-power-select-trigger {
+  line-height: 3.5rem;
+  padding: 0 $au-unit-tiny;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0 !important;
+  border-color: $au-gray-300;
+  height: $au-input-height;
+}
+
+.ember-power-select-trigger.ember-basic-dropdown-trigger.ember-view.ember-power-select-trigger--active {
+  border-color: $au-gray-300;
+  box-shadow: none;
+}
+
+.ember-power-select-trigger--active {
+  outline: 2px solid $au-yellow-400;
+}
+
+.ember-basic-dropdown-trigger--below.ember-power-select-trigger--active {
+  outline: 0;
+}
+
+/* search input */
+
+.ember-power-select-search-input {
+  font-family: flanders-sans,sans-serif;
+
+  &::-webkit-input-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &::-moz-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &:-ms-input-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &:-moz-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+}
+
+.ember-power-select-search-input:focus {
+  outline: none;
+  border-color: $au-yellow-400;
+  box-shadow: inset 0 0 0 1px $au-yellow-400;
+}
+
+/* dropdown */ // Reformat
+
+.ember-power-select-dropdown.ember-basic-dropdown-content--below,
+.ember-power-select-dropdown.ember-basic-dropdown-content--above,
+.ember-power-select-dropdown.ember-basic-dropdown-content--in-place,
+.ember-power-select-trigger {
+  border-radius: 0;
+  border-color: $au-gray-300;
+  color: $au-gray-900;
+}
+
+.ember-power-select-dropdown.ember-basic-dropdown-content--above {
+  border-top: 1px solid $au-gray-300;
+}
+
+.ember-basic-dropdown-content.ember-power-select-dropdown.ember-basic-dropdown-content--below {
+  box-shadow: 0 2px 2px rgba($au-gray-600, 1);
+}
+
+
+/* select */
+
+.ember-basic-dropdown-trigger,
+.ember-power-select-multiple-trigger,
+.ember-power-select-trigger {
+  line-height: 2.2rem !important;
+  padding: $au-unit-small/2 0 $au-unit-tiny/2 $au-unit-tiny !important;
+  position: relative;
+}
+
+.ember-power-select-option {
+  line-height: 2.2rem !important;
+  padding: 0.3em 0 0.3em 1.6em !important;
+  position: relative;
+}
+
+.ember-power-select-option.ember-power-select-option--loading-message,
+.ember-power-select-option.ember-power-select-option--no-matches-message,
+.ember-power-select-option.ember-power-select-option--search-message {
+  padding-left: 0.5rem;
+  color: $au-gray-800;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.ember-power-select-option[aria-selected="true"],
+.ember-power-select-option[aria-current="true"] {
+  background-color: $au-gray-200 !important;
+  color: $au-blue-600 !important;
+  text-decoration: underline;
+}
+
+.ember-power-select-trigger-multiple-input,
+.ember-power-select-placeholder,
+.ember-power-select-selected-item {
+  font-size: 1.6rem;
+  margin-left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Fix placeholder contrast
+.ember-power-select-trigger-multiple-input {
+  &::-webkit-input-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &::-moz-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &:-ms-input-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  &:-moz-placeholder {
+    color: $au-gray-800;
+    font-style: italic;
+    font-weight: 300;
+  }
+}
+
+.ember-power-select-placeholder,
+.ember-power-select-selected-item {
+  display: inline;
+}
+
+// Fix placeholder contrast
+.ember-power-select-placeholder {
+  color: $au-gray-800;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.ember-power-select-trigger[aria-disabled="true"] .ember-power-select-placeholder {
+  color: $au-gray-600;
+}
