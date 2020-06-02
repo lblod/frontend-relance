@@ -26,17 +26,12 @@ module.exports = function(deployTarget) {
   };
 
   if (deployTarget === 'development' || deployTarget === 'dev') {
-    ENV['ssh-index']["remoteDir"] = "/data/app-relance/config/frontend-relance-dev/";
-    ENV['rsync']['dest'] = ENV['ssh-index']['remoteDir'];
-  }
-
-  if (deployTarget === 'staging' || deployTarget === 'qa') {
-    ENV['ssh-index']["remoteDir"] = "/data/app-relance/config/frontend-relance-qa/";
+    ENV['ssh-index']["remoteDir"] = "/data/app-relance-dev/config/frontend-relance-dev/";
     ENV['rsync']['dest'] = ENV['ssh-index']['remoteDir'];
   }
 
   if (deployTarget === 'style') {
-    ENV['ssh-index']["remoteDir"] = "/data/app-relance/config/frontend-relance-style/";
+    ENV['ssh-index']["remoteDir"] = "/data/app-relance-dev/config/frontend-relance-style/";
     ENV['rsync']['dest'] = ENV['ssh-index']['remoteDir'];
   }
 
