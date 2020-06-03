@@ -64,11 +64,14 @@
             Kopieer deze code, en plak deze vervolgens in de broncode van de landingspagina:
           </AuHeading>
           <p class="au-c-para">Het is belangrijk dat deze informatie zichtbaar is op uw website, om ervoor te zorgen dat zoekmachines de gegevens kunnen valideren.</p>
-
+          <p class="au-c-para">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
         </div>
       </div>
-      <div class="au-u-margin-bottom">
-        <div class="au-u-text-right">
+      <div class="au-c-code-block au-u-margin-top {{if this.displayCodeBlock "is-open" "is-closed"}}">
+        {{#if this.displayCodeBlock}}
+          <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+        {{/if}}
+        <div class="au-c-code-block__toggle">
           {{#if this.displayCodeBlock}}
             <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
               Verberg broncode
@@ -78,23 +81,6 @@
               Toon broncode
             </AuButton>
           {{/if}}
-        </div>
-        {{#if this.displayCodeBlock}}
-          <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
-        {{/if}}
-      </div>
-
-      <div class="au-o-grid au-o-grid--flush">
-        <div class="au-o-grid__item au-u-1-1 au-u-3-5@large">
-          <AuHeading @level="3" @skin="4" class="au-u-margin-bottom">
-            Stijlen toevoegen
-          </AuHeading>
-          <pre>
-            <code>
-              [property="schema:name"],[property="schema:description"],[property="schema:url"],[property="schema:email"],[property="schema:telephone"],[property="schema:address"],[property="schema:openingHoursSpecification"],[typeof="nacebel:NaceBelCode skos:Concept"]{font-family:sans-serif;color:#2A2D31;font-size:16px;line-height:1.5}a[property]{color:#0E5EB8}a[property]:hover{color:#0F6FD7}a[property]:focus{outline:2px solid #FEE539}[typeof="nacebel:NaceBelCode skos:Concept"]{display:inline-block;font-size:13px;color:#69717C;background-color:#F4F5F6;padding:0 2px;border-radius:2px;margin-bottom:6px}[property="schema:name"]{display:block;font-family:sans-serif;font-weight:600;font-size:21px;margin-bottom:12px}[property="schema:description"]{display:block;font-family:sans-serif;font-weight:400;font-size:18px;margin-bottom:12px}[property="schema:url"],[property="schema:email"],[property="schema:telephone"]{display:inline-block;margin-bottom:3px;margin-right:12px}[property="schema:url"]:after,[property="schema:email"]:after{display:inline-flex;content:"/";color:#2A2D31;margin-left:12px}[property="schema:address"]{display:block;margin-bottom:24px;margin-top:24px}[property="schema:openingHoursSpecification"]{}[property="schema:dayOfWeek"]{font-weight:600}[property="schema:validFrom"],[property="schema:validThrough"]{display:inline-block;font-size:13px;color:#69717C;background-color:#F4F5F6;padding:0 2px;border-radius:2px}[property="schema:image"]{display:block;margin-top:24px}[property="schema:image"] img{display:block;max-width:400px;border:1px solid #E6E8EB}
-            </code>
-          </pre>
-          <p class="au-c-para">De informatie is <strong>niet vormgegeven volgens de stijl van uw website</strong>. Neem contact op met uw webdesigner of -beheerder om de stijl aan te passen.</p>
         </div>
       </div>
 

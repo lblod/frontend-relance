@@ -166,3 +166,24 @@ code {
     margin-bottom: $au-unit-large;
   }
 }
+
+.au-c-code-block {
+  position: relative;
+
+  &.is-closed {
+    height: $au-unit-large + $au-unit;
+    background-color: $au-gray-100;
+  }
+}
+
+.au-c-code-block__toggle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  .au-c-code-block.is-closed & {
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%,50%);
+  }
+}
