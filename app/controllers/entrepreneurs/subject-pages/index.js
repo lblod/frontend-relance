@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { computed } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { later } from '@ember/runloop';
 
 export default class EntrepreneursSubjectPagesIndexController extends Controller {
   sort = 'name';
@@ -68,5 +69,9 @@ export default class EntrepreneursSubjectPagesIndexController extends Controller
   @action
   copySuccess() {
     this.succesMessage = true;
+
+    later(this, function() {
+      this.succesMessage = false;
+    }, 800);
   }
 }
