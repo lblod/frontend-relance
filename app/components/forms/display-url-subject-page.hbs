@@ -2,7 +2,6 @@
   <AuInput
     @value={{@providedUrl}}
     size="80"
-    id="{{this.inputFor}}-onderneming"
     disabled
   />
   <CopyButton
@@ -11,7 +10,7 @@
     @success={{this.copySuccess}}
     title="Klik om link te kopiëren"
   >
-    Klik om link te kopiëren!
+    Klik om link te kopiëren
   </CopyButton>
   {{#if this.succesMessage}}
   <span class="au-c-copied-message">Link gekopiëerd</span>
