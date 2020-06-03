@@ -1,5 +1,6 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class RdfaOutputLocalBusinessComponent extends Component {
@@ -8,12 +9,18 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
   @tracked categories = []
   @tracked openingHours = []
   @tracked rdfaSnippet
+  @tracked succesMessage = false
 
   @service fastboot;
 
   constructor() {
     super(...arguments);
     this.initInternalData();
+  }
+
+  @action
+  copySuccess() {
+    this.succesMessage = true;
   }
 
   initInternalData() {
