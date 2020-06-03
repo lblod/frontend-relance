@@ -1,0 +1,45 @@
+
+.au-c-pagination {
+  @include au-font-size($au-h6);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: $au-unit-small 0;
+  border-top: .1rem solid $au-gray-200;
+  margin-top: $au-unit-small;
+}
+
+.au-c-pagination--large {
+  padding: $au-unit $au-unit;
+}
+
+.au-c-pagination__group {
+  display: flex;
+  align-items: center;
+  margin-right: $au-unit-tiny;
+
+  > * + * {
+    margin-left: $au-unit-small;
+    padding-left: $au-unit-small;
+    border-left: .1rem dotted $au-gray-300;
+  }
+}
+
+.au-c-pagination__info {
+  color: $au-gray-700;
+}
+
+.au-c-pagination__list {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  flex-grow: 1;
+}
+
+.au-c-pagination__item {
+  & + & {
+    margin-left: $au-unit-tiny;
+    padding-left: $au-unit-tiny;
+    border-left: .1rem dotted $au-gray-300;
+  }
+}
