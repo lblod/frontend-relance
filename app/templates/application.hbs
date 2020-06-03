@@ -4,7 +4,7 @@
 
 <AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Wij zijn open">
   <AuInput @value={{this.postalCode}} />
-  <button type="button" {{on "click" this.goToSubjectsOverviewPage}}>
+  <button type="button" disabled={{this.invalidInput}} {{on "click" this.goToSubjectsOverviewPage}}>
     Oplijsten
   </button>
   <AuLink @linkRoute="entrepreneurs.new">
