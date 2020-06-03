@@ -1,43 +1,47 @@
-<h1>Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</h1>
+<div class="au-o-region-large au-c-hero">
+  <div class="au-o-layout au-o-layout--medium">
+    <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</AuHeading>
 
-{{#each this.model as |localBusiness|}}
-  <div>
-    <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true"/>
-    <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}}>Bewerk</LinkTo>
+    <ul class="au-o-grid au-o-grid--small">
+      {{#each this.model as |localBusiness|}}
+        <li class="au-o-grid__item au-u-1-2@medium">
+          <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
+          <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
+            <AuIcon @icon="pencil" @alignment="left" />
+            Bewerk
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
+
+    <CopyButton @clipboardText={{this.copyListHtml}}>
+      Kopieer inhoud van pagina
+    </CopyButton>
+
+    <div class="au-c-pagination">
+      <p class="au-c-pagination__info">
+        <span class="au-u-hidden-visually">Rij</span>
+        <strong>{{this.rangeStart}} - {{this.rangeEnd}}</strong> van {{this.total}} <span class="au-u-hidden-visually">resultaten</span>
+      </p>
+      <ul class="au-c-pagination__list">
+        {{#unless this.isFirstPage}}
+          <li class="au-c-pagination__item">
+            <button class="au-c-button au-c-button--tertiary" {{on "click" this.previousPage}}>
+              <AuIcon @icon="nav-left" @alignment="left" />
+              vorige
+              <span class="au-u-hidden-visually"> {{this.size}} rijen</span>
+            </button>
+          </li>
+        {{/unless}}
+        {{#unless this.isLastPage}}
+          <li class="au-c-pagination__item">
+            <button class="au-c-button au-c-button--tertiary" {{on "click" this.nextPage}}>
+              volgende
+              <AuIcon @icon="nav-right" @alignment="right" />
+            </button>
+          </li>
+        {{/unless}}
+      </ul>
+    </div>
   </div>
-{{/each}}
-
-<CopyButton @clipboardText={{this.copyListHtml}}>
-  Kopieer inhoud van pagina
-</CopyButton>
-
-<div class="say-pagination">
-  <p class="say-pagination__info">
-    <span class="say-u-hidden-visually">Rij</span>
-    <strong>{{this.rangeStart}} - {{this.rangeEnd}}</strong> van {{this.total}} <span class="say-u-hidden-visually">resultaten</span>
-  </p>
-  <ul class="say-pagination__list">
-    {{#unless this.isFirstPage}}
-      <li class="say-pagination__item">
-        <button class="say-button say-button--tertiary" {{on "click" this.previousPage}}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="say-icon say-icon--left">
-            <path d="M15.429 21L6 12l9.429-9L17 4.5 9.143 12 17 19.5 15.429 21z" class="Vector"/>
-          </svg>
-          vorige
-          <span class="say-u-hidden-visually"> {{this.size}} rijen</span>
-        </button>
-      </li>
-    {{/unless}}
-    {{#unless this.isLastPage}}
-      <li class="say-pagination__item">
-        <button class="say-button say-button--tertiary" {{on "click" this.nextPage}}>
-          volgende
-          <span class="say-u-hidden-visually"> {{this.size}} rijen</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="say-icon say-icon--right">
-            <path d="M8.429 21L7 19.5l7.143-7.5L7 4.5 8.429 3 17 12l-8.571 9z" class="Vector"/>
-          </svg>
-        </button>
-      </li>
-    {{/unless}}
-  </ul>
 </div>
