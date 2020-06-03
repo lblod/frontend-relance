@@ -26,6 +26,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
   }
 
   generateRdfaSnippet() {
+    const styles = `<style>[property="schema:name"],[property="schema:description"],[property="schema:url"],[property="schema:email"],[property="schema:telephone"],[property="schema:address"],[property="schema:openingHoursSpecification"],[typeof="nacebel:NaceBelCode skos:Concept"]{font-family:sans-serif;color:#2A2D31;font-size:16px;line-height:1.5}a[property]{color:#0E5EB8}a[property]:hover{color:#0F6FD7}a[property]:focus{outline:2px solid #FEE539}[typeof="nacebel:NaceBelCode skos:Concept"]{display:inline-block;font-size:13px;color:#69717C;background-color:#F4F5F6;padding:0 2px;border-radius:2px;margin-bottom:6px}[property="schema:name"]{display:block;font-family:sans-serif;font-weight:600;font-size:21px;margin-bottom:12px}[property="schema:description"]{display:block;font-family:sans-serif;font-weight:400;font-size:18px;margin-bottom:12px}[property="schema:url"],[property="schema:email"],[property="schema:telephone"]{display:inline-block;margin-bottom:3px;margin-right:12px}[property="schema:url"]:after,[property="schema:email"]:after{display:inline-flex;content:"/";color:#2A2D31;margin-left:12px}[property="schema:address"]{display:block;margin-bottom:24px;margin-top:24px}[property="schema:openingHoursSpecification"]{}[property="schema:dayOfWeek"]{font-weight:600}[property="schema:validFrom"],[property="schema:validThrough"]{display:inline-block;font-size:13px;color:#69717C;background-color:#F4F5F6;padding:0 2px;border-radius:2px}[property="schema:image"]{display:block;margin-top:24px}[property="schema:image"] img{display:block;max-width:400px;border:1px solid #E6E8EB}</style>`
     const name = this.localBusiness.name ? `<div property="schema:name">${this.localBusiness.name}</div>` : '';
     const description = this.localBusiness.description ? `<div property="schema:description">${this.localBusiness.description}</div>` : '';
     const website = this.localBusiness.url ? `<a property="schema:url" href="${this.localBusiness.url}">${this.localBusiness.url}</a>` : '';
@@ -81,6 +82,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     }
 
     this.rdfaSnippet = `
+        ${styles}
         <div resource="${this.localBusiness.uri}"
              typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
             prefix="schema: http://schema.org/ nacebel: http://data.gift/vocabularies/nace-bel/ skos: http://www.w3.org/2004/02/skos/core#">
