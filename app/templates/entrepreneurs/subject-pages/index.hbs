@@ -2,53 +2,57 @@
   <div class="au-o-layout au-o-layout--medium">
     <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</AuHeading>
 
-    <ul class="au-o-grid au-o-grid--small">
-      {{#each this.model as |localBusiness|}}
-        <li class="au-o-grid__item au-u-1-2@medium">
-          <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
-          <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
-            <AuIcon @icon="pencil" @alignment="left" />
-            Bewerk
-          </LinkTo>
-        </li>
-      {{/each}}
-    </ul>
-
-    <hr class="au-c-divider au-u-margin-bottom-small">
-
-    <div class="au-c-copy-row">
-      <CopyButton @clipboardText={{this.copyListHtml}} @success={{this.copySuccess}} class="au-c-button">
-        Kopieer de inhoud van deze pagina
-      </CopyButton>
-      {{#if this.succesMessage}}
-      <span class="au-c-copied-message">Inhoud gekopiëerd</span>
-      {{/if}}
-    </div>
-
-    <div class="au-c-pagination">
-      <p class="au-c-pagination__info">
-        <span class="au-u-hidden-visually">Rij</span>
-        <strong>{{this.rangeStart}} - {{this.rangeEnd}}</strong> van {{this.total}} <span class="au-u-hidden-visually">resultaten</span>
-      </p>
-      <ul class="au-c-pagination__list">
-        {{#unless this.isFirstPage}}
-          <li class="au-c-pagination__item">
-            <button class="au-c-button au-c-button--tertiary" {{on "click" this.previousPage}}>
-              <AuIcon @icon="nav-left" @alignment="left" />
-              vorige
-              <span class="au-u-hidden-visually"> {{this.size}} rijen</span>
-            </button>
+    {{#if this.model.length}}
+      <ul class="au-o-grid au-o-grid--small">
+        {{#each this.model as |localBusiness|}}
+          <li class="au-o-grid__item au-u-1-2@medium">
+            <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
+            <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
+              <AuIcon @icon="pencil" @alignment="left" />
+              Bewerk
+            </LinkTo>
           </li>
-        {{/unless}}
-        {{#unless this.isLastPage}}
-          <li class="au-c-pagination__item">
-            <button class="au-c-button au-c-button--tertiary" {{on "click" this.nextPage}}>
-              volgende
-              <AuIcon @icon="nav-right" @alignment="right" />
-            </button>
-          </li>
-        {{/unless}}
+        {{/each}}
       </ul>
-    </div>
+
+      <hr class="au-c-divider au-u-margin-bottom-small">
+
+      <div class="au-c-copy-row">
+        <CopyButton @clipboardText={{this.copyListHtml}} @success={{this.copySuccess}} class="au-c-button">
+          Kopieer de inhoud van deze pagina
+        </CopyButton>
+        {{#if this.succesMessage}}
+          <span class="au-c-copied-message">Inhoud gekopiëerd</span>
+        {{/if}}
+      </div>
+
+      <div class="au-c-pagination">
+        <p class="au-c-pagination__info">
+          <span class="au-u-hidden-visually">Rij</span>
+          <strong>{{this.rangeStart}} - {{this.rangeEnd}}</strong> van {{this.total}} <span class="au-u-hidden-visually">resultaten</span>
+        </p>
+        <ul class="au-c-pagination__list">
+          {{#unless this.isFirstPage}}
+            <li class="au-c-pagination__item">
+              <button class="au-c-button au-c-button--tertiary" {{on "click" this.previousPage}}>
+                <AuIcon @icon="nav-left" @alignment="left" />
+                vorige
+                <span class="au-u-hidden-visually"> {{this.size}} rijen</span>
+              </button>
+            </li>
+          {{/unless}}
+          {{#unless this.isLastPage}}
+            <li class="au-c-pagination__item">
+              <button class="au-c-button au-c-button--tertiary" {{on "click" this.nextPage}}>
+                volgende
+                <AuIcon @icon="nav-right" @alignment="right" />
+              </button>
+            </li>
+          {{/unless}}
+        </ul>
+      </div>
+    {{else}}
+      <p>Helaas, geen ondernemingen gevonden voor postcode {{this.postalCode}}.</p>
+    {{/if}}
   </div>
 </div>

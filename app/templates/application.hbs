@@ -3,6 +3,10 @@
 {{navigation-narrator}}
 
 <AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Wij zijn open">
+  <AuInput @value={{this.postalCode}} />
+  <button type="button" {{on "click" this.goToSubjectsOverviewPage}}>
+    Oplijsten
+  </button>
   <AuLink @linkRoute="entrepreneurs.new">
     Aan de slag
     <AuIcon @icon="arrow-right" @alignment="right" />
