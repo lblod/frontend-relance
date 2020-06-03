@@ -1,11 +1,14 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class EntrepreneursSubjectPagesIndexController extends Controller {
   sort = 'name';
   page = 0;
   size = 10;
+
+  @tracked succesMessage = false
 
   get locationName() {
     if (this.postalCode && this.model.length) {
@@ -60,5 +63,10 @@ export default class EntrepreneursSubjectPagesIndexController extends Controller
       node.appendChild(child);
     }
     return node.innerHTML;
+  }
+
+  @action
+  copySuccess() {
+    this.succesMessage = true;
   }
 }
