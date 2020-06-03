@@ -49,12 +49,18 @@
             <AuInput id="url-input" @value={{this.url}} @width="block" />
           </div>
           <div class="au-o-grid__item au-u-1-1 au-u-1-6@medium">
+            {{#if this.harvestUrl.isRunning}}
             <AuButton
-              @loading={{this.harvestUrl.isRunning}}
+              @loading="true">
+              Zoek informatie
+            </AuButton>
+            {{else}}
+            <AuButton
               @disabled={{this.isDisabled}}
               {{on "click" (perform this.harvestUrl)}}>
               Zoek informatie
             </AuButton>
+            {{/if}}
           </div>
         </div>
 
