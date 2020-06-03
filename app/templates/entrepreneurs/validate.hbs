@@ -1,104 +1,88 @@
 <CrossAnimateTags>
   <div class="au-o-region-large au-c-hero">
-    <div class="au-o-layout au-o-layout--large">
-      <AuHeading level="1" @skin="1">
-        Voor ondernemers
+    <div class="au-o-layout au-o-layout--medium">
+      <p class="au-c-para-small au-u-margin-bottom">
+        <LinkTo @route="index" class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Terug naar overzicht</LinkTo>
+      </p>
+      <AuHeading @level="1" @skin="3" class="au-u-margin-bottom-small">Valideer je site</AuHeading>
+      <p class="au-c-heading au-c-heading--1 au-u-margin-bottom  au-u-margin-bottom-large@medium">Laat de wereld stap-voor-stap weten
         <br>
-        Laat de wereld stap-voor-stap weten
-        <br>
-        dat je weer <i>Open for Business</i> bent
-      </AuHeading>
+        dat je weer <i>Open for Business</i> bent</p>
+      <ul class="au-o-grid au-o-grid--small">
+        <li class="au-o-grid__item au-u-1-3@medium">
+          <AuHeading @level="3" @skin="4">
+            <AuBadge @icon="check" @skin="success" /> Stap 1
+          </AuHeading>
+          <p class="au-c-para-small au-u-margin-top-small">
+            Vul de gegevens van uw onderneming in.
+          </p>
+        </li>
+        <li class="au-o-grid__item au-u-1-3@medium">
+          <AuHeading @level="3" @skin="4">
+            <AuBadge @icon="check" @skin="success" /> Stap 2
+          </AuHeading>
+          <p class="au-c-para-small au-u-margin-top-small">
+            Plak de gegenereerde code in jouw site, en publiceer je site.
+          </p>
+        </li>
+        <li class="au-o-grid__item au-u-1-3@medium">
+          <AuHeading @level="3" @skin="4">
+            <AuBadge @icon="pencil" @skin="border" /> Stap 3
+          </AuHeading>
+          <p class="au-c-para-small au-u-margin-top-small">
+            Test en zie het resultaat. Klaar!
+          </p>
+        </li>
+      </ul>
     </div>
   </div>
 
   <div class="au-o-region-large">
-    <div class="au-o-layout au-o-layout--large">
+    <div class="au-o-layout au-o-layout--medium">
+      <AuHeading @level="2" @skin="2" class="au-u-margin-bottom-small">Bekijk welke informatie we vinden op uw website</AuHeading>
+      <p class="au-c-para">Zorg dat de website live staat met de aangepaste broncode, en link ons naar de juiste pagina om te testen. De test werkt enkel voor websites waar machineleesbare informatie in de broncode zit.</p>
 
-      <div class="au-o-grid au-o-grid--flush">
-        <div class="au-o-grid__item au-u-1-1 au-u-2-6@medium">
-          <div class="au-u-padding-right-large">
-            <div class="au-o-grid">
-              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-                <AuBadge @icon="check" @skin="success" />
-              </div>
-              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
-                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                  <strong>Stap 1</strong>
-                  <br>
-                  Vul de gegevens van uw onderneming in.
-                </p>
-              </div>
-
-              <div class="au-o-grid__item au-u-1-6 au-u-visible-medium-up">
-                <AuBadge @icon="check" @skin="success" />
-              </div>
-              <div class="au-o-grid__item au-u-5-6 au-u-visible-medium-up">
-                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                  <strong>Stap 2</strong>
-                  <br>
-                  Plak de gegenereerde code in jouw site, en publiceer je site.
-                </p>
-              </div>
-
-              <div class="au-o-grid__item au-u-1-6">
-                <AuBadge @icon="pencil" @skin="border" />
-              </div>
-              <div class="au-o-grid__item au-u-5-6">
-
-                <p class="au-c-heading au-c-heading--4 au-u-margin-bottom au-u-light">
-                  <strong>Stap 3</strong>
-                  <br>
-                  Test en zie het resultaat. Klaar!
-                </p>
-              </div>
-            </div>
+      <div class="au-u-margin-top au-u-margin-bottom-large">
+        <AuLabel for="url-input">Link naar uw website</AuLabel>
+        <div class="au-o-grid au-o-grid--flush">
+          <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium">
+            <AuInput id="url-input" @value={{this.url}} @width="block" />
+          </div>
+          <div class="au-o-grid__item au-u-1-1 au-u-1-6@medium">
+            <AuButton
+              @loading={{this.harvestUrl.isRunning}}
+              @disabled={{this.isDisabled}}
+              {{on "click" (perform this.harvestUrl)}}>
+              Zoek informatie
+            </AuButton>
           </div>
         </div>
 
-        <div class="au-o-grid__item au-u-1-1 au-u-4-6@medium au-u-2-6@medium">
-          <AuHeading @level="2" @skin="2" class="au-u-margin-bottom-small">Bekijk welke informatie we vinden op uw website</AuHeading>
-          <p class="au-c-heading au-c-heading--6 au-u-margin-bottom au-u-light">Zorg dat de website live staat met de aangepaste broncode, en link ons naar de juiste pagina om te testen. De test werkt enkel voor websites waar machineleesbare informatie in de broncode zit.</p>
-
-          <div class="au-u-margin-bottom-large">
-            <AuLabel for="url-input">Link naar uw website</AuLabel>
-            <div class="au-o-grid au-o-grid--flush">
-              <div class="au-o-grid__item au-u-1-1 au-u-5-6@medium">
-                <AuInput id="url-input" @value={{this.url}} @width="block" />
-              </div>
-              <div class="au-o-grid__item au-u-1-1 au-u-1-6@medium">
-                <AuButton
-                  @loading={{this.harvestUrl.isRunning}}
-                  @disabled={{this.isDisabled}}
-                  {{on "click" (perform this.harvestUrl)}}>
-                  Zoek informatie
-                </AuButton>
-              </div>
+        {{#unless this.harvestUrl.isRunning}}
+          {{#if this.localBusinesses}}
+            <div class="au-o-box au-c-card au-u-margin-top">
+              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-margin-bottom--large">We hebben informatie op jouw website gevonden</AuHeading>
+              <p class="au-c-para">Dit is de informatie die we vonden:</p>
+              {{#each this.localBusinesses as |localBusiness|}}
+                <LocalBusinessDetails @localBusiness={{localBusiness}} />
+              {{/each}}
             </div>
-
-            {{#unless this.harvestUrl.isRunning}}
-              {{#if this.localBusinesses}}
-                <AuHeading @level="3" @skin="3" class="au-u-margin-bottom au-u-margin-bottom--large">We hebben informatie op jouw website gevonden</AuHeading>
-                <p class="au-u-heading au-u-heading--5">Dit is de informatie die we vonden:</p>
-                {{#each this.localBusinesses as |localBusiness|}}
-                  <LocalBusinessDetails @localBusiness={{localBusiness}} />
-                {{/each}}
-            {{else}}
-                {{#if this.error}}
-                  <AuHelpText @error="true">Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.</AuHelpText>
-                {{else if this.harvestUrl.performCount}}
-                  <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Oeps, we vonden geen informatie!</AuHeading>
-                  <p class="au-u-heading au-u-heading--5">Kijk na of u de nieuwe informatie live staat op uw website. Kijk ook na of de code in dezelfde pagina werd gestopt die u ons heeft doorgegeven; bij voorkeur is dat de landingspagina.</p>
-                  <p class="au-u-heading au-u-heading--5">Neem contact op met uw webbeheerder indien dit blijft aanhouden.</p>
-                {{/if}}
-              {{/if}}
-            {{/unless}}
-          </div>
-
-          <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Wil u zien hoe Google de gegevens op uw website interpreteert?</AuHeading>
-          <p class="au-u-heading au-u-heading--5">Ga naar <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Test voor uitgebreide resultaten van Google</a>.</p>
-        </div>
-
+         {{else}}
+            {{#if this.error}}
+            <AuHelpText @error="true">Er is iets misgelopen bij het ophalen van de informatie. Controleer of de URL correct is.</AuHelpText>
+            {{else if this.harvestUrl.performCount}}
+            <div class="au-o-box au-c-card au-u-margin-top">
+              <AuHeading @level="3" @skin="3" class="au-u-margin-bottom">Oeps, we vonden geen informatie!</AuHeading>
+              <p class="au-c-para">Kijk na of u de nieuwe informatie live staat op uw website. Kijk ook na of de code in dezelfde pagina werd gestopt die u ons heeft doorgegeven; bij voorkeur is dat de landingspagina.</p>
+              <p class="au-c-para">Neem contact op met uw webbeheerder indien dit blijft aanhouden.</p>
+            </div>
+            {{/if}}
+          {{/if}}
+        {{/unless}}
       </div>
+
+      <AuHeading @level="3" @skin="3" class="au-u-margin-bottom-small">Wil u zien hoe Google de gegevens op uw website interpreteert?</AuHeading>
+      <p class="au-c-para">Ga naar <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer" class="au-c-link">Test voor uitgebreide resultaten van Google</a>.</p>
     </div>
   </div>
 </CrossAnimateTags>
