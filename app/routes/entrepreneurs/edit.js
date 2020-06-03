@@ -4,7 +4,7 @@ export default class EntrepreneursEditRoute extends Route {
   async model(params) {
     const businesses = await this.store.query('local-business', {
       filter: {
-        id: params.id
+        ':id:': params.id
       },
       page: {
         size: 1

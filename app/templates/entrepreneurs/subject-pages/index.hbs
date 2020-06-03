@@ -1,0 +1,8 @@
+<h1>Ondernemingen</h1>
+
+{{#each this.model as |localBusiness|}}
+  <div>
+    <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true"/>
+    <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}}>Bewerk</LinkTo>
+  </div>
+{{/each}}
