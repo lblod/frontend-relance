@@ -82,6 +82,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
     }
 
     this.rdfaSnippet = `
+      <div class="copy-snippet">
         ${styles}
         <div resource="${this.localBusiness.uri}"
              typeof="schema:LocalBusiness ${categories} ${nacebelUris}"
@@ -96,6 +97,7 @@ export default class RdfaOutputLocalBusinessComponent extends Component {
           ${openingHours}
           ${image}
         </div>
+      </div>
     `;
   }
 }
