@@ -22,4 +22,5 @@ Router.map(function() {
   });
 
   this.route('local-governments', { path: '/lokale-besturen' }, function() {});
+  this.route('disclaimer', { path: '/disclaimer' }, function() {});
 });
