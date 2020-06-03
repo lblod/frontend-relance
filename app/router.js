@@ -18,7 +18,7 @@ Router.map(function() {
 
     this.route('subject-pages', function() {
       this.route('show', { path: '/:id/details' });
-      this.route('edit');
+      this.route('edit', { path: '/:id/edit' });
     });
   });
 
