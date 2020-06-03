@@ -2,7 +2,7 @@
   <div class="au-o-region-large au-c-hero">
     <div class="au-o-layout au-o-layout--large">
       <div class="au-o-grid au-o-grid--center">
-        <div class="au-o-grid__item au-u-1-1 au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-large-up">
+        <div class="au-o-grid__item au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-large-up">
           <svg width="404px" height="373px" viewBox="0 0 404 373" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
             <title>Illustratie: welkom, we zijn open!</title>
             <g id="Artboard-Copy-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -25,7 +25,7 @@
             </g>
           </svg>
         </div>
-        <div class="au-o-grid__item au-u-1-1 au-u-2-3@medium au-u-2-4@large au-c-hero__usp">
+        <div class="au-o-grid__item au-u-2-3@medium au-u-2-4@large au-c-hero__usp">
           <AuHeading @skin="1" class="au-u-margin-bottom">Open for business?<br>Iedereen mag het weten!</AuHeading>
           <p class="au-c-intro">
             Ondernemers maken zich klaar voor een relance na de <i>lockdown-light</i>.
@@ -33,15 +33,13 @@
           <p class="au-c-intro">
             Zorg dat de <strong>informatie</strong> zoals diensten, openingsuren en locatie <strong>online correct terug te vinden</strong> is.
           </p>
-          <p class="au-c-intro au-u-margin-top">
-            <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large au-u-margin-bottom-small">
-              <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Relance voor lokale ondernemers</LinkTo>
-            <br>
+          <p class="au-c-para au-u-margin-top">
             <LinkTo @route="local-governments.index" class="au-c-button au-c-button--large au-u-margin-bottom-small">
-              <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Relance voor lokale besturen</LinkTo>
+              <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Steun lokale handelaars
+            </LinkTo>
           </p>
         </div>
-        <div class="au-o-grid__item au-u-1-1 au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-medium-up">
+        <div class="au-o-grid__item au-u-1-3@medium au-u-1-4@large au-c-hero__image au-u-visible-medium-up">
           <svg width="501px" height="385px" viewBox="0 0 501 385" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
             <title>Illustratie: Open</title>
             <g id="Artboard-Copy-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -82,45 +80,31 @@
   </div>
 
   <div class="au-o-region-large">
-    <div class="au-o-layout au-o-layout--large">
-      <div class="au-o-grid au-o-grid--center">
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+    <div class="au-o-layout au-o-layout--medium">
+      <div class="au-o-grid au-o-grid--center au-o-grid--reverse">
+        <div class="au-o-grid__item au-u-1-2@medium au-u-2-5@large">
           <div class="au-u-padding-right-large">
             <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Online informatie over ondernemingen is vaak onvolledig, niet <i>up-to-date</i> of zelfs onvindbaar.</AuHeading>
             <p class="au-c-para">Burgers en zoekmachines zijn vandaag hard op zoek naar de <strong>juiste informatie over ondernemingen</strong> die weer opstarten.</p>
             <p class="au-c-para">Ondernemers missen opportuniteiten, en burgers staan vaak voor een gesloten deur.</p>
+            <p class="au-c-para">
+              <AuLink @linkRoute="entrepreneurs.validate">Bekijk welke informatie we vinden op uw website</AuLink>
+            </p>
           </div>
         </div>
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
-          <img src="{{rootURL}}assets/images/relance-shops-larger.png" class="au-u-margin-bottom-large" alt="Screenshot die openingsuren toont op diverse websites.">
+        <div class="au-o-grid__item au-u-1-2@medium au-u-3-5@large">
+          <img src="{{rootURL}}assets/images/relance-shops-larger.png" alt="Screenshot die openingsuren toont op diverse websites.">
         </div>
       </div>
     </div>
   </div>
 
   <div class="au-o-region-large au-c-doormat">
-    <div class="au-o-layout au-o-layout--large">
-      <div class="au-o-grid au-o-grid--gutter au-o-grid--center au-u-margin-bottom-small au-u-margin-bottom@medium">
-        <div class="au-o-grid__item au-1-1 au-u-4-5@large">
-          <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Het doel van <i>Relance</i>&nbsp;:<br>informatie over ondernemingen <br><strong>correct</strong> verspreiden.</AuHeading>
-          <p class="au-c-para">Relance geeft ondernemers en lokale besturen de mogelijkheid om <strong>informatie op een machineleesbare te verspreiden</strong>, zodat zoekmachines en burgers deze eenvoudig kunnen terugvinden.</p>
-        </div>
-      </div>
-      <div class="au-o-grid au-o-grid--small au-o-grid--center">
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
-          <div class="au-o-box au-c-card">
-            <AuHeading level="2" @skin="3" class="au-u-margin-bottom-small">
-              Ondernemers: maak informatie over jullie diensten online beschikbaar
-            </AuHeading>
-            <p class="au-c-para">Zorg dat iedereen jouw business online weer kan vinden &mdash; wat, waar en wanneer.</p>
-            <p class="au-c-para">
-              <LinkTo @route="entrepreneurs.index" class="au-c-button au-c-button--large">
-                <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> <i>Relanceer</i>&nbsp;&nbsp;je onderneming
-              </LinkTo>
-            </p>
-          </div>
-        </div>
-        <div class="au-o-grid__item au-u-1-1 au-u-1-2@medium au-u-2-5@large">
+    <div class="au-o-layout au-o-layout--medium">
+      <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Het doel van <i>Relance</i>&nbsp;:<br>informatie over ondernemingen <strong>correct</strong> verspreiden.</AuHeading>
+      <p class="au-c-para">Relance geeft ondernemers en lokale besturen de mogelijkheid om <strong>informatie op een machineleesbare manier te verspreiden</strong>, zodat zoekmachines en burgers deze eenvoudig kunnen terugvinden.</p>
+      <div class="au-o-grid au-o-grid--small au-o-grid--center  au-u-margin-top-small au-u-margin-top@medium">
+        <div class="au-o-grid__item au-u-1-2@medium au-u-3-5@large">
           <div class="au-o-box au-c-card">
             <AuHeading level="2" @skin="3" class="au-u-margin-bottom-small">
               Lokale besturen: ondersteun jullie lokale ondernemingen bij hun relance
@@ -130,6 +114,19 @@
               <LinkTo @route="local-governments.index" class="au-c-button au-c-button--large">
                 <AuIcon @icon="arrow-right" @size="large" @alignment="left" />
                 Steun lokale handelaars
+              </LinkTo>
+            </p>
+          </div>
+        </div>
+        <div class="au-o-grid__item au-u-1-2@medium au-u-2-5@large">
+          <div class="au-o-box au-c-card au-c-card--secondary">
+            <AuHeading level="2" @skin="4" class="au-u-margin-bottom-small">
+              Ondernemers: maak informatie over jullie diensten online beschikbaar
+            </AuHeading>
+            <p class="au-c-para-small">Zorg dat iedereen jouw business online weer kan vinden &mdash; wat, waar en wanneer.</p>
+            <p class="au-c-para-small">
+              <LinkTo @route="entrepreneurs.index" class="au-c-link">
+                <i>Relanceer</i>&nbsp;&nbsp;je onderneming <AuIcon @icon="arrow-right" @alignment="right" />
               </LinkTo>
             </p>
           </div>

@@ -20,7 +20,7 @@ a.au-c-button:visited {
 
 ol.au-c-list--numbered {
   list-style: decimal;
-  margin-left: $au-unit-small;
+  margin-left: $au-unit;
 
   li {
     padding-left: $au-unit-small;
@@ -107,6 +107,7 @@ code {
 
   @include mq(medium) {
     @include au-font-size($au-h1);
+    max-width: 40ch;
   }
 }
 
@@ -115,13 +116,53 @@ code {
 
   @include mq(medium) {
     @include au-font-size($au-h2);
+    max-width: 50ch;
   }
 }
 
 .au-c-heading--3 {
-  @include au-font-size($au-h4);
+  @include au-font-size($au-h4,1.3);
 
   @include mq(medium) {
     @include au-font-size($au-h3);
+  }
+}
+
+.au-c-heading--4 {
+  @include au-font-size($au-h5);
+
+  @include mq(medium) {
+    @include au-font-size($au-h4,1.3);
+  }
+}
+
+.au-o-region-large {
+  @include mq(large) {
+    padding-top: $au-unit-large + $au-unit;
+    padding-bottom: $au-unit-large + $au-unit;
+  }
+}
+
+.au-o-layout--medium {
+  max-width: 1400px;
+}
+
+.au-c-heading .au-c-badge {
+  margin-right: $au-unit-tiny;
+  height: 3rem;
+  width: 3.1rem;
+  position: relative;
+  top: .3ex;
+}
+
+.au-c-divider {
+  border: 0;
+  border-bottom: .1rem solid $au-gray-200;
+  margin-top: $au-unit;
+  margin-bottom: $au-unit;
+
+  @include mq(medium) {
+    margin-top: $au-unit-large;
+    margin-bottom: $au-unit-large;
   }
 }

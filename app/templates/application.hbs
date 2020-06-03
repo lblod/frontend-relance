@@ -1,7 +1,12 @@
 {{ui-hooks did-insert=(fn this.setAppDidRender)}}
 
-<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Relance Lokale Ondernemingen">
-  {{navigation-narrator}}
+{{navigation-narrator}}
+
+<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Wij zijn open">
+  <AuLink @linkRoute="entrepreneurs.new">
+    Aan de slag
+    <AuIcon @icon="arrow-right" @alignment="right" />
+  </AuLink>
 </AuMainHeader>
 
 {{!-- <AnimatedTools @hideUntilKeys="Ctrl-Shift-KeyK" /> --}}

@@ -47,4 +47,18 @@
   font-weight: $au-light;
   color: $au-gray-800;
   max-width: 70ch;
+
+  & + & {
+    margin-top: $au-unit-small;
+  }
+}
+
+.au-c-list {
+  @include au-font-size($au-h5);
+  font-weight: $au-light;
+  color: $au-gray-800;
+
+  @include mq(medium) {
+    @include au-font-size($au-h4);
+  }
 }
