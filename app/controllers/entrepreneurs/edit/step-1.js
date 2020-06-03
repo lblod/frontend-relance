@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
 export default class EntrepreneursEditStep1Controller extends Controller {
+  overviewRoute = "index";
 
   async saveAll(localBusiness){
     for(const hourSpec of (await localBusiness.openingHoursSpecifications).toArray()){
