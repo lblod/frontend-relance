@@ -1,0 +1,20 @@
+/* ==================================
+   #SNIPPET
+   ================================== */
+
+.au-c-snippet {
+  h1 {
+    @include au-font-size($au-h4);
+    font-weight: $au-medium;
+    font-family: $au-font-secondary;
+  }
+
+  h2 {
+    @include au-font-size($au-h6);
+    font-weight: $au-medium;
+  }
+
+  img {
+    margin-top: $au-unit-small;
+  }
+}

@@ -1,15 +1,21 @@
 {{ui-hooks did-insert=(fn this.setAppDidRender)}}
 
-<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Relance Lokale Ondernemingen">
+{{navigation-narrator}}
+
+<AuMainHeader @brandLink="https://www.vlaanderen.be/nl" @homeRoute="index" @appTitle="Wij zijn open">
+  <AuLink @linkRoute="entrepreneurs.new">
+    Aan de slag
+    <AuIcon @icon="arrow-right" @alignment="right" />
+  </AuLink>
 </AuMainHeader>
 
 {{!-- <AnimatedTools @hideUntilKeys="Ctrl-Shift-KeyK" /> --}}
 
 {{animated-orphans}}
 
-<div class="au-o-region-large">
+<main id="main">
   {{outlet}}
-</div>
+</main>
 
 <AuMainFooter>
   <AuHeading @level="3" @skin="4">
@@ -17,5 +23,10 @@
   </AuHeading>
   <AuContent @skin="small">
     <p>Uitgegeven door <a class="au-c-link" href="https://www.vlaanderen.be/organisaties/administratieve-diensten-van-de-vlaamse-overheid/beleidsdomein-kanselarij-en-bestuur/agentschap-binnenlands-bestuur">Agentschap Binnenlands Bestuur</a></p>
+    <ul class="au-c-list-horizontal">
+      <li class="au-c-list-horizontal__item">
+        <AuLink @linkRoute="disclaimer" @skin="secondary">Disclaimer</AuLink>
+      </li>
+    </ul>
   </AuContent>
 </AuMainFooter>

@@ -55,6 +55,7 @@
 @import "ember-appuniversum/c-brand";
 @import "ember-appuniversum/c-button";
 @import "ember-appuniversum/c-button-group";
+@import "ember-appuniversum/c-content";
 @import "ember-appuniversum/c-heading";
 @import "ember-appuniversum/c-help-text";
 @import "ember-appuniversum/c-input";
@@ -71,6 +72,16 @@
 @import "ember-appuniversum/c-sidebar";
 @import "ember-appuniversum/c-textarea";
 @import "ember-appuniversum/c-toolbar";
+
+// PROJECT SPECIFIC COMPONENTS
+@import "project/c-content";
+@import "project/c-hero";
+@import "project/c-card";
+@import "project/c-snippet";
+
+// THIRD PARTY PLUGINS
+@import "project/p-power-select";
+
 
 // UTILITIES
 @import "appuniversum/u-align-text";
