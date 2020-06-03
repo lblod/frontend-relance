@@ -9,8 +9,12 @@
   <CopyButton
     class="ember-view au-c-button"
     @clipboardText={{this.rdfaSnippet}}
+    @success={{this.copySuccess}}
     title="Klik om code te kopiëren"
   >
     Klik om code te kopiëren
   </CopyButton>
+  {{#if this.succesMessage}}
+  <span class="au-c-copied-message">Code gekopiëerd</span>
+  {{/if}}
 {{/if}}

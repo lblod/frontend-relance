@@ -14,9 +14,16 @@
       {{/each}}
     </ul>
 
-    <CopyButton @clipboardText={{this.copyListHtml}}>
-      Kopieer inhoud van pagina
-    </CopyButton>
+    <hr class="au-c-divider au-u-margin-bottom-small">
+
+    <div class="au-c-copy-row">
+      <CopyButton @clipboardText={{this.copyListHtml}} @success={{this.copySuccess}} class="au-c-button">
+        Kopieer de inhoud van deze pagina
+      </CopyButton>
+      {{#if this.succesMessage}}
+      <span class="au-c-copied-message">Inhoud gekopiëerd</span>
+      {{/if}}
+    </div>
 
     <div class="au-c-pagination">
       <p class="au-c-pagination__info">

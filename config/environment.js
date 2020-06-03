@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     historySupportMiddleware: true,
     fastboot: {
-      hostWhitelist: ["localhost",/^(.+[.])*relance[.]lblod[.]info$/, "wijzijnopen.vlaanderen.be"],
+      hostWhitelist: ["localhost:4200", "localhost", /^(.+[.])*relance[.]lblod[.]info$/, "wijzijnopen.vlaanderen.be"]
     },
     routerScroll: {
       scrollWhenAfterRender: true
