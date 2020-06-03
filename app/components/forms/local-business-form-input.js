@@ -24,7 +24,9 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
   initializeOpeninghoursValidityDates() {
     const openingHours = this.localBusiness.openingHoursSpecifications;
     if (openingHours.length) {
-      const first = openingHours.firstObject;
+      const sortedOpeningHours = openingHours.sortBy('dayOfWeek.position', 'opens');
+      this.localBusiness.openingHoursSpecifications = sortedOpeningHours;
+      const first = sortedOpeningHours.firstObject;
       this.openingHoursValidFrom = first.validFrom;
       this.openingHoursValidTo = first.validThrough;
     } else {
