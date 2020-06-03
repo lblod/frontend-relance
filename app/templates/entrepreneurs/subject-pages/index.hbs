@@ -1,4 +1,4 @@
-<h1>Ondernemingen</h1>
+<h1>Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</h1>
 
 {{#each this.model as |localBusiness|}}
   <div>
