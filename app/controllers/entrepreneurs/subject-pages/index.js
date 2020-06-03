@@ -50,4 +50,15 @@ export default class EntrepreneursSubjectPagesIndexController extends Controller
     this.set('page', this.page + 1);
   }
 
+  @action
+  copyListHtml() {
+    const elements = window.document.getElementsByClassName('copy-snippet');
+    const node = window.document.createElement('div');
+    for (let el of elements) {
+      const child = window.document.createElement('div');
+      child.innerHTML = el.innerHTML;
+      node.appendChild(child);
+    }
+    return node.innerHTML;
+  }
 }

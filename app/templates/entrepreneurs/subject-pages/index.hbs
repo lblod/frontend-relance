@@ -3,16 +3,20 @@
     <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</AuHeading>
 
     <ul class="au-o-grid au-o-grid--small">
-    {{#each this.model as |localBusiness|}}
-      <li class="au-o-grid__item au-u-1-2@medium">
-        <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
-        <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
-          <AuIcon @icon="pencil" @alignment="left" />
-          Bewerk
-        </LinkTo>
-      </li>
-    {{/each}}
+      {{#each this.model as |localBusiness|}}
+        <li class="au-o-grid__item au-u-1-2@medium">
+          <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
+          <LinkTo @route="entrepreneurs.edit.step-1" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
+            <AuIcon @icon="pencil" @alignment="left" />
+            Bewerk
+          </LinkTo>
+        </li>
+      {{/each}}
     </ul>
+
+    <CopyButton @clipboardText={{this.copyListHtml}}>
+      Kopieer inhoud van pagina
+    </CopyButton>
 
     <div class="au-c-pagination">
       <p class="au-c-pagination__info">
