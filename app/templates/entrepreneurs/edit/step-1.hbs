@@ -14,7 +14,7 @@
             <AuBadge @icon="pencil" @skin="border" /> Stap 1
           </AuHeading>
           <p class="au-c-para-small au-u-margin-top-small">
-            Vul de gegevens van uw onderneming in.
+            Vul de gegevens van de onderneming in.
           </p>
         </li>
         <li class="au-o-grid__item au-u-1-3@medium">
@@ -37,9 +37,9 @@
     </div>
   </div>
 
-<Forms::LocalBusinessFormInput
-  @localBusiness={{@model}}
-  @onSubmit={{this.nextStep}}
-  @overviewRoute={{this.overviewRoute}}
-/>
+  <Forms::LocalBusinessFormInput
+    @localBusiness={{@model}}
+    @onSubmit={{this.nextStep}}
+    @overviewRoute={{this.overviewRoute}}
+  />
 </CrossAnimateTags>

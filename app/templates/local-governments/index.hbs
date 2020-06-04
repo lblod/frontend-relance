@@ -14,6 +14,11 @@
           <p class="au-c-para-small au-u-margin-top-small">
             Wil u deze informatie ook correct en machineleesbaar publiceren op de site van uw lokaal bestuur? Vul het formulier in voor elke onderneming. Er wordt een stukje machineleesbare code gegenereerd.
           </p>
+          <p class="au-c-para-small">
+            <LinkTo @route="entrepreneurs.new" class="au-c-link">
+            Vul openingsuren in
+            </LinkTo>
+          </p>
         </li>
         <li class="au-o-grid__item au-u-1-3@medium">
           <AuHeading @level="3" @skin="4">
@@ -36,9 +41,10 @@
           <p class="au-c-para-small"><AuLink @linkRoute="entrepreneurs.validate">Bekijk welke informatie we vinden op uw website</AuLink></p>
         </li>
       </ul>
-      <p class="au-c-para au-u-margin-top au-u-margin-top-large@medium">
-        <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--large">
-          <AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Aan de slag
+      <AuHeading @level="2" @skin="4" class="au-u-margin-top au-u-margin-top-large@medium">Start met een handig overzicht van ondernemingen die reeds data hebben ingevoerd.</AuHeading>
+      <p class="au-c-para au-u-margin-top">
+        <LinkTo @route="search" class="au-c-button au-c-button--large">
+          <AuIcon @icon="search" @size="large" @alignment="left" /> Zoek ondernemingen
         </LinkTo>
       </p>
     </div>
@@ -60,6 +66,13 @@
           </p>
           <p class="au-c-para">
             In het formulier wordt informatie zoals beschrijving, adres en de openingsuren van de onderneming gevraagd. Deze genereert een stukje code dat zowel op jouw website als die van de onderneming terecht kan komen.
+          </p>
+          <p class="au-c-para">
+            <LinkTo @route="entrepreneurs.new" class="au-c-link">
+            Vul openingsuren in
+            </LinkTo> of  <LinkTo @route="search" class="au-c-link">
+              zoek ondernemingen in uw stad/gemeente
+            </LinkTo>
           </p>
         </div>
         <div class="au-o-grid__item au-u-2-6@medium au-u-visible-medium-up">
@@ -127,8 +140,10 @@
           <img src="{{rootURL}}assets/images/relance-test.svg">
         </div>
       </div>
+      <hr class="au-c-divider">
+      <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">Start met een handig overzicht van ondernemingen die reeds data hebben ingevoerd.</AuHeading>
       <p class="au-c-para au-u-margin-bottom">
-        <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--large"><AuIcon @icon="arrow-right" @size="large" @alignment="left" /> Aan de slag!</LinkTo>
+        <LinkTo @route="search" class="au-c-button au-c-button--large"><AuIcon @icon="search" @size="large" @alignment="left" /> Zoek ondernemingen</LinkTo>
       </p>
     </div>
   </div>

@@ -4,10 +4,7 @@
         <p class="au-c-para-small au-u-margin-bottom">
           <LinkTo @route={{this.overviewRoute}} class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Terug naar overzicht </LinkTo>
         </p>
-        <AuHeading @level="1" @skin="3" class="au-u-margin-bottom-small">Voor lokale besturen</AuHeading>
-        <p class="au-c-heading au-c-heading--1">
-          Pas hier de gegevens van de onderneming aan.
-        </p>
+        <AuHeading @level="1" @skin="1" class="au-u-margin-bottom-small">Pas hier de gegevens van de onderneming aan.</AuHeading>
       </div>
   </div>
 
@@ -18,15 +15,14 @@
     @isSubjectPageEdit="true"
   />
 
+
+
   <div class="au-o-region-large">
     <div class="au-o-layout au-o-layout--medium">
-      <div class="au-o-grid au-o-grid--flush">
-        <div class="au-o-grid__item au-u-1-1 au-u-3-5@large">
-          <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">
-            Aangepaste broncode
-          </AuHeading>
-        </div>
-      </div>
+      <hr class="au-c-divider au-u-margin-top-none">
+      <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">
+        Aangepaste broncode
+      </AuHeading>
       {{#if this.saveAll.isRunning}}
         De aangepase code wordt gegenereerd
       {{else}}
