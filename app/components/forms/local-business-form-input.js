@@ -110,8 +110,4 @@ export default class FormsLocalBusinessFormInputComponent extends Component {
     this.localBusiness.imageUrl = url;
   }
 
-  @action
-  goBack(){
-    history.back();
-  }
 }
