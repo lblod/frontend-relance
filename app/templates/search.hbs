@@ -1,0 +1,59 @@
+<CrossAnimateTags>
+  <div class="au-o-region-large au-c-hero">
+    <div class="au-o-layout au-o-layout--medium">
+      <p class="au-c-para-small au-u-margin-bottom">
+        <LinkTo @route="index" class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Terug naar overzicht</LinkTo>
+      </p>
+      <p class="au-c-heading au-c-heading--1 au-u-margin-bottom">Zoek naar ondernemingen</p>
+      <p class="au-c-para au-u-margin-bottom">
+        Om een overzicht te zien van ondernemingen in je stad of gemeente kan je hieronder zoeken op je postcode. Zo krijg je een handig overzicht van ondernemingen die reeds data hebben ingevoerd.
+      </p>
+      <AuHeading @level="3" @skin="4" class="au-u-margin-bottom-small">Voer je postcode in:</AuHeading>
+      <div class="au-c-search">
+        <label for="postal-code" class="au-u-hidden-visually">Postcode</label>
+        <AuInput id="postal-code" @value={{this.postalCode}} />
+        <button type="button" disabled={{this.invalidInput}} {{on "click" this.goToSubjectsOverviewPage}} class="au-c-button">
+          Zoek
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-o-region-large au-c-doormat">
+    <div class="au-o-layout au-o-layout--medium">
+      <AuHeading @level="2" @skin="2" class="au-u-margin-bottom">Het doel van <i>Wij zijn open</i>&nbsp;:<br>informatie over ondernemingen <strong>correct</strong> verspreiden.</AuHeading>
+      <p class="au-c-para"><i>Wij zijn open</i> geeft ondernemers en lokale besturen de mogelijkheid om <strong>informatie op een machineleesbare manier te verspreiden</strong>, zodat zoekmachines en burgers deze eenvoudig kunnen terugvinden.</p>
+      <div class="au-o-grid au-o-grid--small au-o-grid--center  au-u-margin-top-small au-u-margin-top@medium">
+        <div class="au-o-grid__item au-u-1-2@medium au-u-3-5@large">
+          <div class="au-o-box au-c-card">
+            <AuHeading level="2" @skin="3" class="au-u-margin-bottom-small">
+              Lokale besturen: ondersteun jullie lokale ondernemingen bij hun relance
+            </AuHeading>
+            <p class="au-c-para">Ondersteun je lokale besturen en help jouw gemeente weer opleven na COVID-19.</p>
+            <p class="au-c-para">
+              <LinkTo @route="local-governments.index" class="au-c-button au-c-button--large">
+                <AuIcon @icon="arrow-right" @size="large" @alignment="left" />
+                Steun lokale handelaars
+              </LinkTo>
+            </p>
+          </div>
+        </div>
+        <div class="au-o-grid__item au-u-1-2@medium au-u-2-5@large">
+          <div class="au-o-box au-c-card au-c-card--secondary">
+            <AuHeading level="2" @skin="4" class="au-u-margin-bottom-small">
+              Ondernemers: maak informatie over jullie diensten online beschikbaar
+            </AuHeading>
+            <p class="au-c-para-small">Zorg dat iedereen jouw business online weer kan vinden &mdash; wat, waar en wanneer.</p>
+            <p class="au-c-para-small">
+              <LinkTo @route="entrepreneurs.index" class="au-c-link">
+                <i>Relanceer</i>&nbsp;&nbsp;je onderneming <AuIcon @icon="arrow-right" @alignment="right" />
+              </LinkTo>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</CrossAnimateTags>
+
+{{outlet}}

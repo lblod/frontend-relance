@@ -1,6 +1,11 @@
 <div class="au-o-region-large au-c-hero">
   <div class="au-o-layout au-o-layout--medium">
+    <p class="au-c-para-small au-u-margin-bottom">
+      <LinkTo @route="search" class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Zoek ondernemingen</LinkTo>
+    </p>
     <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</AuHeading>
+
+    <hr class="au-c-divider au-u-margin-top au-u-margin-bottom">
 
     {{#if this.model.length}}
       <ul class="au-o-grid au-o-grid--small">
@@ -18,15 +23,11 @@
         {{/each}}
       </ul>
 
-      <hr class="au-c-divider au-u-margin-bottom-small">
-
-      <div class="au-c-copy-row">
-        <CopyButton @clipboardText={{this.copyListHtml}} @success={{this.copySuccess}} class="au-c-button">
-          Kopieer de inhoud van deze pagina
-        </CopyButton>
-        {{#if this.succesMessage}}
-          <span class="au-c-copied-message">Inhoud gekopiëerd</span>
-        {{/if}}
+      <div class="au-c-copy-row au-c-copy-row--center au-u-margin-top">
+        <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--block">
+          <AuIcon @icon="add" @alignment="left" />
+          Onderneming toevoegen
+        </LinkTo>
       </div>
 
       <div class="au-c-pagination">
@@ -54,8 +55,30 @@
           {{/unless}}
         </ul>
       </div>
+
+      <div class="au-c-alert au-u-margin-top">
+        <div class="au-c-copy-row au-c-copy-row--center">
+          <AuHeading @level="3" @skin="5" class="au-u-margin-bottom-tiny">Wil je de code van deze blokken op je website plaatsen?</AuHeading>
+          <CopyButton @clipboardText={{this.copyListHtml}} @success={{this.copySuccess}} class="au-c-button au-c-button--secondary">
+            Kopieer de broncode van deze pagina
+          </CopyButton>
+          {{#if this.succesMessage}}
+            <br>
+            <span class="au-c-copied-message">Broncode gekopiëerd</span>
+          {{/if}}
+        </div>
+      </div>
     {{else}}
-      <p>Helaas, geen ondernemingen gevonden voor postcode {{this.postalCode}}.</p>
+      <p class="au-c-para">Helaas, geen ondernemingen gevonden voor postcode {{this.postalCode}}.</p>
+
+      <div class="au-c-copy-row au-c-copy-row--center au-u-margin-top">
+        <LinkTo @route="entrepreneurs.new" class="au-c-button au-c-button--block">
+          <AuIcon @icon="add" @alignment="left" />
+          Onderneming toevoegen
+        </LinkTo>
+      </div>
     {{/if}}
+
+
   </div>
 </div>
