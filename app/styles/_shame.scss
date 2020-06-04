@@ -216,3 +216,13 @@ code {
     height: 3rem;
   }
 }
+
+.au-c-edit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.au-c-para-tiny {
+  color: $au-gray-600;
+}
