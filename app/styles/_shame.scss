@@ -193,3 +193,15 @@ code {
   font-style: italic;
   color: $au-gray-600;
 }
+
+.au-c-main-header__actions-group {
+  display: flex;
+  margin-right: $au-unit-tiny;
+
+  > * + * {
+    margin-left: $au-unit-small;
+    padding-left: $au-unit-small;
+    border-left: .1rem dotted $au-gray-300;
+    height: 3rem;
+  }
+}

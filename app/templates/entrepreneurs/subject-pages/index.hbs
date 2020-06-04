@@ -1,5 +1,8 @@
 <div class="au-o-region-large au-c-hero">
   <div class="au-o-layout au-o-layout--medium">
+    <p class="au-c-para-small au-u-margin-bottom">
+      <LinkTo @route="search" class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Zoek ondernemingen</LinkTo>
+    </p>
     <AuHeading @level="1" @skin="1" class="au-u-margin-bottom">Ondernemingen {{#if this.locationName}}uit {{this.locationName}}{{/if}}</AuHeading>
 
     {{#if this.model.length}}
