@@ -188,10 +188,21 @@ code {
   }
 }
 
+.au-c-copy-row--center {
+  text-align: center;
+  width: 100%;
+}
+
 .au-c-copied-message {
   margin-left: $au-unit-small;
   font-style: italic;
   color: $au-gray-600;
+
+  .au-c-copy-row--center & {
+    display: inline-block;
+    margin-left: 0;
+    margin-top: $au-unit-tiny;
+  }
 }
 
 .au-c-main-header__actions-group {
