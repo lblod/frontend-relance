@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package.json .
 RUN npm install
 COPY . .
-RUN ember build --environment development
+RUN ember build --environment production
 
 FROM redpencil/fastboot-app-server
 
