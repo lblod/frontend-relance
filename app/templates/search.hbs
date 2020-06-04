@@ -4,16 +4,16 @@
       <p class="au-c-para-small au-u-margin-bottom">
         <LinkTo @route="index" class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Terug naar overzicht</LinkTo>
       </p>
-      <p class="au-c-heading au-c-heading--1 au-u-margin-bottom">Zoek naar ondernemeningen</p>
+      <p class="au-c-heading au-c-heading--1 au-u-margin-bottom">Zoek naar ondernemingen</p>
       <p class="au-c-para au-u-margin-bottom">
         Om een overzicht te zien van ondernemingen in je stad of gemeente kan je hieronder zoeken op je postcode. Zo krijg je een handig overzicht van ondernemingen die reeds data hebben ingevoerd.
       </p>
-      <AuHeading @level="3" @skin="4" class="au-u-margin-bottom-small">Voor je postcode in:</AuHeading>
+      <AuHeading @level="3" @skin="4" class="au-u-margin-bottom-small">Voer je postcode in:</AuHeading>
       <div class="au-c-search">
         <label for="postal-code" class="au-u-hidden-visually">Postcode</label>
         <AuInput id="postal-code" @value={{this.postalCode}} />
         <button type="button" disabled={{this.invalidInput}} {{on "click" this.goToSubjectsOverviewPage}} class="au-c-button">
-          Oplijsten
+          Zoek
         </button>
       </div>
     </div>
