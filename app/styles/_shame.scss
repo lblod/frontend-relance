@@ -215,6 +215,14 @@ code {
     border-left: .1rem dotted $au-gray-300;
     height: 3rem;
   }
+
+  @include mq($until: small) {
+    @include au-font-size(1.3rem,1.2);
+
+    .au-c-icon {
+      display: none;
+    }
+  }
 }
 
 .au-c-edit-footer {
