@@ -8,6 +8,8 @@ export default class LocalBusinessModel extends Model {
   @attr imageUrl;
   @attr email;
   @attr telephone;
+  @attr('datetime') created;
+  @attr('datetime') modified;
 
   @hasMany('opening-hours-specification') openingHoursSpecifications;
   @hasMany('nace-bel-code') naceBelCodes;

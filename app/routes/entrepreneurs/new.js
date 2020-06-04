@@ -19,6 +19,7 @@ export default class EntrepreneursNewRoute extends Route {
 
     // create the business
     const business = this.store.createRecord('local-business', { location, openingHours });
+    business.created = new Date();
 
     // backlink the business
     location.localBusiness = business;

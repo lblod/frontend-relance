@@ -11,6 +11,7 @@ export default class EntrepreneursEditStep1Controller extends Controller {
     for(const category of (await localBusiness.categories).toArray()){
       await category.save();
     }
+    localBusiness.modified = new Date();
     await (await localBusiness.location).save();
     await localBusiness.save();
   }

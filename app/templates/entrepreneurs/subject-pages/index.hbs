@@ -7,6 +7,9 @@
         {{#each this.model as |localBusiness|}}
           <li class="au-o-grid__item au-u-1-2@medium">
             <RdfaOutput::LocalBusiness @localBusiness={{localBusiness}} @renderSnippet="true" />
+            {{#if localBusiness.modified}}
+              <div>Laatst aangepast: {{moment-format localBusiness.modified 'DD-MM-YYYY HH:mm'}}</div>
+            {{/if}}
             <LinkTo @route="entrepreneurs.subject-pages.edit" @model={{localBusiness.id}} class="au-c-link au-c-link--secondary au-u-margin-top-tiny">
               <AuIcon @icon="pencil" @alignment="left" />
               Bewerk

@@ -8,7 +8,10 @@ export default class EntrepreneursEditStep2Controller extends Controller {
   @tracked displayCodeBlock = true;
 
   get urlForSubjectPage(){
-    return window.location.origin + this.router.urlFor('entrepreneurs.subject-pages.show', this.model.id);
+    if (window.location)
+      return window.location.origin + this.router.urlFor('entrepreneurs.subject-pages.show', this.model.id);
+    else
+      return this.router.urlFor('entrepreneurs.subject-pages.show', this.model.id);
   }
 
   @action
