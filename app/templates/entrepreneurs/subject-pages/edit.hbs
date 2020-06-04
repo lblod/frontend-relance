@@ -1,6 +1,69 @@
-<Forms::LocalBusinessFormInput
-  @localBusiness={{@model}}
-  @onSubmit={{this.backToOverview}}
-  @overviewRoute={{this.overviewRoute}}
-  @isSubjectPageEdit="true"
-/>
+<CrossAnimateTags>
+  <div class="au-o-region-large au-c-hero">
+      <div class="au-o-layout au-o-layout--medium">
+        <p class="au-c-para-small au-u-margin-bottom">
+          <LinkTo @route={{this.overviewRoute}} class="au-c-link"><AuIcon @icon="arrow-left" @alignment="left" /> Terug naar overzicht </LinkTo>
+        </p>
+        <AuHeading @level="1" @skin="3" class="au-u-margin-bottom-small">Voor lokale besturen</AuHeading>
+        <p class="au-c-para-small au-u-margin-bottom">
+          Pas hier de gegevens van de onderneming aan.
+        </p>
+      </div>
+  </div>
+
+  <Forms::LocalBusinessFormInput
+    @localBusiness={{@model}}
+    @onSubmit={{this.save}}
+    @overviewRoute={{this.overviewRoute}}
+    @isSubjectPageEdit="true"
+  />
+
+  <div class="au-o-region-large">
+    <div class="au-o-layout au-o-layout--medium">
+      <div class="au-o-grid au-o-grid--flush">
+        <div class="au-o-grid__item au-u-1-1 au-u-3-5@large">
+          <AuHeading @level="2" @skin="3" class="au-u-margin-bottom">
+            Aangepaste broncode
+          </AuHeading>
+        </div>
+      </div>
+      {{#if this.saveAll.isRunning}}
+        De aangepase code wordt gegenereerd
+      {{else}}
+        <div class="au-c-code-block au-u-margin-top {{if this.displayCodeBlock "is-open" "is-closed"}}">
+          {{#if this.displayCodeBlock}}
+            <RdfaOutput::LocalBusiness @localBusiness={{@model}} />
+          {{/if}}
+          <div class="au-c-code-block__toggle">
+            {{#if this.displayCodeBlock}}
+              <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                Verberg broncode
+              </AuButton>
+            {{else}}
+              <AuButton @skin="secondary" {{on "click" this.toggleCodeBlock}}>
+                Toon broncode
+              </AuButton>
+            {{/if}}
+          </div>
+        </div>
+      {{/if}}
+
+      <hr class="au-c-divider">
+
+      <div class="au-u-margin-bottom-large">
+        <AuHeading @level="2" @skin="3" class="au-u-margin-bottom-tiny">
+          Aangepaste link
+        </AuHeading>
+        <p class="au-c-para au-u-margin-bottom-tiny">Plak deze link op de landingspagina van uw website:</p>
+        <Forms::DisplayUrlSubjectPage @providedUrl={{this.urlForSubjectPage}}/>
+      </div>
+
+      <hr class="au-c-divider">
+
+      <AuButton @size="large" {{on "click" this.back}}>
+        <AuIcon @icon="nav-left" @alignment="left" @size="large" @ariaHidden="false" />
+        Terug naar overzicht
+      </AuButton>
+    </div>
+  </div>
+</CrossAnimateTags>
